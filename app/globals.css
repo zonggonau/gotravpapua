@@ -25,3 +25,28 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
+.scroll-to-top-button{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0C8B51;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+
+
+
+.scroll-to-top-button.visible {
+  opacity: 1;
+}
