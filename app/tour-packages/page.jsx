@@ -12,9 +12,7 @@ export default async function TourPackages() {
           <div className="breadcrumbs-img">
             <Image
               classNameName="h-96"
-              src={
-                process.env.NEXT_PUBLIC_HOSTNAME + dataCarouselHero[1].imageUrl
-              }
+              src={process.env.NEXT_PUBLIC_HOST + dataCarouselHero[1].imageUrl}
               alt="Breadcrumbs Image"
               height={700}
               width={1000}

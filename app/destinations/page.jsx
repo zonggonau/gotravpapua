@@ -14,9 +14,7 @@ export default async function Destinations() {
           <div class="breadcrumbs-img">
             <Image
               className="h-96"
-              src={
-                process.env.NEXT_PUBLIC_HOSTNAME + dataCarouselHero[5].imageUrl
-              }
+              src={process.env.NEXT_PUBLIC_HOST + dataCarouselHero[5].imageUrl}
               alt="Breadcrumbs Image"
               height={700}
               width={1000}

@@ -44,11 +44,10 @@ export default function TourPackages({ data }) {
                         </h3>
                         <ul className="meta-part">
                           <li>
-                            <i className="fa fa-calendar-check-o"></i>5 Days
+                            <i className="fa fa-calendar-check-o"></i> 5 Days
                           </li>
                           <li>
-                            <i className="fa fa-map-marker"></i>
-                            Nabire
+                            <i className="fa fa-map-marker"></i> Nabire
                           </li>
                         </ul>
                       </div>
