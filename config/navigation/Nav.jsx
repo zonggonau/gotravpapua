@@ -104,7 +104,7 @@ export default function Nav() {
                     <div className="logo-part">
                       <Link href="/">
                         <Image
-                          src={`${process.env.NEXT_PUBLIC_HOSTNAME}assets/images/logo.png`}
+                          src={`${process.env.NEXT_PUBLIC_HOST_VERCEL}assets/images/logo.png`}
                           alt=""
                           width={500}
                           height={500}
