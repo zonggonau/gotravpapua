@@ -7,7 +7,7 @@ export default function loading() {
       <div class="loader-container">
         <div class="loader-icon">
           <Image
-            src={`${process.env.NEXT_PUBLIC_HOST}assets/images/pre-load-gotrav.png`}
+            src={`${process.env.NEXT_PUBLIC_HOSTNAME}assets/images/pre-load-gotrav.png`}
             width={100}
             height={100}
             alt="pre load gotrav"

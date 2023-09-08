@@ -35,7 +35,7 @@ export default function BootstrapCarousel() {
             className="slider-content"
             style={{
               backgroundImage: `url('${
-                process.env.NEXT_PUBLIC_HOST + item.imageUrl
+                process.env.NEXT_PUBLIC_HOSTNAME + item.imageUrl
               }')`,
               backgroundSize: "cover",
               backgroundPosition: "top center",

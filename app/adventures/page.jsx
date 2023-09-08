@@ -13,7 +13,9 @@ export default async function Adventures() {
           <div className="breadcrumbs-img">
             <Image
               className="max-h-80"
-              src={process.env.NEXT_PUBLIC_HOST + dataCarouselHero[4].imageUrl}
+              src={
+                process.env.NEXT_PUBLIC_HOSTNAME + dataCarouselHero[4].imageUrl
+              }
               alt="Breadcrumbs Image"
               height={1000}
               width={1000}

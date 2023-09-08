@@ -73,7 +73,7 @@ export default function AdventuresCarousel({ data }) {
         id="our-adventures"
         className="rs-testimonial main-home pt-100 pb-100 md-pt-70 md-pb-70"
         style={{
-          backgroundImage: `url(${process.env.NEXT_PUBLIC_HOST}/assets/images/slider/7.png)`,
+          backgroundImage: `url(${process.env.NEXT_PUBLIC_HOSTNAME}/assets/images/slider/7.png)`,
           backgroundSize: "cover",
         }}
       >

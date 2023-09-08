@@ -20,7 +20,7 @@ export default function About() {
                   <i className="fa fa-play"></i>
                 </Link>
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_HOST}assets/images/adventures/5.png`}
+                  src={`${process.env.NEXT_PUBLIC_HOSTNAME}assets/images/adventures/5.png`}
                   alt="#"
                   width={500}
                   height={500}
