@@ -12,7 +12,7 @@ const nextConfig = {
         pathname: "/assets/**",
       },
     ],
-    domains: ["nokenpanel.gotravpapua.com"],
+    domains: ["nokenpanel.gotravpapua.com", "https://gotravpapua.vercel.app"],
   },
 };
 
