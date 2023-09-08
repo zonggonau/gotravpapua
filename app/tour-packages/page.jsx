@@ -11,7 +11,7 @@ export default async function TourPackages() {
         <div className="rs-breadcrumbs breadcrumbs-overlay">
           <div className="breadcrumbs-img">
             <Image
-              classNameName="h-96"
+              className="h-96"
               src={process.env.NEXT_PUBLIC_HOST + dataCarouselHero[1].imageUrl}
               alt="Breadcrumbs Image"
               height={700}

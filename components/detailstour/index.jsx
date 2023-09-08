@@ -1,3 +1,5 @@
+"use client";
+import Image from "next/image";
 import React from "react";
 
 export default function CompDetailTour() {
@@ -5,7 +7,12 @@ export default function CompDetailTour() {
     <div class="main-content">
       <div class="rs-breadcrumbs breadcrumbs-overlay">
         <div class="breadcrumbs-img">
-          <img src="assets/images/breadcrumbs/9.png" alt="Breadcrumbs Image" />
+          <Image
+            src={`${process.env.NEXT_PUBLIC_HOST}assets/images/breadcrumbs/9.png`}
+            alt="Breadcrumbs Image"
+            width={500}
+            height={500}
+          />
         </div>
         <div class="breadcrumbs-text white-color">
           <h1
@@ -54,21 +61,27 @@ export default function CompDetailTour() {
                 </ul>
               </div>
               <div class="col">
-                <img
-                  src="assets/images/events-detail/1.jpg"
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_HOST}assets/images/events-detail/1.jpg`}
                   class="round-circle shadow-lg p-3 mb-5 bg-body-tertiary rounded"
+                  width={500}
+                  height={500}
                 />
               </div>
               <div class="col">
-                <img
-                  src="assets/images/events-detail/2.jpg"
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_HOST}assets/images/events-detail/2.jpg`}
                   class="round-circle shadow-lg p-3 mb-5 bg-body-tertiary rounded"
+                  width={500}
+                  height={500}
                 />
               </div>
               <div class="col">
-                <img
-                  src="assets/images/events-detail/3.jpg"
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_HOST}assets/images/events-detail/3.jpg`}
                   class="round-circle shadow-lg p-3 mb-5 bg-body-tertiary rounded"
+                  width={500}
+                  height={500}
                 />
               </div>
               <div class="mt-3">

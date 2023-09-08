@@ -124,22 +124,77 @@ export default function Nav() {
                       </div>
                       <nav className="rs-menu">
                         <ul className="nav-menu">
-                          <li className="mega-rs">
-                            <Link href="/tour-packages" className="active">
+                          <li
+                            className={`mega-rs ${
+                              activeMenu === "tour-packages"
+                                ? "current-menu-item"
+                                : ""
+                            }`}
+                          >
+                            <Link
+                              href="/tour-packages"
+                              onClick={() => handleMenuClick("tour-packages")}
+                            >
                               Tour Packages
                             </Link>
                           </li>
-                          <li className="mega-rs">
-                            <Link href="/destinations">Destinations</Link>
+                          <li
+                            className={`mega-rs ${
+                              activeMenu === "tour-destinations"
+                                ? "current-menu-item"
+                                : ""
+                            }`}
+                          >
+                            <Link
+                              href="/destinations"
+                              onClick={() =>
+                                handleMenuClick("tour-destinations")
+                              }
+                            >
+                              Destinations
+                            </Link>
                           </li>
-                          <li className="mega-rs">
-                            <Link href="/adventures">Adventures</Link>
+                          <li
+                            className={`mega-rs ${
+                              activeMenu === "tour-adventures"
+                                ? "current-menu-item"
+                                : ""
+                            }`}
+                          >
+                            <Link
+                              href="/adventures"
+                              onClick={() => handleMenuClick("tour-adventures")}
+                            >
+                              Adventures
+                            </Link>
                           </li>
-                          <li className="mega-rs">
-                            <Link href="/events">Events</Link>
+                          <li
+                            className={`mega-rs ${
+                              activeMenu === "tour-events"
+                                ? "current-menu-item"
+                                : ""
+                            }`}
+                          >
+                            <Link
+                              href="/events"
+                              onClick={() => handleMenuClick("tour-events")}
+                            >
+                              Events
+                            </Link>
                           </li>
-                          <li className="mega-rs">
-                            <Link href="/contact">Contact</Link>
+                          <li
+                            className={`mega-rs ${
+                              activeMenu === "contact"
+                                ? "current-menu-item"
+                                : ""
+                            }`}
+                          >
+                            <Link
+                              href="/contact"
+                              onClick={() => handleMenuClick("contact")}
+                            >
+                              Contact
+                            </Link>
                           </li>
                         </ul>
                       </nav>

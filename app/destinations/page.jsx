@@ -14,10 +14,13 @@ export default async function Destinations() {
           <div class="breadcrumbs-img">
             <Image
               className="h-96"
-              src={process.env.NEXT_PUBLIC_HOST + dataCarouselHero[5].imageUrl}
+              src={
+                process.env.NEXT_PUBLIC_HOST + `assets/images/breadcrumbs/9.png`
+              }
               alt="Breadcrumbs Image"
               height={700}
               width={1000}
+              loading="lazy"
             />
           </div>
           <div class="breadcrumbs-text white-color">
