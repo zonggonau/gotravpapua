@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import "./nav.css";
 import { Categories } from "@/data";
 
 export default function Nav() {
@@ -102,7 +101,7 @@ export default function Nav() {
                 <div className="col-lg-2">
                   <div className="logo-cat-wrap">
                     <div className="logo-part">
-                      <Link href="/">
+                      <Link href="/" onClick={() => handleMenuClick("/")}>
                         <Image
                           src={`${process.env.NEXT_PUBLIC_HOST}assets/images/logo.png`}
                           alt=""

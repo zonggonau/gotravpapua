@@ -40,9 +40,22 @@ async function getDataEvents() {
   return res.json();
 }
 
+async function getDataDetailsPackages(slug) {
+  const res = await fetch(
+    process.env.NEXT_PUBLIC_HOST_API + "tour-packages/" + slug + "/detail"
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
 export {
   getDataTourDestination,
   getDataTourPackages,
   getDataAdventures,
   getDataEvents,
+  getDataDetailsPackages,
 };

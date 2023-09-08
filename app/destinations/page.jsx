@@ -82,41 +82,43 @@ export default async function Destinations() {
           <div class="container">
             <div class="row">
               {data.map((item, index) => {
-                console.log(item.picture);
-                return (
-                  <div class="col-lg-6 pr-60 md-pr-15 md-mb-30" key={index}>
-                    <div class="row no-gutter white-bg blog-item mb-35">
-                      <div class="col-md-6">
-                        <div class="image-part h-100">
-                          <Link href="#">
-                            <Image
-                              src={
-                                process.env.NEXT_PUBLIC_HOSTNAME + item.picture
-                              }
-                              class="w-100"
-                              alt=""
-                              width={500}
-                              height={500}
-                            />
-                          </Link>
+                if (item.status === "Publish") {
+                  return (
+                    <div class="col-lg-6 pr-60 md-pr-15 md-mb-30" key={index}>
+                      <div class="row no-gutter white-bg blog-item mb-35">
+                        <div class="col-md-6">
+                          <div class="image-part h-100">
+                            <Link href="#">
+                              <Image
+                                src={
+                                  process.env.NEXT_PUBLIC_HOSTNAME +
+                                  item.picture
+                                }
+                                class="w-100"
+                                alt=""
+                                width={500}
+                                height={500}
+                              />
+                            </Link>
+                          </div>
                         </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="blog-content">
-                          <h3 class="title">
-                            <Link href="blog-single.html">{item.title}</Link>
-                          </h3>
-                          <ul class="blog-meta">
-                            <li>
-                              <i class="fa-solid fa-map-marker"></i> Nabire
-                            </li>
-                          </ul>
-                          <p>{item.description}</p>
+                        <div class="col-md-6">
+                          <div class="blog-content">
+                            <h3 class="title">
+                              <Link href="blog-single.html">{item.title}</Link>
+                            </h3>
+                            <ul class="blog-meta">
+                              <li>
+                                <i class="fa-solid fa-map-marker"></i> Nabire
+                              </li>
+                            </ul>
+                            <p>{item.description}</p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                );
+                  );
+                }
               })}
             </div>
           </div>

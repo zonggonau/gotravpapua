@@ -78,69 +78,72 @@ export default async function Events() {
             <div class="row">
               <div class="col-lg-8 pr-60 md-pr-15 md-mb-30 mb-0">
                 {data.map((item, index) => {
-                  return (
-                    <div
-                      class="mb-4"
-                      style={{
-                        borderBottomStyle: "dotted",
-                        borderBottomColor: "#ccc",
-                      }}
-                      key={index}
-                    >
-                      <div class="row no-gutter white-bg blog-item border-0">
-                        <div class="col-md-4">
-                          <div class="image-part">
-                            <Link href="#">
-                              <Image
-                                src={
-                                  process.env.NEXT_PUBLIC_HOSTNAME +
-                                  item.picture
-                                }
-                                class="w-100"
-                                alt=""
-                                width={500}
-                                height={500}
-                              />
-                            </Link>
-                          </div>
-                        </div>
-                        <div class="col-md-8">
-                          <div class="blog-content">
-                            <ul class="blog-meta">
-                              <li>
-                                <small class="border p-2 px-3">
-                                  <i class="fa-solid fa-calendar-check-o"></i> 8
-                                  Aug 2023 - 10 Aug 2023
-                                </small>
-                              </li>
-                            </ul>
-                            <h3 class="title">
-                              <Link href="blog-single.html">
-                                Baliem Valley Festival
+                  if (item.status === "Publish") {
+                    return (
+                      <div
+                        class="mb-4"
+                        style={{
+                          borderBottomStyle: "dotted",
+                          borderBottomColor: "#ccc",
+                        }}
+                        key={index}
+                      >
+                        <div class="row no-gutter white-bg blog-item border-0">
+                          <div class="col-md-4">
+                            <div class="image-part">
+                              <Link href="#">
+                                <Image
+                                  src={
+                                    process.env.NEXT_PUBLIC_HOSTNAME +
+                                    item.picture
+                                  }
+                                  class="w-100"
+                                  alt=""
+                                  width={500}
+                                  height={500}
+                                />
                               </Link>
-                            </h3>
-                            <p class="m-0">
-                              Lorem ipsum dolor sit amet consectetur adipisicing
-                              elit. Est debitis similique cum esse iusto,
-                              adipisci ab odit sunt totam sequi.
-                            </p>
-                            <ul class="blog-meta mt-3">
-                              <li>
-                                <Link href="" class="btn p-0">
-                                  <i class="fa-solid fa-tag"></i> Cultural
+                            </div>
+                          </div>
+                          <div class="col-md-8">
+                            <div class="blog-content">
+                              <ul class="blog-meta">
+                                <li>
+                                  <small class="border p-2 px-3">
+                                    <i class="fa-solid fa-calendar-check-o"></i>{" "}
+                                    8 Aug 2023 - 10 Aug 2023
+                                  </small>
+                                </li>
+                              </ul>
+                              <h3 class="title">
+                                <Link href="blog-single.html">
+                                  Baliem Valley Festival
                                 </Link>
-                              </li>
-                              <li>
-                                <Link href="" class="btn p-0">
-                                  <i class="fa-solid fa-map-marker"></i> Wamena
-                                </Link>
-                              </li>
-                            </ul>
+                              </h3>
+                              <p class="m-0">
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Est debitis similique cum esse
+                                iusto, adipisci ab odit sunt totam sequi.
+                              </p>
+                              <ul class="blog-meta mt-3">
+                                <li>
+                                  <Link href="" class="btn p-0">
+                                    <i class="fa-solid fa-tag"></i> Cultural
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="" class="btn p-0">
+                                    <i class="fa-solid fa-map-marker"></i>{" "}
+                                    Wamena
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  );
+                    );
+                  }
                 })}
               </div>
 

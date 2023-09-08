@@ -74,29 +74,31 @@ export default async function Adventures() {
           <div className="container">
             <div className="row">
               {data.map((item, index) => {
-                return (
-                  <div className="col-lg-4 mb-30 col-md-6" key={index}>
-                    <div className="gallery-item">
-                      <div className="gallery-Image">
-                        <Link className="image-popup" href="#">
-                          <Image
-                            className="h-72"
-                            src={
-                              process.env.NEXT_PUBLIC_HOSTNAME + item.picture
-                            }
-                            alt=""
-                            height={1000}
-                            width={1000}
-                            loading="lazy"
-                          />
-                        </Link>
-                      </div>
-                      <div className="title fs-2 fw-bold text-success">
-                        Motorcycle Tours
+                if (item.status === "Publish") {
+                  return (
+                    <div className="col-lg-4 mb-30 col-md-6" key={index}>
+                      <div className="gallery-item">
+                        <div className="gallery-Image">
+                          <Link className="image-popup" href="#">
+                            <Image
+                              className="h-72"
+                              src={
+                                process.env.NEXT_PUBLIC_HOSTNAME + item.picture
+                              }
+                              alt=""
+                              height={1000}
+                              width={1000}
+                              loading="lazy"
+                            />
+                          </Link>
+                        </div>
+                        <div className="title fs-2 fw-bold text-success">
+                          Motorcycle Tours
+                        </div>
                       </div>
                     </div>
-                  </div>
-                );
+                  );
+                }
               })}
             </div>
           </div>
