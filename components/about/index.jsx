@@ -21,6 +21,7 @@ export default function About() {
                 </Link>
                 <Image
                   src={`${process.env.NEXT_PUBLIC_HOST}assets/images/adventures/5.png`}
+                  alt="#"
                   width={500}
                   height={500}
                 />
@@ -33,7 +34,7 @@ export default function About() {
                     GOTRAV Papua!
                   </p>
                   <p className="mb-3 fs-4">
-                    "Your gateway to exploring the enchanting beauty of Papua"
+                    Your gateway to exploring the enchanting beauty of Papua
                   </p>
                   <p className="mb-0">
                     As a premier travel agency in this breathtaking region, we
@@ -60,7 +61,7 @@ export default function About() {
                   className="readon main-home rounded-0"
                   href="#our-adventures"
                 >
-                  Our Adventures{" "}
+                  Our Adventures
                   <i className="fa-solid fa-arrow-right ms-3"></i>
                 </Link>
               </div>

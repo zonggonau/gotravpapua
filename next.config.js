@@ -12,6 +12,7 @@ const nextConfig = {
         pathname: "/assets/**",
       },
     ],
+    domains: ["nokenpanel.gotravpapua.com"],
   },
 };
 

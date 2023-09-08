@@ -51,43 +51,36 @@ const dataCarouselHero = [
   },
 ];
 
-const title = "Tour Packages baru";
-
 const Categories = [
   {
     id: 0,
     title: "Tour Packages",
     slug: "/tour-packages",
     name: "Tour Packages",
-    component: <TourPackages title={title} />,
   },
   {
     id: 1,
     title: "Destination",
     slug: "/destination",
     name: "Destination",
-    component: <Destinations />,
   },
   {
     id: 2,
     title: "Adventures",
     slug: "/adventures",
     name: "Adventures",
-    component: <Adventure />,
   },
   {
     id: 3,
     title: "Events",
     slug: "/events",
     name: "Events",
-    component: <Event />,
   },
   {
     id: 4,
     title: "Contact",
     slug: "/contact",
     name: "Contact",
-    component: <Contact />,
   },
 ];
 

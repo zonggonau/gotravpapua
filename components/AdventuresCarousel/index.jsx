@@ -14,7 +14,8 @@ const breakPoints = [
   { width: 1200, itemsToShow: 3 },
 ];
 
-export default function AdventuresCarousel() {
+export default function AdventuresCarousel({ data }) {
+  console.log(data);
   const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
 
   const addItem = () => {
@@ -37,12 +38,12 @@ export default function AdventuresCarousel() {
             showArrows={false}
             autoPlaySpeed={5000}
           >
-            {dataCarouselHero.map((item) => (
-              <div className="courses-item space-y-5">
+            {data.map((item, index) => (
+              <div className="courses-item space-y-5" key={index}>
                 <div className="img-part">
                   <Image
                     className="h-72"
-                    src={`${process.env.NEXT_PUBLIC_HOST + item.imageUrl}`}
+                    src={process.env.NEXT_PUBLIC_HOSTNAME + item.picture}
                     alt={item.title}
                     width={380}
                     height={500}

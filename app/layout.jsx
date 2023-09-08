@@ -2,7 +2,6 @@
 import Nav from "@/config/navigation/Nav";
 import "./globals.css";
 import Footer from "@/config/footer/Footer";
-import { usePathname } from "next/navigation";
 
 export const metadata = {
   title: "Create Next App",
@@ -10,8 +9,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const path = usePathname();
-  console.log(path);
   return (
     <html lang="en">
       <head>

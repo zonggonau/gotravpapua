@@ -1,17 +1,27 @@
-import About from "@/components/about";
-import AdventuresCarousel from "@/components/banner/AdventuresCarousel";
-import BootstrapCarousel from "@/components/hero/HeroCarousel";
-import TourPackages from "@/components/tourpackages/TourPackages";
+import {
+  About,
+  AdventuresCarousel,
+  TourPackages,
+  BootstrapCarousel,
+} from "@/components";
+import { getDataAdventures, getDataTourPackages } from "@/data/api";
 
+export const metadata = {
+  title: "Welcome GoTravPapua",
+  description:
+    "Lorem cillum aute exercitation id ut deserunt magna dolore eiusmod id enim incididunt.",
+};
 export default async function Home() {
+  const { data: Adventure } = await getDataAdventures();
+  const { data: Package } = await getDataTourPackages();
   return (
     <>
       <div className="main-content bg-white">
         <div className="rs-slider main-home">
           <BootstrapCarousel />
           <About />
-          <AdventuresCarousel />
-          <TourPackages />
+          <AdventuresCarousel data={Adventure} />
+          <TourPackages data={Package} />
         </div>
       </div>
     </>

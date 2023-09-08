@@ -1,7 +1,5 @@
-import TourPackages from "./tour-packages";
-import Event from "./events";
-import Destinations from "./destinations";
-import Contact from "./contact";
-import Adventure from "./adventures";
-
-export { TourPackages, Event, Destinations, Contact, Adventure };
+import About from "./about";
+import AdventuresCarousel from "./AdventuresCarousel";
+import TourPackages from "./tourpackages";
+import BootstrapCarousel from "./hero";
+export { About, AdventuresCarousel, TourPackages, BootstrapCarousel };
