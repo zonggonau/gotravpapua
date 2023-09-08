@@ -8,11 +8,11 @@ export default async function Destinations() {
   const { data } = await getDataTourDestination();
   return (
     <>
-      <div class="main-content bg-white">
-        <div class="rs-breadcrumbs breadcrumbs-overlay">
-          <div class="breadcrumbs-img">
+      <div className="main-content bg-white">
+        <div className="rs-breadcrumbs breadcrumbs-overlay">
+          <div className="breadcrumbs-img">
             <Image
-              className="h-96"
+              classNameName="h-96"
               src={
                 process.env.NEXT_PUBLIC_HOST + `assets/images/breadcrumbs/9.png`
               }
@@ -22,28 +22,28 @@ export default async function Destinations() {
               loading="lazy"
             />
           </div>
-          <div class="breadcrumbs-text white-color">
+          <div className="breadcrumbs-text white-color">
             <h1
-              class="page-title white-color wow fadeInUp"
+              className="page-title white-color wow fadeInUp"
               data-wow-delay="300ms"
               data-wow-duration="2000ms"
             >
               Destinations
             </h1>
             <div
-              class="sec-title mb-40 md-mb-20 wow fadeInUp"
+              className="sec-title mb-40 md-mb-20 wow fadeInUp"
               data-wow-delay="300ms"
               data-wow-duration="2000ms"
             >
-              <div class="desc text-center col-md-6 mx-auto">
+              <div className="desc text-center col-md-6 mx-auto">
                 Discover the untouched beauty of Papua with our Papuan Paradise
                 Expedition, Coastal Retreat, Wildlife Safari, Cultural
                 Immersion, Diving Expedition, Highlands Adventure, River
                 Expedition, and many more
               </div>
-              <ul class="my-3 white-color">
+              <ul className="my-3 white-color">
                 <li>
-                  <Link class="active" href="index.html">
+                  <Link className="active" href="index.html">
                     Home
                   </Link>
                 </li>
@@ -53,20 +53,20 @@ export default async function Destinations() {
           </div>
         </div>
 
-        <div class="bg-success d-flex justify-content-center py-5">
-          <div class="container">
+        <div className="bg-success d-flex justify-content-center py-5">
+          <div className="container">
             <form action="">
-              <div class="row">
-                <div class="col-md-10">
+              <div className="row">
+                <div className="col-md-10">
                   <input
                     type="text"
-                    class="form-control form-control-lg rounded-0 p-3 px-5 text-secondary"
+                    className="form-control form-control-lg rounded-0 p-3 px-5 text-secondary"
                     placeholder="Search . . ."
                   />
                 </div>
-                <div class="col-md-2">
-                  <button class="btn btn-lg btn-light link-success fw-bold rounded-0 p-3 px-5">
-                    <i class="fa-solid fa-search"></i> Search
+                <div className="col-md-2">
+                  <button className="btn btn-lg btn-light link-success fw-bold rounded-0 p-3 px-5">
+                    <i className="fa-solid fa-search"></i> Search
                   </button>
                 </div>
               </div>
@@ -76,24 +76,24 @@ export default async function Destinations() {
 
         <div
           id="rs-blog"
-          class="rs-blog orange-color style1 modify1 pt-85 pb-100 md-pt-70 md-pb-70"
+          className="rs-blog orange-color style1 modify1 pt-85 pb-100 md-pt-70 md-pb-70"
         >
-          <div class="container">
-            <div class="row">
+          <div className="container">
+            <div className="row">
               {data.map((item, index) => {
                 if (item.status === "Publish") {
                   return (
-                    <div class="col-lg-6 pr-60 md-pr-15 md-mb-30" key={index}>
-                      <div class="row no-gutter white-bg blog-item mb-35">
-                        <div class="col-md-6">
-                          <div class="image-part h-100">
+                    <div className="col-lg-6 pr-60 md-pr-15 md-mb-30" key={index}>
+                      <div className="row no-gutter white-bg blog-item mb-35">
+                        <div className="col-md-6">
+                          <div className="image-part h-100">
                             <Link href={`tour-destinations/${item.slug}`}>
                               <Image
                                 src={
                                   process.env.NEXT_PUBLIC_HOSTNAME +
                                   item.picture
                                 }
-                                class="w-100"
+                                className="w-100"
                                 alt=""
                                 width={500}
                                 height={500}
@@ -101,14 +101,14 @@ export default async function Destinations() {
                             </Link>
                           </div>
                         </div>
-                        <div class="col-md-6">
-                          <div class="blog-content">
-                            <h3 class="title">
+                        <div className="col-md-6">
+                          <div className="blog-content">
+                            <h3 className="title">
                               <Link href="blog-single.html">{item.title}</Link>
                             </h3>
-                            <ul class="blog-meta">
+                            <ul className="blog-meta">
                               <li>
-                                <i class="fa-solid fa-map-marker"></i> Nabire
+                                <i className="fa-solid fa-map-marker"></i> Nabire
                               </li>
                             </ul>
                             <p>{item.description}</p>
@@ -121,31 +121,31 @@ export default async function Destinations() {
               })}
             </div>
           </div>
-          <div class="container d-flex justify-content-center">
+          <div className="container d-flex justify-content-center">
             <nav aria-label="Page navigation example">
-              <ul class="pagination">
-                <li class="page-item">
-                  <Link class="page-link" href="#" aria-label="Previous">
+              <ul className="pagination">
+                <li className="page-item">
+                  <Link className="page-link" href="#" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                   </Link>
                 </li>
-                <li class="page-item">
-                  <Link class="page-link" href="#">
+                <li className="page-item">
+                  <Link className="page-link" href="#">
                     1
                   </Link>
                 </li>
-                <li class="page-item">
-                  <Link class="page-link" href="#">
+                <li className="page-item">
+                  <Link className="page-link" href="#">
                     2
                   </Link>
                 </li>
-                <li class="page-item">
-                  <Link class="page-link" href="#">
+                <li className="page-item">
+                  <Link className="page-link" href="#">
                     3
                   </Link>
                 </li>
-                <li class="page-item">
-                  <Link class="page-link" href="#" aria-label="Next">
+                <li className="page-item">
+                  <Link className="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                   </Link>
                 </li>

@@ -72,7 +72,7 @@ export default function RootLayout({ children }) {
 
         <link rel="stylesheet" type="text/css" href="assets/noken-style.css" />
       </head>
-      <body class="defult-home">
+      <body className="defult-home">
         <Nav />
         {children}
         <Footer />
