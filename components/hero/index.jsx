@@ -4,7 +4,7 @@ import Link from "next/link";
 import { dataCarouselHero } from "@/data/index";
 import { Carousel } from "react-bootstrap";
 // import "bootstrap/dist/css/bootstrap.min.css";
-import "@/styles/bootstrap.min.css";
+
 export default function BootstrapCarousel() {
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex, e) => {
