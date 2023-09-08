@@ -81,10 +81,13 @@ export default async function Adventures() {
                         <Link className="image-popup" href="#">
                           <Image
                             className="h-72"
-                            src={process.env.NEXT_PUBLIC_HOST + item.picture}
+                            src={
+                              process.env.NEXT_PUBLIC_HOSTNAME + item.picture
+                            }
                             alt=""
                             height={1000}
                             width={1000}
+                            loading="lazy"
                           />
                         </Link>
                       </div>
