@@ -6,7 +6,6 @@ import { getDataTourDestination } from "@/data/api";
 
 export default async function Destinations() {
   const { data } = await getDataTourDestination();
-  console.log(data);
   return (
     <>
       <div class="main-content bg-white">
@@ -88,7 +87,7 @@ export default async function Destinations() {
                       <div class="row no-gutter white-bg blog-item mb-35">
                         <div class="col-md-6">
                           <div class="image-part h-100">
-                            <Link href="#">
+                            <Link href={`tour-destinations/${item.slug}`}>
                               <Image
                                 src={
                                   process.env.NEXT_PUBLIC_HOSTNAME +

@@ -145,7 +145,7 @@ export default function Nav() {
                             }`}
                           >
                             <Link
-                              href="/destinations"
+                              href="/tour-destinations"
                               onClick={() =>
                                 handleMenuClick("tour-destinations")
                               }
@@ -161,7 +161,7 @@ export default function Nav() {
                             }`}
                           >
                             <Link
-                              href="/adventures"
+                              href="/tour-adventures"
                               onClick={() => handleMenuClick("tour-adventures")}
                             >
                               Adventures
@@ -175,7 +175,7 @@ export default function Nav() {
                             }`}
                           >
                             <Link
-                              href="/events"
+                              href="/tour-events"
                               onClick={() => handleMenuClick("tour-events")}
                             >
                               Events

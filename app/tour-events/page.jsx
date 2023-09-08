@@ -91,7 +91,7 @@ export default async function Events() {
                         <div class="row no-gutter white-bg blog-item border-0">
                           <div class="col-md-4">
                             <div class="image-part">
-                              <Link href="#">
+                              <Link href={`tour-events/${item.slug}`}>
                                 <Image
                                   src={
                                     process.env.NEXT_PUBLIC_HOSTNAME +

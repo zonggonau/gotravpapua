@@ -27,7 +27,7 @@ export default function TourPackages({ data }) {
                   <div className="courses-item">
                     <div className="courses-grid">
                       <div className="img-part">
-                        <Link href="#">
+                        <Link href={`tour-packages/${item.slug}`}>
                           <Image
                             src={
                               process.env.NEXT_PUBLIC_HOSTNAME + item.picture

@@ -79,7 +79,10 @@ export default async function Adventures() {
                     <div className="col-lg-4 mb-30 col-md-6" key={index}>
                       <div className="gallery-item">
                         <div className="gallery-Image">
-                          <Link className="image-popup" href="#">
+                          <Link
+                            className="image-popup"
+                            href={`tour-adventures/${item.slug}`}
+                          >
                             <Image
                               className="h-72"
                               src={
