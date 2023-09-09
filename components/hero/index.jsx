@@ -1,11 +1,10 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { dataCarouselHero } from "@/data/index";
 import { Carousel } from "react-bootstrap";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function BootstrapCarousel() {
+export default function BootstrapCarousel({ data }) {
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
@@ -29,51 +28,55 @@ export default function BootstrapCarousel() {
       nextIcon={<NextCarousel />}
       prevIcon={<PrevCarousel />}
     >
-      {dataCarouselHero.map((item) => (
-        <Carousel.Item key={item.id} interval={5000}>
-          <div
-            className="slider-content"
-            style={{
-              backgroundImage: `url('${
-                process.env.NEXT_PUBLIC_HOST + item.imageUrl
-              }')`,
-              backgroundSize: "cover",
-              backgroundPosition: "top center",
-            }}
-          >
-            <div className="container">
-              <div className="content-part">
-                <h1
-                  className="sl-title wow fadeInUp"
-                  data-wow-delay="600ms"
-                  data-wow-duration="2000ms"
-                >
-                  {item.title}
-                </h1>
-                <div
-                  className="sec-title mb-40 md-mb-20 wow fadeInUp"
-                  data-wow-delay="300ms"
-                  data-wow-duration="2000ms"
-                >
-                  <div className="desc white-color wow fadeInUp">
-                    {item.desc}
+      {data.map((item, index) => {
+        if (item.status === "Publish") {
+          return (
+            <Carousel.Item key={item.id} interval={5000}>
+              <div
+                className="slider-content"
+                style={{
+                  backgroundImage: `url('${
+                    process.env.NEXT_PUBLIC_HOSTNAME + item.picture
+                  }')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "top center",
+                }}
+              >
+                <div className="container">
+                  <div className="content-part">
+                    <h1
+                      className="sl-title wow fadeInUp"
+                      data-wow-delay="600ms"
+                      data-wow-duration="2000ms"
+                    >
+                      {item.title}
+                    </h1>
+                    <div
+                      className="sec-title mb-40 md-mb-20 wow fadeInUp"
+                      data-wow-delay="300ms"
+                      data-wow-duration="2000ms"
+                    >
+                      <div className="desc white-color wow fadeInUp">
+                        {item.description}
+                      </div>
+                    </div>
+                    <div className="btn-part">
+                      <Link
+                        className="readon green-btn main-home wow fadeInUp rounded-0"
+                        href="#"
+                        data-wow-delay="300ms"
+                        data-wow-duration="2000ms"
+                      >
+                        BEGIN YOUR JOURNEY
+                      </Link>
+                    </div>
                   </div>
                 </div>
-                <div className="btn-part">
-                  <Link
-                    className="readon green-btn main-home wow fadeInUp rounded-0"
-                    href="#"
-                    data-wow-delay="300ms"
-                    data-wow-duration="2000ms"
-                  >
-                    BEGIN YOUR JOURNEY
-                  </Link>
-                </div>
               </div>
-            </div>
-          </div>
-        </Carousel.Item>
-      ))}
+            </Carousel.Item>
+          );
+        }
+      })}
     </Carousel>
   );
 }

@@ -40,6 +40,16 @@ async function getDataEvents() {
   return res.json();
 }
 
+async function getDataSlider() {
+  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "tour-events");
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
 async function getDataDetails(category, slug) {
   const res = await fetch(
     process.env.NEXT_PUBLIC_HOST_API + category + "/" + slug + "/detail"
@@ -58,4 +68,5 @@ export {
   getDataAdventures,
   getDataEvents,
   getDataDetails,
+  getDataSlider,
 };
