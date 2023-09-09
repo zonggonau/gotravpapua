@@ -31,7 +31,12 @@ export default function Footer() {
       <footer
         id="rs-footer"
         className="rs-footer pt-5"
-        style={{ backgroundImage: "url('assets/images/bg/ct-bg.jpg')" }}
+        style={{
+          // backgroundImage: "url('assets/images/bg/ct-bg.jpg')",
+          backgroundImage: `url(${
+            process.env.NEXT_PUBLIC_HOST + "assets/images/bg/ct-bg.jpg"
+          })`,
+        }}
       >
         <div className="footer-top">
           <div className="rs-cta py-5">

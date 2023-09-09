@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { Categories } from "@/data";
 
 export default function Nav() {
   const [showSubNavbar, setShowSubNavbar] = useState(true);
