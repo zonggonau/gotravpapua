@@ -1,6 +1,7 @@
 async function getDataTourDestination() {
   const res = await fetch(
-    process.env.NEXT_PUBLIC_HOST_API + "tour-destinations"
+    process.env.NEXT_PUBLIC_HOST_API + "tour-destinations",
+    { cache: "force-cache", next: { revalidate: 3600 } }
   );
 
   if (!res.ok) {
@@ -11,7 +12,10 @@ async function getDataTourDestination() {
 }
 
 async function getDataTourPackages() {
-  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "tour-packages");
+  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "tour-packages", {
+    cache: "force-cache",
+    next: { revalidate: 3600 },
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -21,7 +25,10 @@ async function getDataTourPackages() {
 }
 
 async function getDataAdventures() {
-  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "tour-adventures");
+  const res = await fetch(
+    process.env.NEXT_PUBLIC_HOST_API + "tour-adventures",
+    { cache: "force-cache", next: { revalidate: 3600 } }
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -31,7 +38,10 @@ async function getDataAdventures() {
 }
 
 async function getDataEvents() {
-  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "tour-events");
+  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "tour-events", {
+    cache: "force-cache",
+    next: { revalidate: 3600 },
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -41,7 +51,10 @@ async function getDataEvents() {
 }
 
 async function getDataSlider() {
-  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "tour-events");
+  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "tour-events", {
+    cache: "force-cache",
+    next: { revalidate: 3600 },
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -52,7 +65,8 @@ async function getDataSlider() {
 
 async function getDataDetails(category, slug) {
   const res = await fetch(
-    process.env.NEXT_PUBLIC_HOST_API + category + "/" + slug + "/detail"
+    process.env.NEXT_PUBLIC_HOST_API + category + "/" + slug + "/detail",
+    { cache: "force-cache", next: { revalidate: 3600 } }
   );
 
   if (!res.ok) {

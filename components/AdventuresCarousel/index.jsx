@@ -15,7 +15,6 @@ const breakPoints = [
 ];
 
 export default function AdventuresCarousel({ data }) {
-  console.log(data);
   const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
 
   const addItem = () => {
@@ -38,29 +37,33 @@ export default function AdventuresCarousel({ data }) {
             showArrows={false}
             autoPlaySpeed={5000}
           >
-            {data.map((item, index) => (
-              <div className="courses-item space-y-5" key={index}>
-                <div className="img-part">
-                  <Image
-                    className="h-72"
-                    src={process.env.NEXT_PUBLIC_HOSTNAME + item.picture}
-                    alt={item.title}
-                    width={380}
-                    height={500}
-                  />
-                </div>
-                <div className="content-part">
-                  <span className="fs-2 fw-bold">
-                    <Link
-                      className="categories  d-block text-white text-lg"
-                      href="#"
-                    >
-                      {item.title}
-                    </Link>
-                  </span>
-                </div>
-              </div>
-            ))}
+            {data.map((item, index) => {
+              if (item.status === "Publish") {
+                return (
+                  <div className="courses-item space-y-5" key={index}>
+                    <div className="img-part">
+                      <Image
+                        className="h-72"
+                        src={process.env.NEXT_PUBLIC_HOSTNAME + item.picture}
+                        alt={item.title}
+                        width={380}
+                        height={500}
+                      />
+                    </div>
+                    <div className="content-part">
+                      <span className="fs-2 fw-bold">
+                        <Link
+                          className="categories  d-block text-white text-lg"
+                          href="#"
+                        >
+                          {item.title}
+                        </Link>
+                      </span>
+                    </div>
+                  </div>
+                );
+              }
+            })}
           </Carousel>
         </div>
       </div>

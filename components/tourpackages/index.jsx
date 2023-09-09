@@ -22,39 +22,41 @@ export default function TourPackages({ data }) {
           </div>
           <div className="row">
             {data.map((item, index) => {
-              return (
-                <div className="col-lg-4 col-md-6 mb-24" key={index}>
-                  <div className="courses-item">
-                    <div className="courses-grid">
-                      <div className="img-part">
-                        <Link href={`tour-packages/${item.slug}`}>
-                          <Image
-                            src={
-                              process.env.NEXT_PUBLIC_HOSTNAME + item.picture
-                            }
-                            alt=""
-                            width={500}
-                            height={100}
-                          />
-                        </Link>
-                      </div>
-                      <div className="content-part">
-                        <h3 className="title">
-                          <Link href="#">Papuan Paradise Expedition</Link>
-                        </h3>
-                        <ul className="meta-part">
-                          <li>
-                            <i className="fa fa-calendar-check-o"></i> 5 Days
-                          </li>
-                          <li>
-                            <i className="fa fa-map-marker"></i> Nabire
-                          </li>
-                        </ul>
+              if (item.status === "Publish") {
+                return (
+                  <div className="col-lg-4 col-md-6 mb-24" key={index}>
+                    <div className="courses-item">
+                      <div className="courses-grid">
+                        <div className="img-part">
+                          <Link href={`tour-packages/${item.slug}`}>
+                            <Image
+                              src={
+                                process.env.NEXT_PUBLIC_HOSTNAME + item.picture
+                              }
+                              alt=""
+                              width={500}
+                              height={100}
+                            />
+                          </Link>
+                        </div>
+                        <div className="content-part">
+                          <h3 className="title">
+                            <Link href="#">Papuan Paradise Expedition</Link>
+                          </h3>
+                          <ul className="meta-part">
+                            <li>
+                              <i className="fa fa-calendar-check-o"></i> 5 Days
+                            </li>
+                            <li>
+                              <i className="fa fa-map-marker"></i> Nabire
+                            </li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
+                );
+              }
             })}
           </div>
           <div className="cta-content text-center">
