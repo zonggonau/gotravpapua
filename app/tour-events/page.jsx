@@ -4,6 +4,12 @@ import Image from "next/image";
 import { dataCarouselHero } from "@/data";
 import { getDataEvents } from "@/data/api";
 
+export const metadata = {
+  title: "GoTravPapua Tour Events",
+  description:
+    "Join Our Exciting Tour Events for Unforgettable Travel Experiences. Discover, Explore, and Make Memories!",
+};
+
 export default async function Events() {
   const { data } = await getDataEvents();
   return (

@@ -4,6 +4,12 @@ import Image from "next/image";
 import { dataCarouselHero } from "@/data";
 import { getDataAdventures } from "@/data/api";
 
+export const metadata = {
+  title: "GoTravPapua Tour Adventures",
+  description:
+    "Embark on Thrilling Tour Adventures with Us. Experience the Ultimate in Excitement and Exploration!",
+};
+
 export default async function Adventures() {
   const { data } = await getDataAdventures();
   return (

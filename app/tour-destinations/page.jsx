@@ -4,6 +4,12 @@ import Image from "next/image";
 import { dataCarouselHero } from "@/data";
 import { getDataTourDestination } from "@/data/api";
 
+export const metadata = {
+  title: "GoTravPapua Tour Destination",
+  description:
+    "Discover Exceptional Tour Destinations for Your Next Adventure. Plan Your Journey with Us!",
+};
+
 export default async function Destinations() {
   const { data } = await getDataTourDestination();
   return (
@@ -83,7 +89,10 @@ export default async function Destinations() {
               {data.map((item, index) => {
                 if (item.status === "Publish") {
                   return (
-                    <div className="col-lg-6 pr-60 md-pr-15 md-mb-30" key={index}>
+                    <div
+                      className="col-lg-6 pr-60 md-pr-15 md-mb-30"
+                      key={index}
+                    >
                       <div className="row no-gutter white-bg blog-item mb-35">
                         <div className="col-md-6">
                           <div className="image-part h-100">
@@ -108,7 +117,8 @@ export default async function Destinations() {
                             </h3>
                             <ul className="blog-meta">
                               <li>
-                                <i className="fa-solid fa-map-marker"></i> Nabire
+                                <i className="fa-solid fa-map-marker"></i>{" "}
+                                Nabire
                               </li>
                             </ul>
                             <p>{item.description}</p>

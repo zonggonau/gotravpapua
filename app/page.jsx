@@ -11,9 +11,9 @@ import {
 } from "@/data/api";
 
 export const metadata = {
-  title: "Welcome GoTravPapua",
+  title: "Welcome to GoTravPapua",
   description:
-    "Lorem cillum aute exercitation id ut deserunt magna dolore eiusmod id enim incididunt.",
+    "GoTravPapua - Your Premier Travel Agent for Unforgettable Papua Adventures! Book Now for Authentic Experiences!",
 };
 export default async function Home() {
   const { data: Adventure } = await getDataAdventures();
