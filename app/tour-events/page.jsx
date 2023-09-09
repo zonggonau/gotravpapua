@@ -12,8 +12,8 @@ export default async function Events() {
         <div className="rs-breadcrumbs breadcrumbs-overlay">
           <div className="breadcrumbs-img">
             <Image
-              classNameName="h-96"
-              src={process.env.NEXT_PUBLIC_HOST + dataCarouselHero[1].imageUrl}
+              className="h-96"
+              src={process.env.NEXT_PUBLIC_HOST + dataCarouselHero[2].imageUrl}
               alt="Breadcrumbs Image"
               height={700}
               width={1000}
@@ -91,9 +91,7 @@ export default async function Events() {
                         <div className="row no-gutter white-bg blog-item border-0">
                           <div className="col-md-4">
                             <div className="image-part">
-                              <Link href={`tour-events
-                              
-                              /${item.slug}`}>
+                              <Link href={`tour-events/${item.slug}`}>
                                 <Image
                                   src={
                                     process.env.NEXT_PUBLIC_HOSTNAME +
