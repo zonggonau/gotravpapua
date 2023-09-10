@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { dataCarouselHero } from "@/data";
@@ -10,6 +11,56 @@ export const metadata = {
 };
 
 export default function Contact() {
+  const [notification, setNotification] = useState("");
+  const [kontak, setKontak] = useState({
+    name: "",
+    message: "",
+    // subject: "",
+    // phone: "",
+    // email: "",
+  });
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    setKontak((old) => ({ ...old, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_HOST_API + "messages/store",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(kontak),
+        }
+      );
+
+      if (response.ok) {
+        setNotification("Pesan berhasil terkirim!");
+
+        // Reset formulir
+        setKontak({
+          name: "",
+          // email: "",
+          // phone: "",
+          // subject: "",
+          message: "",
+        });
+      } else {
+        // Ada kesalahan saat mengirim data
+        console.error("Gagal mengirim data");
+        setKontak({ kontak });
+      }
+    } catch (error) {
+      console.error("Terjadi kesalahan:", error);
+    }
+  };
+
   return (
     <>
       <div className="main-content bg-white">
@@ -83,7 +134,12 @@ export default function Contact() {
                     </p>
                   </div>
                   <div id="form-messages"></div>
-                  <form id="contact-form" method="post" action="mailer.php">
+                  {notification && (
+                    <div id="form-messages" className="bg-green p-3">
+                      {notification}
+                    </div>
+                  )}
+                  <form onSubmit={handleSubmit}>
                     <div className="row">
                       <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
                         <input
@@ -91,8 +147,10 @@ export default function Contact() {
                           type="text"
                           id="name"
                           name="name"
+                          value={kontak.name}
+                          onChange={handleChange}
                           placeholder="Name"
-                          required=""
+                          required
                         />
                       </div>
                       <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
@@ -101,6 +159,8 @@ export default function Contact() {
                           type="text"
                           id="email"
                           name="email"
+                          value={kontak.email}
+                          onChange={handleChange}
                           placeholder="Email"
                           required=""
                         />
@@ -111,6 +171,8 @@ export default function Contact() {
                           type="text"
                           id="phone"
                           name="phone"
+                          value={kontak.phone}
+                          onChange={handleChange}
                           placeholder="Phone"
                           required=""
                         />
@@ -121,6 +183,8 @@ export default function Contact() {
                           type="text"
                           id="subject"
                           name="subject"
+                          value={kontak.subject}
+                          onChange={handleChange}
                           placeholder="Subject"
                           required=""
                         />
@@ -130,18 +194,18 @@ export default function Contact() {
                         <textarea
                           className="from-control"
                           id="message"
+                          value={kontak.message}
+                          onChange={handleChange}
                           name="message"
-                          placeholder=" Message"
-                          required=""
+                          placeholder="Message"
+                          required
                         ></textarea>
                       </div>
                     </div>
                     <div className="form-group mb-0">
-                      <input
-                        className="btn-send"
-                        type="submit"
-                        value="Submit Now"
-                      />
+                      <button className="btn-send" type="submit">
+                        Submit Now
+                      </button>
                     </div>
                   </form>
                 </div>

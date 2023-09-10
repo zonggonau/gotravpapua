@@ -1,8 +1,10 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { dataCarouselHero } from "@/data";
 import { getDataAdventures } from "@/data/api";
+import Search from "@/components/Search";
 
 export const metadata = {
   title: "GoTravPapua Tour Adventures",
@@ -12,6 +14,7 @@ export const metadata = {
 
 export default async function Adventures() {
   const { data } = await getDataAdventures();
+
   return (
     <>
       <div className="main-content bg-white">
@@ -55,27 +58,7 @@ export default async function Adventures() {
             </div>
           </div>
         </div>
-
-        <div className="bg-success d-flex justify-content-center py-5">
-          <div className="container">
-            <form action="">
-              <div className="row">
-                <div className="col-md-10">
-                  <input
-                    type="text"
-                    className="form-control form-control-lg rounded-0 p-3 px-5 text-secondary"
-                  />
-                </div>
-                <div className="col-md-2">
-                  <button className="btn btn-lg btn-light link-success fw-bold rounded-0 p-3 px-5">
-                    <i className="fa-solid fa-search"></i> Search
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-
+        <Search />
         <div className="rs-gallery pt-100 pb-100 md-pt-70 md-pb-70">
           <div className="container">
             <div className="row">

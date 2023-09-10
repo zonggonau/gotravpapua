@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Nav() {
   const [showSubNavbar, setShowSubNavbar] = useState(true);
-
+  const [menuClose, setMenuClose] = useState(true);
   const [activeMenu, setActiveMenu] = useState("");
   const handleMenuClick = (menu) => {
     setActiveMenu(menu);
@@ -18,6 +18,10 @@ export default function Nav() {
       setShowSubNavbar(true);
       console.log("true");
     }
+  };
+
+  const MenuHandle = () => {
+    setMenuClose(!menuClose);
   };
 
   useEffect(() => {
@@ -100,7 +104,7 @@ export default function Nav() {
                 <div className="col-lg-2">
                   <div className="logo-cat-wrap">
                     <div className="logo-part">
-                      <Link href="/" onClick={() => handleMenuClick("/")}>
+                      <Link href="#" onClick={() => handleMenuClick("/")}>
                         <Image
                           src={`${process.env.NEXT_PUBLIC_HOST}assets/images/logo.png`}
                           alt=""
@@ -116,8 +120,16 @@ export default function Nav() {
                   <div className="rs-menu-area">
                     <div className="main-menu">
                       <div className="mobile-menu">
-                        <Link href="#" className="rs-menu-toggle">
-                          <i className="fa fa-bars"></i>
+                        <Link
+                          href="/"
+                          className="rs-menu-toggle"
+                          onClick={() => MenuHandle()}
+                        >
+                          {menuClose == true ? (
+                            <i className="fa fa-bars"></i>
+                          ) : (
+                            <i className="fa fa-close"></i>
+                          )}
                         </Link>
                       </div>
                       <nav className="rs-menu">
@@ -196,25 +208,6 @@ export default function Nav() {
                           </li>
                         </ul>
                       </nav>
-                      {/* <nav className="rs-menu">
-                        <ul className="nav-menu">
-                          <li className="mega-rs">
-                            <Link href="/tour-packages">Tour Packages</Link>
-                          </li>
-                          <li className="mega-rs">
-                            <Link href="/destinations">Destinations</Link>
-                          </li>
-                          <li className="mega-rs">
-                            <Link href="/adventures">Adventures</Link>
-                          </li>
-                          <li className="mega-rs">
-                            <Link href="/events">Events</Link>
-                          </li>
-                          <li className="mega-rs">
-                            <Link href="/contact">Contact</Link>
-                          </li>
-                        </ul>
-                      </nav> */}
                     </div>
                   </div>
                 </div>
