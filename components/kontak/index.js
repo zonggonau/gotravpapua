@@ -1,9 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Kontak() {
-  const [notification, setNotification] = useState("");
+  const [notificationSuccess, setNotificationSuccess] = useState(false);
+  const [notificationFailed, setNotificationFailed] = useState(false);
+  const [notificationWarning, setNotificationWarning] = useState(false);
   const [kontak, setKontak] = useState({
     name: "",
     message: "",
@@ -16,6 +20,27 @@ export default function Kontak() {
     console.log(e.target.value);
     setKontak((old) => ({ ...old, [e.target.name]: e.target.value }));
   };
+
+  const Notification = () => (
+    <ToastContainer position="top-right" autoClose={3000} />
+  );
+
+  const RenderMessageSuccess = () =>
+    toast.success("Your message has been sent !", {
+      position: "top-right",
+      autoClose: 3000,
+    });
+  const RenderMessageFailed = () =>
+    toast.info("Your message failed to sent !", {
+      position: "top-right",
+      autoClose: 3000,
+    });
+
+  const RenderMessageNetworkError = () =>
+    toast.error("Network Error !", {
+      position: "top-right",
+      autoClose: 3000,
+    });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,9 +58,8 @@ export default function Kontak() {
       );
 
       if (response.ok) {
-        setNotification("Pesan berhasil terkirim!");
-
         // Reset formulir
+        setNotificationSuccess(true);
         setKontak({
           name: "",
           // email: "",
@@ -45,16 +69,31 @@ export default function Kontak() {
         });
       } else {
         // Ada kesalahan saat mengirim data
-        console.error("Gagal mengirim data");
+        // console.error("Gagal mengirim data");
+        setNotificationFailed(true);
         setKontak({ kontak });
       }
     } catch (error) {
-      console.error("Terjadi kesalahan:", error);
+      // console.error("Terjadi kesalahan:", error);
+      setNotificationWarning(true);
     }
   };
 
+  useEffect(() => {
+    if (notificationSuccess == true) {
+      RenderMessageSuccess();
+    }
+    if (notificationFailed == true) {
+      RenderMessageFailed();
+    }
+    if (notificationWarning == true) {
+      RenderMessageNetworkError();
+    }
+  }, [notificationSuccess, notificationFailed, notificationWarning]);
+
   return (
     <>
+      <Notification />
       <div className="row align-items-end contact-bg1">
         <div className="col-lg-8 lg-pl-0">
           <div className="rs-quick-contact new-style">
@@ -65,12 +104,6 @@ export default function Kontak() {
                 to mod tempor incidi dunt ut dolore.
               </p>
             </div>
-            <div id="form-messages"></div>
-            {notification && (
-              <div id="form-messages" className="bg-green p-3">
-                {notification}
-              </div>
-            )}
             <form onSubmit={handleSubmit} method="post">
               <div className="row">
                 <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
@@ -135,7 +168,11 @@ export default function Kontak() {
                 </div>
               </div>
               <div className="form-group mb-0">
-                <button className="btn-send" type="submit">
+                <button
+                  className="btn-send"
+                  type="submit"
+                  // onClick={RenderMessage}
+                >
                   Submit Now
                 </button>
               </div>

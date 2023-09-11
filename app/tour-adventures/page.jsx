@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { dataCarouselHero } from "@/data";
 import { getDataAdventures } from "@/data/api";
-import Search from "@/components/Search";
+import { SearchAdventures } from "@/components/Search";
 
 export const metadata = {
   title: "GoTravPapua Tour Adventures",
@@ -57,7 +57,7 @@ export default async function Adventures() {
             </div>
           </div>
         </div>
-        <Search data={data} />
+        <SearchAdventures data={data} />
       </div>
     </>
   );
