@@ -4,7 +4,6 @@ export default function Search() {
   const [filter, setFilter] = useState("");
   const handleChange = (e) => {
     setFilter(e.target.value);
-    console.log(filter);
   };
   return (
     <>
