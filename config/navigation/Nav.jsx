@@ -104,7 +104,7 @@ export default function Nav() {
                 <div className="col-lg-2">
                   <div className="logo-cat-wrap">
                     <div className="logo-part">
-                      <Link href="#" onClick={() => handleMenuClick("/")}>
+                      <Link href="/" onClick={() => handleMenuClick("/")}>
                         <Image
                           src={`${process.env.NEXT_PUBLIC_HOST}assets/images/logo.png`}
                           alt=""

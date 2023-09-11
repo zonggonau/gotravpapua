@@ -85,7 +85,7 @@ export default function Kontak() {
                     required
                   />
                 </div>
-                <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
+                {/* <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
                   <input
                     className="from-control"
                     type="text"
@@ -96,8 +96,8 @@ export default function Kontak() {
                     placeholder="Email"
                     required=""
                   />
-                </div>
-                <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
+                </div> */}
+                {/* <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
                   <input
                     className="from-control"
                     type="text"
@@ -108,8 +108,8 @@ export default function Kontak() {
                     placeholder="Phone"
                     required=""
                   />
-                </div>
-                <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
+                </div> */}
+                {/* <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
                   <input
                     className="from-control"
                     type="text"
@@ -120,7 +120,7 @@ export default function Kontak() {
                     placeholder="Subject"
                     required=""
                   />
-                </div>
+                </div> */}
 
                 <div className="col-lg-12 mb-40">
                   <textarea

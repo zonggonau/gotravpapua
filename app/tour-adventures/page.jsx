@@ -57,74 +57,7 @@ export default async function Adventures() {
             </div>
           </div>
         </div>
-        <Search />
-        <div className="rs-gallery pt-100 pb-100 md-pt-70 md-pb-70">
-          <div className="container">
-            <div className="row">
-              {data.map((item, index) => {
-                if (item.status === "Publish") {
-                  return (
-                    <div className="col-lg-4 mb-30 col-md-6" key={index}>
-                      <div className="gallery-item">
-                        <div className="gallery-Image">
-                          <Link
-                            className="image-popup"
-                            href={`tour-adventures/${item.slug}`}
-                          >
-                            <Image
-                              className="h-72"
-                              src={
-                                process.env.NEXT_PUBLIC_HOSTNAME + item.picture
-                              }
-                              alt=""
-                              height={1000}
-                              width={1000}
-                              loading="lazy"
-                            />
-                          </Link>
-                        </div>
-                        <div className="title fs-2 fw-bold text-success">
-                          Motorcycle Tours
-                        </div>
-                      </div>
-                    </div>
-                  );
-                }
-              })}
-            </div>
-          </div>
-          <div className="container d-flex justify-content-center">
-            <nav aria-label="Page navigation example">
-              <ul className="pagination">
-                <li className="page-item">
-                  <Link className="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </Link>
-                </li>
-                <li className="page-item">
-                  <Link className="page-link" href="#">
-                    1
-                  </Link>
-                </li>
-                <li className="page-item">
-                  <Link className="page-link" href="#">
-                    2
-                  </Link>
-                </li>
-                <li className="page-item">
-                  <Link className="page-link" href="#">
-                    3
-                  </Link>
-                </li>
-                <li className="page-item">
-                  <Link className="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+        <Search data={data} />
       </div>
     </>
   );
