@@ -1,7 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function CompDetailTour({ data }) {
+  console.log(data);
   return (
     <div className="main-content bg-white">
       <div className="rs-breadcrumbs breadcrumbs-overlay">
@@ -19,24 +21,19 @@ export default function CompDetailTour({ data }) {
             data-wow-delay="300ms"
             data-wow-duration="2000ms"
           >
-            Events-Detail
+            {data.title}
           </h1>
           <div
             className="sec-title mb-40 md-mb-20 wow fadeInUp"
             data-wow-delay="300ms"
             data-wow-duration="2000ms"
           >
-            <div className="desc text-center col-md-6 mx-auto">
-              Discover the untouched beauty of Papua with our Papuan Paradise
-              Expedition, Coastal Retreat, Wildlife Safari, Cultural Immersion,
-              Diving Expedition, Highlands Adventure, River Expedition, and many
-              more
-            </div>
+            <div className="desc text-center col-md-6 mx-auto">{data.body}</div>
             <ul className="my-3 white-color">
               <li>
-                <a className="active" href="index.html">
+                <Link className="active" href="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li>Destinations</li>
             </ul>
@@ -84,7 +81,7 @@ export default function CompDetailTour({ data }) {
                 />
               </div> */}
               <div className="mt-3">
-                <p className="text-center border-black">{data.description}</p>
+                <p className="text-left border-black">{data.description}</p>
               </div>
             </div>
           </div>

@@ -2,7 +2,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { dataCarouselHero } from "@/data";
-import { getDataTourPackages } from "@/data/api";
+import { getDataTourDestination, getDataTourPackages } from "@/data/api";
+import Filters from "@/components/filter";
 
 export const metadata = {
   title: "GoTravPapua Tour Packages",
@@ -11,6 +12,8 @@ export const metadata = {
 };
 export default async function TourPackages() {
   const { data } = await getDataTourPackages();
+  const { data: destination } = await getDataTourDestination();
+
   return (
     <>
       <div className="main-content bg-white">
@@ -55,82 +58,7 @@ export default async function TourPackages() {
           </div>
         </div>
 
-        <div className="bg-success d-flex justify-content-center py-5">
-          <div className="row">
-            <div className="col-md-4">
-              <div className="destinations">
-                <button
-                  className="btn btn-outline-light btn-lg dropdown-toggle rounded-0"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Destinations
-                </button>
-                <ul className="dropdown-menu">
-                  <li>
-                    <Link className="dropdown-item" href="#">
-                      Raja Ampat
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" href="#">
-                      Nabire
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" href="#">
-                      Jayapura
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-md-4">
-              <div className="duration">
-                <button
-                  className="btn btn-outline-light btn-lg dropdown-toggle rounded-0"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Duration
-                </button>
-                <ul className="dropdown-menu">
-                  <li>
-                    <Link className="dropdown-item" href="#">
-                      1 - 2 Days
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" href="#">
-                      3 - 5 Days
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" href="#">
-                      1 Week
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" href="#">
-                      Custom
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-md-4">
-              <button className="btn btn-light btn-lg rounded-0 filter-btn">
-                <i className="fa-solid fa-search"></i>
-                Filter Packages
-              </button>
-            </div>
-          </div>
-        </div>
-
+        <Filters />
         <div
           id="tour-packages"
           className="rs-popular-courses main-home event-bg pt-100 pb-100 md-pt-70 md-pb-70"

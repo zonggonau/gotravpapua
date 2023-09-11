@@ -1,11 +1,15 @@
+"use clinet";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+// import { useRecoilValue } from "recoil";
 
 export default function Nav() {
   const [showSubNavbar, setShowSubNavbar] = useState(true);
   const [menuClose, setMenuClose] = useState(true);
   const [activeMenu, setActiveMenu] = useState("");
+  // const settings = useRecoilValue();
+
   const handleMenuClick = (menu) => {
     setActiveMenu(menu);
   };
@@ -13,10 +17,8 @@ export default function Nav() {
   const handleScroll = () => {
     if (window.scrollY > 100) {
       setShowSubNavbar(false);
-      console.log("false");
     } else {
       setShowSubNavbar(true);
-      console.log("true");
     }
   };
 

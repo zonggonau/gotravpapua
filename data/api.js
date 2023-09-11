@@ -76,6 +76,19 @@ async function getDataDetails(category, slug) {
   return res.json();
 }
 
+async function getSettings() {
+  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "settings", {
+    cache: "force-cache",
+    next: { revalidate: 3600 },
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
 export {
   getDataTourDestination,
   getDataTourPackages,
@@ -83,4 +96,5 @@ export {
   getDataEvents,
   getDataDetails,
   getDataSlider,
+  getSettings,
 };
