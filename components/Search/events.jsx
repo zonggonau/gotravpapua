@@ -52,6 +52,16 @@ export default function SearchEvents({ data }) {
     );
   };
 
+  const DataNotFound = () => {
+    if (searchResult.length == 0) {
+      return (
+        <>
+          <p className="bg-stone-400 text-xl p-2">Data Not Found !</p>
+        </>
+      );
+    }
+  };
+
   return (
     <>
       <div className="bg-success d-flex justify-content-center py-5">
@@ -145,6 +155,8 @@ export default function SearchEvents({ data }) {
                   );
                 }
               })}
+
+              <DataNotFound />
             </div>
 
             <div className="col-lg-4 pr-60 md-pr-15 md-mb-30">
