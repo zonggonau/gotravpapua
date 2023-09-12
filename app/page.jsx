@@ -15,6 +15,14 @@ export const metadata = {
   title: "Welcome to GoTravPapua",
   description:
     "GoTravPapua - Your Premier Travel Agent for Unforgettable Papua Adventures! Book Now for Authentic Experiences!",
+  keywords: [
+    "gotrav",
+    "papua travel",
+    "gotravpapua",
+    "papua",
+    "traveling",
+    "destination",
+  ],
 };
 export default async function Home() {
   const { data: Adventure } = await getDataAdventures();
