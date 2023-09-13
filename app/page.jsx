@@ -50,12 +50,23 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Next.js",
-    description: "The React Framework for the Web",
-    siteId: "1467726470533754880",
-    creator: "@nextjs",
-    creatorId: "1467726470533754880",
+    title: "GoTravPapua | Tour & Travel",
+    description:
+      "Your Premier Travel Agent for Unforgettable Papua Adventures! Book Now for Authentic Experiences!",
     images: [process.env.NEXT_PUBLIC_HOST + dataCarouselHero[0].imageUrl],
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  verification: {
+    google: "google",
+    yandex: "yandex",
+    yahoo: "yahoo",
+    other: {
+      me: ["admin@gotravpapua.com", process.env.NEXT_PUBLIC_HOSTNAME],
+    },
   },
 };
 export default async function Home() {
