@@ -4,13 +4,9 @@ import Image from "next/image";
 import { dataCarouselHero } from "@/data";
 import { getDataEvents } from "@/data/api";
 import { SearchEvents } from "@/components/Search";
+import { metadata } from "@/seo/Seotourevents";
 
-export const metadata = {
-  title: "GoTravPapua Tour Events",
-  description:
-    "Join Our Exciting Tour Events for Unforgettable Travel Experiences. Discover, Explore, and Make Memories!",
-};
-
+export { metadata };
 export default async function Events({ params }) {
   const { data } = await getDataEvents();
   return (

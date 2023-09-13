@@ -3,13 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { dataCarouselHero } from "@/data";
 import Kontak from "@/components/kontak";
-
-export const metadata = {
-  title: "GoTravPapua Tour Contact",
-  description:
-    "Contact Us for Seamless Tour Planning and Unforgettable Experiences. Your Adventure Awaits!",
-};
-
+import { metadata } from "@/seo/Seocontacts";
+export { metadata };
 export default function Contact() {
   return (
     <>

@@ -4,13 +4,8 @@ import Image from "next/image";
 import { dataCarouselHero } from "@/data";
 import { getDataAdventures } from "@/data/api";
 import { SearchAdventures } from "@/components/Search";
-
-export const metadata = {
-  title: "GoTravPapua Tour Adventures",
-  description:
-    "Embark on Thrilling Tour Adventures with Us. Experience the Ultimate in Excitement and Exploration!",
-};
-
+import { metadata } from "@/seo/Seotouradventures";
+export { metadata };
 export default async function Adventures() {
   const { data } = await getDataAdventures();
 
