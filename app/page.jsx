@@ -29,10 +29,11 @@ import {
 export const metadata = {
   title: "Welcome to GoTravPapua",
   openGraph: {
-    title: "Next.js",
-    description: "The React Framework for the Web",
-    url: "https://nextjs.org",
-    siteName: "Next.js",
+    title: "GoTravPapua | Tour & Travel",
+    description:
+      "GoTravPapua - Your Premier Travel Agent for Unforgettable Papua Adventures! Book Now for Authentic Experiences!",
+    url: process.env.NEXT_PUBLIC_HOST,
+    siteName: "GoTravPapua",
     images: [
       {
         url: process.env.NEXT_PUBLIC_HOST + dataCarouselHero[0].imageUrl,
