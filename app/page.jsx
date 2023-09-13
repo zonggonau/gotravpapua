@@ -12,26 +12,12 @@ import {
   getSettings,
 } from "@/data/api";
 
-// export const metadata = {
-//   title: "Welcome to GoTravPapua",
-//   description:
-//     "GoTravPapua - Your Premier Travel Agent for Unforgettable Papua Adventures! Book Now for Authentic Experiences!",
-//   keywords: [
-//     "gotrav",
-//     "papua travel",
-//     "gotravpapua",
-//     "papua",
-//     "traveling",
-//     "destination",
-//   ],
-// };
-
 export const metadata = {
   title: "Welcome to GoTravPapua",
   openGraph: {
     title: "GoTravPapua | Tour & Travel",
     description:
-      "GoTravPapua - Your Premier Travel Agent for Unforgettable Papua Adventures! Book Now for Authentic Experiences!",
+      "Your Premier Travel Agent for Unforgettable Papua Adventures! Book Now for Authentic Experiences!",
     url: process.env.NEXT_PUBLIC_HOST,
     siteName: "GoTravPapua",
     images: [
@@ -44,11 +30,32 @@ export const metadata = {
         url: process.env.NEXT_PUBLIC_HOST + dataCarouselHero[0].imageUrl,
         width: 1800,
         height: 1600,
-        alt: "My custom alt",
       },
     ],
     locale: "en_US",
     type: "website",
+  },
+  robots: {
+    index: false,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: false,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Next.js",
+    description: "The React Framework for the Web",
+    siteId: "1467726470533754880",
+    creator: "@nextjs",
+    creatorId: "1467726470533754880",
+    images: [process.env.NEXT_PUBLIC_HOST + dataCarouselHero[0].imageUrl],
   },
 };
 export default async function Home() {
