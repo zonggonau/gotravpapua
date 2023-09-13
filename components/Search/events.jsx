@@ -2,11 +2,22 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Pagination from "../pagination";
 
 export default function SearchEvents({ data }) {
   const [btnClick, setBtnClick] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResults] = useState(data);
+  const itemsPerPage = 1;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentPageData = data.slice(startIndex, endIndex);
 
   const handleSearch = () => {
     const search = data.filter((item) =>
@@ -87,7 +98,7 @@ export default function SearchEvents({ data }) {
         <div className="container">
           <div className="row">
             <div className="col-lg-8 pr-60 md-pr-15 md-mb-30 mb-0">
-              {searchResult.map((item, index) => {
+              {currentPageData.map((item, index) => {
                 if (item.status === "Publish") {
                   return (
                     <div
@@ -155,7 +166,11 @@ export default function SearchEvents({ data }) {
                   );
                 }
               })}
-
+              <Pagination
+                currentPage={currentPage}
+                totalPages={Math.ceil(data.length / itemsPerPage)}
+                onPageChange={handlePageChange}
+              />
               <DataNotFound />
             </div>
 
@@ -201,7 +216,7 @@ export default function SearchEvents({ data }) {
             </div>
           </div>
         </div>
-        <div className="container d-flex justify-content-center">
+        {/* <div className="container d-flex justify-content-center">
           <nav aria-label="Page navigation example">
             <ul className="pagination">
               <li className="page-item">
@@ -231,7 +246,7 @@ export default function SearchEvents({ data }) {
               </li>
             </ul>
           </nav>
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -3,7 +3,6 @@ import Link from "next/link";
 import React from "react";
 import { useState } from "react";
 import Carousel from "@itseasy21/react-elastic-carousel";
-import { dataCarouselHero } from "@/data/index";
 import Image from "next/image";
 // import "./styles.css";
 

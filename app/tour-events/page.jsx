@@ -11,7 +11,7 @@ export const metadata = {
     "Join Our Exciting Tour Events for Unforgettable Travel Experiences. Discover, Explore, and Make Memories!",
 };
 
-export default async function Events() {
+export default async function Events({ params }) {
   const { data } = await getDataEvents();
   return (
     <>

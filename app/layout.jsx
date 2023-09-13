@@ -2,13 +2,6 @@
 import Nav from "@/config/navigation/Nav";
 import "./globals.css";
 import Footer from "@/config/footer/Footer";
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from "recoil";
 
 export default async function RootLayout({ children }) {
   return (
@@ -96,13 +89,12 @@ export default async function RootLayout({ children }) {
           href={`${process.env.NEXT_PUBLIC_HOST}assets/noken-style.css`}
         />
       </head>
-      <RecoilRoot>
-        <body className="defult-home">
-          <Nav />
-          {children}
-          <Footer />
-        </body>
-      </RecoilRoot>
+
+      <body className="defult-home">
+        <Nav />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
