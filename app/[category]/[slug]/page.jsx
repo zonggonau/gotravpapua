@@ -17,17 +17,17 @@ export async function generateMetadata({ params }) {
       siteName: "GoTravPapua",
       images: [
         {
-          url: process.env.NEXT_PUBLIC_HOST + data.picture,
+          url: process.env.NEXT_PUBLIC_HOSTNAME + data.picture,
           width: 800,
           height: 600,
         },
         {
-          url: process.env.NEXT_PUBLIC_HOST + data.picture,
+          url: process.env.NEXT_PUBLIC_HOSTNAME + data.picture,
           width: 1800,
           height: 1600,
         },
         {
-          url: process.env.NEXT_PUBLIC_HOST + data.picture,
+          url: process.env.NEXT_PUBLIC_HOSTNAME + data.picture,
           width: 1080,
           height: 675,
         },
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: "GoTravPapua | " + data.title,
       description: data.description,
-      images: [process.env.NEXT_PUBLIC_HOST + data.picture],
+      images: [process.env.NEXT_PUBLIC_HOSTNAME + data.picture],
     },
     viewport: {
       width: "device-width",
@@ -64,10 +64,7 @@ export async function generateMetadata({ params }) {
       yandex: "yandex",
       yahoo: "yahoo",
       other: {
-        me: [
-          "admin@gotravpapua.com",
-          process.env.NEXT_PUBLIC_HOSTNAME + "tour-contact",
-        ],
+        me: ["admin@gotravpapua.com", process.env.NEXT_PUBLIC_HOSTNAME],
       },
     },
   };
