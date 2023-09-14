@@ -117,15 +117,6 @@ export default function SearchPackages({ data }) {
             <DataNotFound />
           </div>
         </div>
-        <div className="container d-flex justify-content-center">
-          <nav aria-label="Page navigation example">
-            <Pagination
-              currentPage={currentPage}
-              totalPages={Math.ceil(data.length / itemsPerPage)}
-              onPageChange={handlePageChange}
-            />
-          </nav>
-        </div>
       </div>
     </>
   );
