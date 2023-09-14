@@ -2,53 +2,51 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Pagination from "../pagination";
 
 export default function SearchDestination({ data }) {
-  const [btnClick, setBtnClick] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResults] = useState(data);
+  const itemsPerPage = 3;
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const handleSearch = () => {
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentPageData = searchResult.slice(startIndex, endIndex);
+
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+    setSearchQuery(inputValue);
     const search = data.filter((item) =>
       JSON.stringify(item.title)
         .toLowerCase()
-        .includes(searchQuery.toLowerCase())
+        .includes(inputValue.toLowerCase())
     );
     setSearchResults(search);
-    setBtnClick(true);
+
     if (searchQuery === "") {
-      setBtnClick(false);
+      setSearchResults(search);
     }
   };
 
-  const handleReset = () => {
-    setSearchQuery("");
-    setSearchResults(data);
-    setBtnClick(false);
-  };
-
-  const HandleButton = () => {
-    if (btnClick == false) {
+  const DataNotFound = () => {
+    if (searchResult.length <= 0) {
       return (
-        <div className="col-md-2">
-          <button
-            className="btn btn-lg btn-light link-success fw-bold rounded-0 p-3 px-5"
-            onClick={handleSearch}
-          >
-            <i className="fa-solid fa-search"></i> Search
-          </button>
-        </div>
+        <>
+          <p className="bg-stone-400 text-xl p-2">Data Not Found !</p>
+        </>
       );
     }
     return (
-      <div className="col-md-2">
-        <button
-          className="btn btn-lg btn-light link-success fw-bold rounded-0 p-3 px-5"
-          onClick={handleReset}
-        >
-          <i className="fa-solid fa-searc"></i> Clear
-        </button>
-      </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={Math.ceil(data.length / itemsPerPage)}
+        onPageChange={handlePageChange}
+      />
     );
   };
 
@@ -59,14 +57,14 @@ export default function SearchDestination({ data }) {
           <div className="row">
             <div className="col-md-10">
               <input
+                placeholder="Search"
                 type="text"
                 name="search"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={handleInputChange}
                 className="form-control form-control-lg rounded-0 p-3 px-5 text-secondary"
               />
             </div>
-            <HandleButton />
           </div>
         </div>
       </div>
@@ -76,7 +74,7 @@ export default function SearchDestination({ data }) {
       >
         <div className="container">
           <div className="row">
-            {searchResult.map((item, index) => {
+            {currentPageData.map((item, index) => {
               if (item.status === "Publish") {
                 return (
                   <div className="col-lg-6 pr-60 md-pr-15 md-mb-30" key={index}>
@@ -114,38 +112,8 @@ export default function SearchDestination({ data }) {
                 );
               }
             })}
+            <DataNotFound />
           </div>
-        </div>
-        <div className="container d-flex justify-content-center">
-          <nav aria-label="Page navigation example">
-            <ul className="pagination">
-              <li className="page-item">
-                <Link className="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link className="page-link" href="#">
-                  1
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link className="page-link" href="#">
-                  2
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link className="page-link" href="#">
-                  3
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link className="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </Link>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
     </>

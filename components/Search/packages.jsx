@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Pagination from "../pagination";
 
-export default function SearchAdventures({ data }) {
+export default function SearchPackages({ data }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResults] = useState(data);
   const itemsPerPage = 3;
@@ -49,7 +49,6 @@ export default function SearchAdventures({ data }) {
       />
     );
   };
-
   return (
     <>
       <div className="bg-success d-flex justify-content-center py-5">
@@ -68,41 +67,64 @@ export default function SearchAdventures({ data }) {
           </div>
         </div>
       </div>
-      <div className="rs-gallery pt-100 pb-100 md-pt-70 md-pb-70">
-        <div className="container">
+      <div
+        id="tour-packages"
+        className="rs-popular-courses main-home event-bg pt-100 pb-100 md-pt-70 md-pb-70"
+      >
+        <div className="container py-5">
           <div className="row">
             {currentPageData.map((item, index) => {
               if (item.status === "Publish") {
                 return (
-                  <div className="col-lg-4 mb-30 col-md-6" key={index}>
-                    <div className="gallery-item">
-                      <div className="gallery-Image">
-                        <Link
-                          className="image-popup"
-                          href={`tour-adventures/${item.slug}`}
-                        >
-                          <Image
-                            className="h-72"
-                            src={
-                              process.env.NEXT_PUBLIC_HOSTNAME + item.picture
-                            }
-                            alt=""
-                            height={1000}
-                            width={1000}
-                            loading="lazy"
-                          />
-                        </Link>
-                      </div>
-                      <div className="title fs-2 fw-bold text-success">
-                        Motorcycle Tours
+                  <div className="col-lg-4 col-md-6 mb-24" key={index}>
+                    <div className="courses-item">
+                      <div className="courses-grid">
+                        <div className="img-part">
+                          <Link href={`tour-packages/${item.slug}`}>
+                            <Image
+                              src={
+                                process.env.NEXT_PUBLIC_HOSTNAME + item.picture
+                              }
+                              className="w-100"
+                              alt=""
+                              width={500}
+                              height={500}
+                            />
+                          </Link>
+                        </div>
+                        <div className="content-part">
+                          <h3 className="title">
+                            <Link href={`tour-packages/${item.slug}`}>
+                              {item.title}
+                            </Link>
+                          </h3>
+                          <ul className="flex justify-between">
+                            <li>
+                              <i className="fa fa-calendar-check-o"></i> 5 Days
+                            </li>
+                            <li>
+                              <i className="fa fa-map-marker"></i> Nabire
+                            </li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
                 );
               }
             })}
+
             <DataNotFound />
           </div>
+        </div>
+        <div className="container d-flex justify-content-center">
+          <nav aria-label="Page navigation example">
+            <Pagination
+              currentPage={currentPage}
+              totalPages={Math.ceil(data.length / itemsPerPage)}
+              onPageChange={handlePageChange}
+            />
+          </nav>
         </div>
       </div>
     </>
