@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
-export default function Footer() {
+export default function Footer({ data }) {
   const [isVisible, setIsVisible] = useState(false);
 
   const toogleVisibility = () => {
@@ -32,7 +32,6 @@ export default function Footer() {
         id="rs-footer"
         className="rs-footer pt-5"
         style={{
-          // backgroundImage: "url('assets/images/bg/ct-bg.jpg')",
           backgroundImage: `url(${
             process.env.NEXT_PUBLIC_HOST + "assets/images/bg/ct-bg.jpg"
           })`,
@@ -62,25 +61,23 @@ export default function Footer() {
             <div className="row y-middle">
               <div className="col-lg-4 md-mb-20">
                 <div className="text-center md-text-start">
-                  <p className="text-white">
-                    Copyright &copy; 2020 All Rights Reserved.
-                  </p>
+                  <p className="text-white">{data.copyright}</p>
                 </div>
               </div>
               <div className="col-lg-4 md-mb-20 text-center">
                 <ul className="footer-social">
                   <li>
-                    <Link href="#" className="rounded-0">
+                    <Link href={data.facebook} className="rounded-0">
                       <i className="fa-brands fa-facebook"></i>
                     </Link>
                   </li>
                   <li>
-                    <Link href="#" className="rounded-0">
+                    <Link href={data.twitter} className="rounded-0">
                       <i className="fa-brands fa-twitter"></i>
                     </Link>
                   </li>
                   <li>
-                    <Link href="#" className="rounded-0">
+                    <Link href={data.instagram} className="rounded-0">
                       <i className="fa-brands fa-instagram"></i>
                     </Link>
                   </li>

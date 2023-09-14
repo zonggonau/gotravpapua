@@ -2,16 +2,13 @@
 import Nav from "@/config/navigation/Nav";
 import "./globals.css";
 import Footer from "@/config/footer/Footer";
+import { getSettings } from "@/data/api";
 
 export default async function RootLayout({ children }) {
+  const { data } = await getSettings();
   return (
     <html lang="en">
       <head>
-        {/* <meta charset="utf-8" />
-        <meta name="description" content="" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
-        {/* <link rel="apple-touch-icon" href="apple-touch-icon.png" /> */}
         <link
           rel="shortcut icon"
           type="image/x-icon"
@@ -91,9 +88,9 @@ export default async function RootLayout({ children }) {
       </head>
 
       <body className="defult-home">
-        <Nav />
+        <Nav data={data} />
         {children}
-        <Footer />
+        <Footer data={data} />
       </body>
     </html>
   );

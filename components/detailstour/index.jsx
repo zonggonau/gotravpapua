@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 
 export default function CompDetailTour({ data }) {
+  console.log(data);
   return (
     <div className="main-content bg-white">
       <div className="rs-breadcrumbs breadcrumbs-overlay">
@@ -58,7 +59,7 @@ export default function CompDetailTour({ data }) {
               <div className="col">
                 <Image
                   src={process.env.NEXT_PUBLIC_HOSTNAME + data.picture}
-                  className="round-circle shadow-lg p-3 mb-5 bg-body-tertiary rounded"
+                  className="round-circle shadow-lg p-3 mb-5 bg-body-tertiary rounded w-1/2"
                   alt={data.description}
                   width={1000}
                   height={1000}

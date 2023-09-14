@@ -5,7 +5,13 @@ import { dataCarouselHero } from "@/data";
 import Kontak from "@/components/kontak";
 import { metadata } from "@/seo/Seocontacts";
 export { metadata };
-export default function Contact() {
+import { getSettings } from "@/data/api";
+export default async function Contact({}) {
+  const { data } = await getSettings();
+
+  function HTMLRenderer({ htmlString }) {
+    return <div dangerouslySetInnerHTML={{ __html: htmlString }} />;
+  }
   return (
     <>
       <div className="main-content bg-white">
@@ -55,20 +61,21 @@ export default function Contact() {
             <div className="row pb-50">
               <div className="col-12">
                 <div className="contact-map">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8133512.942749398!2d135.6083135923328!3d-5.501216729418526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x684a0316a5130283%3A0xf0d0324058e7ea8!2sNew%20Guinea!5e0!3m2!1sen!2sid!4v1690554991333!5m2!1sen!2sid"
+                  <HTMLRenderer htmlString={data.google_map_embed} />
+                  {/* <iframe
+                    src={`${data.google_map_embed}`}
                     width="100%"
                     height="500"
                     style={{ border: 0 }}
                     allowfullscreen=""
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
-                  ></iframe>
+                  ></iframe> */}
                 </div>
               </div>
             </div>
 
-            <Kontak />
+            <Kontak data={data} />
           </div>
         </div>
       </div>

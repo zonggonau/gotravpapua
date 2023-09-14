@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function Kontak() {
+export default function Kontak({ data }) {
   const [notificationSuccess, setNotificationSuccess] = useState(false);
   const [notificationFailed, setNotificationFailed] = useState(false);
   const [notificationWarning, setNotificationWarning] = useState(false);
@@ -187,9 +187,7 @@ export default function Kontak() {
               </div>
               <div className="content-part">
                 <h5 className="info-subtitle">Address</h5>
-                <h4 className="info-title">
-                  Jl.Eunike Mawene Kimi, Nabire Tengah, Papua Tengah.
-                </h4>
+                <h4 className="info-title">{data.office_address}</h4>
               </div>
             </div>
             <div className="contact-info mb-15 md-mb-30">
@@ -200,7 +198,7 @@ export default function Kontak() {
                 <h5 className="info-subtitle">Email Address</h5>
                 <h4 className="info-title">
                   <Link href="mailto:info@rstheme.com">
-                    info@gotravpapua.com
+                    {data.email_address}
                   </Link>
                 </h4>
               </div>
@@ -212,7 +210,7 @@ export default function Kontak() {
               <div className="content-part">
                 <h5 className="info-subtitle">Phone Number</h5>
                 <h4 className="info-title">
-                  <Link href="tel+6285243800061">+62 852-4380-0061</Link>
+                  <Link href="tel+6285243800061">{data.telephone}</Link>
                 </h4>
               </div>
             </div>

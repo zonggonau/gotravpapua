@@ -2,13 +2,11 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-// import { useRecoilValue } from "recoil";
 
-export default function Nav() {
+export default function Nav({ data }) {
   const [showSubNavbar, setShowSubNavbar] = useState(true);
   const [menuClose, setMenuClose] = useState(true);
   const [activeMenu, setActiveMenu] = useState("");
-  // const settings = useRecoilValue();
 
   const handleMenuClick = (menu) => {
     setActiveMenu(menu);
@@ -49,13 +47,13 @@ export default function Nav() {
                     <li>
                       <i className="flaticon-email"></i>
                       <Link href={"mailto:support@rstheme.com"}>
-                        info@gotravpapua.com
+                        {data.email_address}
                       </Link>
                     </li>
                     <li>
                       <i className="fa flaticon-call"></i>
                       <Link href="tel:+(+01)999-999-4444">
-                        info@gotravpapua.com
+                        {data.telephone}
                       </Link>
                     </li>
                   </ul>
@@ -63,31 +61,30 @@ export default function Nav() {
                 <div className="col-md-7 text-end">
                   <ul className="toolbar-sl-share">
                     <li className="opening">
-                      <i className="fa fa-map-marker"></i> Jl.Eunike Mawene
-                      Kimi, Nabire Tengah, Papua Tengah.
+                      <i className="fa fa-map-marker"></i> {data.office_address}
                     </li>
                     <li>
-                      <Link href="https://facebook.com" target="_blank">
+                      <Link href={data.facebook} target="_blank">
                         <i className="fa-brands fa-facebook"></i>
                       </Link>
                     </li>
                     <li>
-                      <Link href="https://twitter.com" target="_blank">
+                      <Link href={data.twitter} target="_blank">
                         <i className="fa-brands fa-twitter"></i>
                       </Link>
                     </li>
                     <li>
-                      <Link href="https://linkedin.com" target="_blank">
+                      <Link href={data.linkedin} target="_blank">
                         <i className="fa-brands fa-linkedin"></i>
                       </Link>
                     </li>
                     <li>
-                      <Link href="https://instagram.com" target="_blank">
+                      <Link href={data.instagram} target="_blank">
                         <i className="fa-brands fa-instagram"></i>
                       </Link>
                     </li>
                     <li>
-                      <Link href="https://youtube.com" target="_blank">
+                      <Link href={data.youtube} target="_blank">
                         <i className="fa-brands fa-youtube"></i>
                       </Link>
                     </li>
