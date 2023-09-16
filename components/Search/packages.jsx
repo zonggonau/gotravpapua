@@ -23,21 +23,23 @@ export default function SearchPackages({ data }) {
 
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
+    if (inputValue === "") {
+      setBtnClear(false);
+    }
     setSearchQuery(inputValue);
   };
 
   const handleButtonFilter = () => {
-    if (searchQuery === "") {
-      setBtnClear(false);
+    if (searchQuery !== "") {
+      setBtnClear(true);
+      setIsLoading(true);
+      const search = data.filter((item) =>
+        JSON.stringify(item.title)
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase())
+      );
+      setSearchResults(search);
     }
-    setBtnClear(true);
-    setIsLoading(true);
-    const search = data.filter((item) =>
-      JSON.stringify(item.title)
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase())
-    );
-    setSearchResults(search);
   };
 
   useEffect(() => {

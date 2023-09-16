@@ -11,7 +11,7 @@ export default function SearchEvents({ data }) {
   const [isLoading, setIsLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResults] = useState(data);
-  const itemsPerPage = 4;
+  const itemsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
 
   const handlePageChange = (newPage) => {
@@ -24,21 +24,23 @@ export default function SearchEvents({ data }) {
 
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
+    if (inputValue === "") {
+      setBtnClear(false);
+    }
     setSearchQuery(inputValue);
   };
 
   const handleButtonFilter = () => {
-    if (searchQuery === "") {
-      setBtnClear(false);
+    if (searchQuery !== "") {
+      setBtnClear(true);
+      setIsLoading(true);
+      const search = data.filter((item) =>
+        JSON.stringify(item.title)
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase())
+      );
+      setSearchResults(search);
     }
-    setBtnClear(true);
-    setIsLoading(true);
-    const search = data.filter((item) =>
-      JSON.stringify(item.title)
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase())
-    );
-    setSearchResults(search);
   };
 
   useEffect(() => {
