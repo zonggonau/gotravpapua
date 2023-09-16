@@ -75,7 +75,7 @@ export default function SearchEvents({ data }) {
   const RenderButton = () => {
     if (btnClear == true) {
       return (
-        <div class="col-md-2">
+        <div class="col-md-4">
           <button
             class="btn btn-lg btn-light link-success fw-bold rounded-0 p-3 px-5"
             onClick={handleClearBtn}
@@ -102,7 +102,7 @@ export default function SearchEvents({ data }) {
       <div className="bg-success d-flex justify-content-center py-5">
         <div className="container">
           <div className="row">
-            <div className="col-md-10">
+            <div className="col-md-8">
               <input
                 placeholder="Search"
                 type="text"

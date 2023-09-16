@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-export default function loading() {
+export default function Loading() {
   return (
     <div id="loader" className="loader green-color">
       <div className="loader-container">

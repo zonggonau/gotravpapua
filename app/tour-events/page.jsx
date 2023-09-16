@@ -43,7 +43,7 @@ export default async function Events({ params }) {
               </div>
               <ul className="my-3 white-color">
                 <li>
-                  <Link className="active" href="index.html">
+                  <Link className="active" href="/">
                     Home
                   </Link>
                 </li>
