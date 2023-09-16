@@ -3,6 +3,7 @@ import Nav from "@/config/navigation/Nav";
 import "./globals.css";
 import Footer from "@/config/footer/Footer";
 import { getSettings } from "@/data/api";
+import "react-loading-skeleton";
 
 export default async function RootLayout({ children }) {
   const { data } = await getSettings();
