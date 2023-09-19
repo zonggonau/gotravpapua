@@ -1,6 +1,14 @@
+"use client";
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function Loading() {
+  const router = useRouter();
+  useEffect(() => {
+    router.refresh("/");
+  }, []);
+
   return (
     <div id="loader" className="loader green-color">
       <div className="loader-container">
