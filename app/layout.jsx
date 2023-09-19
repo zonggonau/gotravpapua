@@ -4,6 +4,8 @@ import "./globals.css";
 import Footer from "@/config/footer/Footer";
 import { getSettings } from "@/data/api";
 import "react-loading-skeleton";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export default async function RootLayout({ children }) {
   const { data } = await getSettings();
@@ -90,7 +92,7 @@ export default async function RootLayout({ children }) {
 
       <body className="defult-home">
         <Nav data={data} />
-        {children}
+        <Suspense fallback={<Loading />}>{children}</Suspense>
         <Footer data={data} />
       </body>
     </html>

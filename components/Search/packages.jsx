@@ -143,6 +143,7 @@ export default function SearchPackages({ data }) {
                               alt=""
                               width={500}
                               height={500}
+                              loading="lazy"
                             />
                           </Link>
                         </div>
