@@ -91,11 +91,10 @@ export default async function RootLayout({ children }) {
       </head>
 
       <body className="defult-home">
-        <Suspense fallback={<Loading />}>
-          <Nav data={data} />
-          {children}
-          <Footer data={data} />
-        </Suspense>
+        <Loading />
+        <Nav data={data} />
+        {children}
+        <Footer data={data} />
       </body>
     </html>
   );
