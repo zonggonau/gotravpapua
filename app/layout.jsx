@@ -1,5 +1,4 @@
 "use client";
-
 import Nav from "@/config/navigation/Nav";
 import "./globals.css";
 import Footer from "@/config/footer/Footer";

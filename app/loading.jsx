@@ -1,14 +1,16 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Loading() {
   const router = useRouter();
   useEffect(() => {
-    router.refresh("/");
+    setTimeout(() => {
+      router.refresh();
+      console.log("set time out");
+    }, 3000);
   }, []);
-
   return (
     <div id="loader" className="loader green-color">
       <div className="loader-container">
