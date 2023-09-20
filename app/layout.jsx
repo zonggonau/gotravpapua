@@ -1,4 +1,3 @@
-"use client";
 import Nav from "@/config/navigation/Nav";
 import "./globals.css";
 import Footer from "@/config/footer/Footer";
@@ -89,7 +88,6 @@ export default async function RootLayout({ children }) {
       </head>
 
       <body className="defult-home">
-        {/* <Loading /> */}
         <Nav data={data} />
         {children}
         <Footer data={data} />

@@ -1,11 +1,15 @@
+"use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Nav({ data }) {
   const [showSubNavbar, setShowSubNavbar] = useState(true);
   const [isOpen, setIsOpen] = useState(true);
   const [activeMenu, setActiveMenu] = useState("");
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   const handleMenuClick = (menu) => {
     setActiveMenu(menu);
@@ -25,14 +29,39 @@ export default function Nav({ data }) {
   };
 
   useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 5000);
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timeout);
     };
   }, [showSubNavbar]);
 
+  const hideLoader = () => {
+    if (loading) {
+      return (
+        <div id="loader" className="loader green-color">
+          <div className="loader-container">
+            <div className="loader-icon">
+              <Image
+                src={`${process.env.NEXT_PUBLIC_HOST}assets/images/pre-load-gotrav.png`}
+                width={100}
+                height={100}
+                alt="pre load gotrav"
+              />
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <>
+      {hideLoader()}
       <div className="full-width-header header-style1 home1-modifiy home12-modifiy">
         <header id="rs-header" className="rs-header">
           <div
