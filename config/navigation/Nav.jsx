@@ -2,14 +2,12 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 
 export default function Nav({ data }) {
   const [showSubNavbar, setShowSubNavbar] = useState(true);
   const [isOpen, setIsOpen] = useState(true);
   const [activeMenu, setActiveMenu] = useState("");
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
 
   const handleMenuClick = (menu) => {
     setActiveMenu(menu);
@@ -31,7 +29,7 @@ export default function Nav({ data }) {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 3000);
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
