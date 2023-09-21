@@ -19,6 +19,7 @@ export default async function TourPackages() {
               className="h-96"
               src={process.env.NEXT_PUBLIC_HOST + dataCarouselHero[3].imageUrl}
               alt="Breadcrumbs Image"
+              loading="lazy"
               height={700}
               width={1000}
             />
@@ -44,7 +45,7 @@ export default async function TourPackages() {
               </div>
               <ul className="my-3 white-color">
                 <li>
-                  <Link className="active" href="index.html">
+                  <Link className="active" href="/">
                     Home
                   </Link>
                 </li>

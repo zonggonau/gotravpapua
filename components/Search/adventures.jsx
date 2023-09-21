@@ -6,6 +6,7 @@ import Pagination from "../pagination";
 import Loading from "./Loading";
 
 export default function SearchAdventures({ data }) {
+  console.log(data);
   const [btnClear, setBtnClear] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -149,7 +150,7 @@ export default function SearchAdventures({ data }) {
                         </Link>
                       </div>
                       <div className="title fs-2 fw-bold text-success">
-                        Motorcycle Tours
+                        {item.title}
                       </div>
                     </div>
                   </div>

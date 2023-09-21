@@ -106,7 +106,7 @@ export default function Kontak({ data }) {
             </div>
             <form onSubmit={handleSubmit} method="post">
               <div className="row">
-                <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
+                <div className="col-lg-12 mb-30 ">
                   <input
                     className="from-control"
                     type="text"
@@ -179,7 +179,7 @@ export default function Kontak({ data }) {
             </form>
           </div>
         </div>
-        <div className="col-lg-4 md-mb-50">
+        <div className="col-lg-4 md-mb-50 text-sm">
           <div className="contact-address-section style2">
             <div className="contact-info mb-15 md-mb-30">
               <div className="icon-part">

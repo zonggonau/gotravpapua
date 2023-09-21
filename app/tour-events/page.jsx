@@ -18,6 +18,7 @@ export default async function Events({ params }) {
               className="h-96"
               src={process.env.NEXT_PUBLIC_HOST + dataCarouselHero[2].imageUrl}
               alt="Breadcrumbs Image"
+              loading="lazy"
               height={700}
               width={1000}
             />

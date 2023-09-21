@@ -19,6 +19,7 @@ export default async function Adventures() {
               src={process.env.NEXT_PUBLIC_HOST + dataCarouselHero[4].imageUrl}
               alt="Breadcrumbs Image"
               height={1000}
+              loading="lazy"
               width={1000}
             />
           </div>

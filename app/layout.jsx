@@ -1,30 +1,11 @@
 "use client";
 import Nav from "@/config/navigation/Nav";
-import { motion } from "framer-motion";
 import "./globals.css";
 import Footer from "@/config/footer/Footer";
 import { getSettings } from "@/data/api";
-import { useRouter } from "next/navigation";
 
 export default async function RootLayout({ children }) {
   const { data } = await getSettings();
-  const pageTransition = {
-    initial: {
-      opacity: 0,
-    },
-    animate: {
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-    exit: {
-      opacity: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
 
   return (
     <html lang="en">
@@ -109,15 +90,7 @@ export default async function RootLayout({ children }) {
 
       <body className="defult-home">
         <Nav data={data} />
-        <motion.div
-          key="layout"
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          variants={pageTransition}
-        >
-          {children}
-        </motion.div>
+        {children}
         <Footer data={data} />
       </body>
     </html>
