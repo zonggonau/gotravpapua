@@ -66,8 +66,6 @@ export default function SearchPackages({ data }) {
     );
   };
 
-  
-
   const handleClearBtn = () => {
     setSearchQuery("");
     setSearchResults(data);
