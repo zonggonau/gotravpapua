@@ -26,6 +26,7 @@ export default function SearchAdventures({ data }) {
     const inputValue = e.target.value;
     if (inputValue === "") {
       setBtnClear(false);
+      setSearchResults(data);
     }
     setSearchQuery(inputValue);
   };
