@@ -95,7 +95,7 @@ export default function Kontak({ data }) {
     <>
       <Notification />
       <div className="row align-items-end contact-bg1">
-        <div className="col-lg-8 lg-pl-0">
+        <div className="col-lg-7 lg-pl-0">
           <div className="rs-quick-contact new-style">
             <div className="inner-part mb-35">
               <h2 className="title mb-15">Get In Touch</h2>
@@ -179,7 +179,7 @@ export default function Kontak({ data }) {
             </form>
           </div>
         </div>
-        <div className="col-lg-4 md-mb-50 text-sm">
+        <div className="col-lg-5 md-mb-50 text-sm">
           <div className="contact-address-section style2">
             <div className="contact-info mb-15 md-mb-30">
               <div className="icon-part">
