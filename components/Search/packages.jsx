@@ -22,6 +22,7 @@ export default function SearchPackages({ data }) {
   const currentPageData = searchResult.slice(startIndex, endIndex);
 
   const handleInputChange = (e) => {
+    setBtnClear(false);
     const inputValue = e.target.value;
     if (inputValue === "") {
       setBtnClear(false);
@@ -64,6 +65,8 @@ export default function SearchPackages({ data }) {
       />
     );
   };
+
+  
 
   const handleClearBtn = () => {
     setSearchQuery("");

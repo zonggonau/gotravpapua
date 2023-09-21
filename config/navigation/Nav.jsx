@@ -2,12 +2,13 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
 export default function Nav({ data }) {
   const [showSubNavbar, setShowSubNavbar] = useState(true);
   const [isOpen, setIsOpen] = useState(true);
   const [activeMenu, setActiveMenu] = useState("");
   const [loading, setLoading] = useState(true);
+  const refreshLoad = useRouter();
 
   const handleMenuClick = (menu) => {
     setActiveMenu(menu);
@@ -27,6 +28,7 @@ export default function Nav({ data }) {
   };
 
   useEffect(() => {
+    refreshLoad.refresh();
     const timeout = setTimeout(() => {
       setLoading(false);
     }, 3000);

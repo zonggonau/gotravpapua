@@ -3,7 +3,6 @@ import React from "react";
 import CompDetailTour from "@/components/detailstour";
 import { getDataDetails } from "@/data/api";
 
-import { dataCarouselHero } from "@/data";
 export async function generateMetadata({ params }) {
   const category = params.category;
   const slug = params.slug;
