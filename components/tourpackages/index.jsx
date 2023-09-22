@@ -2,6 +2,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 export default function TourPackages({ data }) {
+  const limit = 6;
+  const limitData = data.slice(0, limit);
   return (
     <>
       <div
@@ -21,42 +23,42 @@ export default function TourPackages({ data }) {
             </div>
           </div>
           <div className="row">
-            {data.map((item, index) => {
-              if (item.status === "Publish") {
-                return (
-                  <div className="col-lg-4 col-md-6 mb-24" key={index}>
-                    <div className="courses-item">
-                      <div className="courses-grid">
-                        <div className="img-part">
+            {limitData.map((item, index) => {
+              return (
+                <div className="col-lg-4 col-md-6 mb-24" key={index}>
+                  <div className="courses-item">
+                    <div className="courses-grid">
+                      <div className="img-part">
+                        <Link href={`tour-packages/${item.slug}`}>
+                          <Image
+                            src={
+                              process.env.NEXT_PUBLIC_HOSTNAME + item.picture
+                            }
+                            alt=""
+                            width={500}
+                            height={100}
+                          />
+                        </Link>
+                      </div>
+                      <div className="content-part">
+                        <h3 className="title">
                           <Link href={`tour-packages/${item.slug}`}>
-                            <Image
-                              src={
-                                process.env.NEXT_PUBLIC_HOSTNAME + item.picture
-                              }
-                              alt=""
-                              width={500}
-                              height={100}
-                            />
+                            {item.title}
                           </Link>
-                        </div>
-                        <div className="content-part">
-                          <h3 className="title">
-                            <Link href="#">Papuan Paradise Expedition</Link>
-                          </h3>
-                          <ul className="meta-part">
-                            <li>
-                              <i className="fa fa-calendar-check-o"></i> 5 Days
-                            </li>
-                            <li>
-                              <i className="fa fa-map-marker"></i> Nabire
-                            </li>
-                          </ul>
-                        </div>
+                        </h3>
+                        <ul className="meta-part">
+                          <li>
+                            <i className="fa fa-calendar-check-o"></i> 5 Days
+                          </li>
+                          <li>
+                            <i className="fa fa-map-marker"></i> Nabire
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
-                );
-              }
+                </div>
+              );
             })}
           </div>
           <div className="cta-content text-center">
@@ -70,7 +72,7 @@ export default function TourPackages({ data }) {
                 </p>
                 <Link
                   className="readon2 orange-transparent mr-20 rounded-0"
-                  href="#"
+                  href="tour-packages"
                 >
                   More Tour Packages
                   <i className="fa-solid fa-arrow-right ms-3"></i>

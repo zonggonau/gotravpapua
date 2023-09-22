@@ -46,7 +46,7 @@ export default function CompDetailTour({ data }) {
           <div className="container py-5">
             <div className="row">
               <div className="mb-5">
-                <h1>{data.title}</h1>
+                <h2>{data.title}</h2>
                 <ul className="blog-meta">
                   <li>
                     <small className="border p-2 px-3">

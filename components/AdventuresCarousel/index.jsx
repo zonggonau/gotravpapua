@@ -4,7 +4,6 @@ import React from "react";
 import { useState } from "react";
 import Carousel from "@itseasy21/react-elastic-carousel";
 import Image from "next/image";
-// import "./styles.css";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -16,16 +15,6 @@ const breakPoints = [
 export default function AdventuresCarousel({ data }) {
   const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
 
-  const addItem = () => {
-    const nextItem = Math.max(1, items.length + 1);
-    setItems([...items, nextItem]);
-  };
-
-  const removeItem = () => {
-    const endRange = Math.max(0, items.length - 1);
-    setItems(items.slice(0, endRange));
-  };
-
   const RenderCarousel = () => {
     return (
       <div className="App">
@@ -34,34 +23,35 @@ export default function AdventuresCarousel({ data }) {
           <Carousel
             breakPoints={breakPoints}
             showArrows={false}
-            autoPlaySpeed={5000}
+            autoPlaySpeed={2000}
+            transitionMs={2000}
+            enableAutoPlay
+            enableMouseSwipe={true}
           >
             {data.map((item, index) => {
-              if (item.status === "Publish") {
-                return (
-                  <div className="courses-item space-y-5" key={index}>
-                    <div className="img-part">
-                      <Image
-                        className="h-72"
-                        src={process.env.NEXT_PUBLIC_HOSTNAME + item.picture}
-                        alt={item.title}
-                        width={380}
-                        height={500}
-                      />
-                    </div>
-                    <div className="content-part">
-                      <span className="fs-2 fw-bold">
-                        <Link
-                          className="categories  d-block text-white text-lg"
-                          href="#"
-                        >
-                          {item.title}
-                        </Link>
-                      </span>
-                    </div>
+              return (
+                <div className="courses-item space-y-5" key={index}>
+                  <div className="img-part">
+                    <Image
+                      className="h-72"
+                      src={process.env.NEXT_PUBLIC_HOSTNAME + item.picture}
+                      alt={item.title}
+                      width={380}
+                      height={500}
+                    />
                   </div>
-                );
-              }
+                  <div className="content-part">
+                    <span className="fs-2 fw-bold">
+                      <Link
+                        className="categories pt-3 d-block text-white "
+                        href="#"
+                      >
+                        {item.title}
+                      </Link>
+                    </span>
+                  </div>
+                </div>
+              );
             })}
           </Carousel>
         </div>
