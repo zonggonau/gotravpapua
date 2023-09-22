@@ -28,7 +28,7 @@ export default function Nav({ data }) {
   };
 
   useEffect(() => {
-    refreshLoad.refresh();
+    refreshLoad.refresh("/");
     const timeout = setTimeout(() => {
       setLoading(false);
     }, 3000);
