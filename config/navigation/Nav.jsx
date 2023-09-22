@@ -8,9 +8,9 @@ export default function Nav({ data }) {
   const [isOpen, setIsOpen] = useState(true);
   const [activeMenu, setActiveMenu] = useState("");
   const [loading, setLoading] = useState(true);
-  const refreshLoad = useRouter();
 
   const handleMenuClick = (menu) => {
+    loadingTime();
     setActiveMenu(menu);
     setIsOpen(true);
   };
@@ -28,16 +28,22 @@ export default function Nav({ data }) {
   };
 
   useEffect(() => {
-    refreshLoad.refresh("/");
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 2500);
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
       clearTimeout(timeout);
     };
   }, [showSubNavbar]);
+
+  const loadingTime = () => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+    setLoading(true);
+  };
 
   const hideLoader = () => {
     if (loading) {
