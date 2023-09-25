@@ -32,6 +32,7 @@ export default function SearchDestination({ data }) {
   };
 
   const handleButtonFilter = () => {
+    setCurrentPage(1);
     if (searchQuery !== "") {
       setBtnClear(true);
       setIsLoading(true);

@@ -33,6 +33,7 @@ export default function SearchAdventures({ data }) {
   };
 
   const handleButtonFilter = () => {
+    setCurrentPage(1);
     if (searchQuery !== "") {
       setBtnClear(true);
       setIsLoading(true);

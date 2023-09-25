@@ -32,6 +32,7 @@ export default function SearchPackages({ data }) {
   };
 
   const handleButtonFilter = () => {
+    setCurrentPage(1);
     if (searchQuery !== "") {
       setBtnClear(true);
       setIsLoading(true);
@@ -41,6 +42,7 @@ export default function SearchPackages({ data }) {
           .includes(searchQuery.toLowerCase())
       );
       setSearchResults(search);
+      handleInputChange;
     }
   };
 
