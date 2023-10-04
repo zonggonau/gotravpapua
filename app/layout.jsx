@@ -10,6 +10,10 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <meta
+          name="google-site-verification"
+          content="seZXlxxGXXnGt9EuEOHKlkr92NZ1TsZodqX_oXDovpM"
+        />
         <link
           rel="shortcut icon"
           type="image/x-icon"
