@@ -3,7 +3,7 @@ import React from "react";
 export default function RightBar() {
   return (
     <>
-      <div className="col-lg-4 pr-60 md-pr-15 md-mb-30">
+      <div className="col-lg-4 pr-60 md-pr-15 md-mb-30 pt-96">
         <div className="bg-info p-4 text-light">
           <h3 className="text-light">Lorem ipsum dolor sit amet.</h3>
           <p>
