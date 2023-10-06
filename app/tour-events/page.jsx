@@ -54,7 +54,7 @@ export default async function Events({ params }) {
           </div>
         </div>
 
-        <SearchEvents data={data} />
+        <SearchEvents data={data.data} />
       </div>
     </>
   );

@@ -2,14 +2,13 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { dataCarouselHero } from "@/data";
-import { getDataTourDestination, getDataTourPackages } from "@/data/api";
+import { getDataTourPackages } from "@/data/api";
 import { metadata } from "@/seo/Seotourpackages";
 import { SearchPackages } from "@/components/Search";
 
 export { metadata };
 export default async function TourPackages() {
   const { data } = await getDataTourPackages();
-
   return (
     <>
       <div className="main-content bg-white">
@@ -55,7 +54,7 @@ export default async function TourPackages() {
           </div>
         </div>
 
-        <SearchPackages data={data} />
+        <SearchPackages data={data.data} />
       </div>
     </>
   );

@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
+import useSWR from "swr";
 import React from "react";
 import { useState } from "react";
 import Carousel from "@itseasy21/react-elastic-carousel";
 import Image from "next/image";
+import { getAdventures } from "@/data/api";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -12,8 +14,17 @@ const breakPoints = [
   { width: 1200, itemsToShow: 3 },
 ];
 
-export default function AdventuresCarousel({ data }) {
-  const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
+export default function AdventuresCarousel() {
+  const { data, error, isLoading } = useSWR(
+    process.env.NEXT_PUBLIC_HOST_API + "tour-adventures",
+    getAdventures
+  );
+  // const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
+
+  if (error) return <div>Error</div>;
+  if (isLoading) return <div>Loading...</div>;
+
+  const sortedData = [...data.data.data].sort((a) => a.id);
 
   const RenderCarousel = () => {
     return (
@@ -28,7 +39,7 @@ export default function AdventuresCarousel({ data }) {
             enableAutoPlay
             enableMouseSwipe={true}
           >
-            {data.map((item, index) => {
+            {sortedData.map((item, index) => {
               return (
                 <div className="courses-item space-y-5" key={index}>
                   <div className="img-part">

@@ -10,7 +10,7 @@ export default function SearchPackages({ data }) {
   const [isLoading, setIsLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResults] = useState(data);
-  const itemsPerPage = 6;
+  const itemsPerPage = 2;
   const [currentPage, setCurrentPage] = useState(1);
 
   const handlePageChange = (newPage) => {

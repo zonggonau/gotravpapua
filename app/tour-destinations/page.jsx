@@ -56,7 +56,7 @@ export default async function Destinations() {
           </div>
         </div>
 
-        <SearchDestination data={data} />
+        <SearchDestination data={data.data} />
       </div>
     </>
   );

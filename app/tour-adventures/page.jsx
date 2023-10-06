@@ -53,7 +53,7 @@ export default async function Adventures() {
             </div>
           </div>
         </div>
-        <SearchAdventures data={data} />
+        <SearchAdventures data={data.data} />
       </div>
     </>
   );

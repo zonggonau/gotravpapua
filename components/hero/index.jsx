@@ -1,10 +1,17 @@
 "use client";
+import useSWR from "swr";
+import { getSliders } from "@/data/api.js";
 import { useState } from "react";
 import Link from "next/link";
 import { Carousel } from "react-bootstrap";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function BootstrapCarousel({ data }) {
+export default function BootstrapCarousel() {
+  const { data, error, isLoading } = useSWR(
+    process.env.NEXT_PUBLIC_HOST_API + "sliders",
+    getSliders
+  );
+
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
@@ -21,6 +28,10 @@ export default function BootstrapCarousel({ data }) {
     </div>
   );
 
+  if (error) return <div>ERROR</div>;
+  if (isLoading) return <div>Loading..</div>;
+  const sortedData = [...data.data];
+  sortedData.sort((a, b) => a.id);
   return (
     <Carousel
       activeIndex={index}
@@ -28,54 +39,52 @@ export default function BootstrapCarousel({ data }) {
       nextIcon={<NextCarousel />}
       prevIcon={<PrevCarousel />}
     >
-      {data.map((item, index) => {
-        if (item.status === "Publish") {
-          return (
-            <Carousel.Item key={item.id} interval={5000}>
-              <div
-                className="slider-content"
-                style={{
-                  backgroundImage: `url('${
-                    process.env.NEXT_PUBLIC_HOSTNAME + item.picture
-                  }')`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "top center",
-                }}
-              >
-                <div className="container">
-                  <div className="content-part">
-                    <h1
-                      className="sl-title wow fadeInUp"
-                      data-wow-delay="600ms"
-                      data-wow-duration="2000ms"
-                    >
-                      {item.title}
-                    </h1>
-                    <div
-                      className="sec-title mb-40 md-mb-20 wow fadeInUp"
+      {sortedData.map((item, index) => {
+        return (
+          <Carousel.Item key={index} interval={5000}>
+            <div
+              className="slider-content"
+              style={{
+                backgroundImage: `url('${
+                  process.env.NEXT_PUBLIC_HOSTNAME + item.picture
+                }')`,
+                backgroundSize: "cover",
+                backgroundPosition: "top center",
+              }}
+            >
+              <div className="container">
+                <div className="content-part">
+                  <h1
+                    className="sl-title wow fadeInUp"
+                    data-wow-delay="600ms"
+                    data-wow-duration="2000ms"
+                  >
+                    {item.title}
+                  </h1>
+                  <div
+                    className="sec-title mb-40 md-mb-20 wow fadeInUp"
+                    data-wow-delay="300ms"
+                    data-wow-duration="2000ms"
+                  >
+                    <div className="desc white-color wow fadeInUp">
+                      {item.description}
+                    </div>
+                  </div>
+                  <div className="btn-part">
+                    <Link
+                      className="readon green-btn main-home wow fadeInUp rounded-0"
+                      href={`tour-events/${item.slug}`}
                       data-wow-delay="300ms"
                       data-wow-duration="2000ms"
                     >
-                      <div className="desc white-color wow fadeInUp">
-                        {item.description}
-                      </div>
-                    </div>
-                    <div className="btn-part">
-                      <Link
-                        className="readon green-btn main-home wow fadeInUp rounded-0"
-                        href={`tour-events/${item.slug}`}
-                        data-wow-delay="300ms"
-                        data-wow-duration="2000ms"
-                      >
-                        BEGIN YOUR JOURNEY
-                      </Link>
-                    </div>
+                      BEGIN YOUR JOURNEY
+                    </Link>
                   </div>
                 </div>
               </div>
-            </Carousel.Item>
-          );
-        }
+            </div>
+          </Carousel.Item>
+        );
       })}
     </Carousel>
   );

@@ -1,9 +1,20 @@
+"use client";
 import React from "react";
+import useSWR from "swr";
 import Link from "next/link";
 import Image from "next/image";
-export default function TourPackages({ data }) {
+import { getTourPackage } from "@/data/api";
+export default function TourPackages() {
+  const { data, error, isLoading } = useSWR(
+    process.env.NEXT_PUBLIC_HOST_API + "tour-packages",
+    getTourPackage
+  );
   const limit = 6;
-  const limitData = data.slice(0, limit);
+  // const limitData = data.slice(0, limit);
+
+  if (error) return <div>Error</div>;
+  if (isLoading) return <div>Loading...</div>;
+
   return (
     <>
       <div
@@ -23,7 +34,7 @@ export default function TourPackages({ data }) {
             </div>
           </div>
           <div className="row">
-            {limitData.map((item, index) => {
+            {data.data.data.map((item, index) => {
               return (
                 <div className="col-lg-4 col-md-6 mb-24" key={index}>
                   <div className="courses-item">
