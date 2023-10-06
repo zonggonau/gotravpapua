@@ -4,12 +4,7 @@ import {
   TourPackages,
   BootstrapCarousel,
 } from "@/components";
-import { dataCarouselHero } from "@/data";
-import {
-  getDataAdventures,
-  getDataSlider,
-  getDataTourPackages,
-} from "@/data/api";
+
 import { metadata } from "@/seo/Seoroot";
 export { metadata };
 
