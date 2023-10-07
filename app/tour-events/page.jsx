@@ -9,9 +9,7 @@ import { metadata } from "@/seo/Seotourevents";
 export { metadata };
 export default async function Events({ params }) {
   const { data } = await getDataEvents();
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+
   return (
     <>
       <div className="main-content bg-white">
