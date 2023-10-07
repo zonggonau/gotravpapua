@@ -1,16 +1,11 @@
 "use client";
 import React from "react";
-import useSWR from "swr";
 import Link from "next/link";
 import Image from "next/image";
-import { endpoint, fetcher, getTourPackage } from "@/data/api";
-export default function TourPackages() {
-  const { data, error, isLoading } = useSWR(endpoint, fetcher);
+export default function TourPackages({ data }) {
+  console.log(data);
   const limit = 6;
-  // const limitData = data.slice(0, limit);
-
-  if (error) return <div>Error</div>;
-  if (isLoading) return <div>Loading...</div>;
+  const limitData = data.slice(0, limit);
 
   return (
     <>
@@ -31,7 +26,7 @@ export default function TourPackages() {
             </div>
           </div>
           <div className="row">
-            {data.data.data.map((item, index) => {
+            {limitData.map((item, index) => {
               return (
                 <div className="col-lg-4 col-md-6 mb-24" key={index}>
                   <div className="courses-item">

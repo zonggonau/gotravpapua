@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { dataCarouselHero } from "@/data";
@@ -9,6 +9,9 @@ import { metadata } from "@/seo/Seotourevents";
 export { metadata };
 export default async function Events({ params }) {
   const { data } = await getDataEvents();
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
   return (
     <>
       <div className="main-content bg-white">

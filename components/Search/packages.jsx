@@ -10,7 +10,7 @@ export default function SearchPackages({ data }) {
   const [isLoading, setIsLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResults] = useState(data);
-  const itemsPerPage = 2;
+  const itemsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
 
   const handlePageChange = (newPage) => {
@@ -48,10 +48,12 @@ export default function SearchPackages({ data }) {
   };
 
   useEffect(() => {
+    console.log(searchResult);
+    console.log("reload ulang");
     setTimeout(() => {
       setIsLoading(false);
     }, 5000);
-  }, [shortedData]);
+  }, [searchResult]);
 
   const DataNotFound = () => {
     if (searchResult.length <= 0) {
