@@ -21,6 +21,7 @@ export default function SearchAdventures({ data }) {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentPageData = searchResult.slice(startIndex, endIndex);
+  const shortedData = currentPageData.sort((a, b) => b.id - a.id);
 
   const handleInputChange = (e) => {
     setBtnClear(false);
@@ -50,7 +51,7 @@ export default function SearchAdventures({ data }) {
     setTimeout(() => {
       setIsLoading(false);
     }, 5000);
-  });
+  }, [shortedData]);
 
   const DataNotFound = () => {
     if (searchResult.length <= 0) {
@@ -129,7 +130,7 @@ export default function SearchAdventures({ data }) {
                 <Loading />
               </>
             ) : (
-              currentPageData.map((item, index) => {
+              shortedData.map((item, index) => {
                 return (
                   <div className="col-lg-4 mb-30 col-md-6" key={index}>
                     <div className="gallery-item">

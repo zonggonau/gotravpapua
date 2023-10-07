@@ -1,16 +1,13 @@
 "use client";
 import useSWR from "swr";
-import { getSliders } from "@/data/api.js";
+import { fetcher, endpoint } from "@/data/api.js";
 import { useState } from "react";
 import Link from "next/link";
 import { Carousel } from "react-bootstrap";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function BootstrapCarousel() {
-  const { data, error, isLoading } = useSWR(
-    process.env.NEXT_PUBLIC_HOST_API + "sliders",
-    getSliders
-  );
+  const { data, error, isLoading } = useSWR(endpoint.slider, fetcher);
 
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex, e) => {

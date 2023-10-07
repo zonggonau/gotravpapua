@@ -20,6 +20,7 @@ export default function SearchPackages({ data }) {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentPageData = searchResult.slice(startIndex, endIndex);
+  const shortedData = currentPageData.sort((a, b) => b.id - a.id);
 
   const handleInputChange = (e) => {
     setBtnClear(false);
@@ -50,7 +51,7 @@ export default function SearchPackages({ data }) {
     setTimeout(() => {
       setIsLoading(false);
     }, 5000);
-  });
+  }, [shortedData]);
 
   const DataNotFound = () => {
     if (searchResult.length <= 0) {
@@ -132,7 +133,7 @@ export default function SearchPackages({ data }) {
                 <Loading />
               </>
             ) : (
-              currentPageData.map((item, index) => {
+              shortedData.map((item, index) => {
                 return (
                   <div className="col-lg-4 col-md-6 mb-24" key={index}>
                     <div className="courses-item">

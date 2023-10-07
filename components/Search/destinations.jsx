@@ -20,6 +20,7 @@ export default function SearchDestination({ data }) {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentPageData = searchResult.slice(startIndex, endIndex);
+  const shortedData = currentPageData.sort((a, b) => b.id - a.id);
 
   const handleInputChange = (e) => {
     setBtnClear(false);
@@ -49,7 +50,7 @@ export default function SearchDestination({ data }) {
     setTimeout(() => {
       setIsLoading(false);
     }, 5000);
-  });
+  }, [shortedData]);
 
   const DataNotFound = () => {
     if (searchResult.length <= 0) {
@@ -131,7 +132,7 @@ export default function SearchDestination({ data }) {
                 <Loading />
               </>
             ) : (
-              currentPageData.map((item, index) => {
+              shortedData.map((item, index) => {
                 return (
                   <div className="col-lg-6 pr-60 md-pr-15 md-mb-30" key={index}>
                     <div className="row no-gutter white-bg blog-item mb-35">

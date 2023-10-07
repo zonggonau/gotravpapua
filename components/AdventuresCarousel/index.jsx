@@ -5,7 +5,7 @@ import React from "react";
 import { useState } from "react";
 import Carousel from "@itseasy21/react-elastic-carousel";
 import Image from "next/image";
-import { getAdventures } from "@/data/api";
+import { endpoint, fetcher, getAdventures } from "@/data/api";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -15,10 +15,7 @@ const breakPoints = [
 ];
 
 export default function AdventuresCarousel() {
-  const { data, error, isLoading } = useSWR(
-    process.env.NEXT_PUBLIC_HOST_API + "tour-adventures",
-    getAdventures
-  );
+  const { data, error, isLoading } = useSWR(endpoint.touradventures, fetcher);
   // const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
 
   if (error) return <div>Error</div>;

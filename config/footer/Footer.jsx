@@ -1,8 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import useSWR from "swr";
+import { endpoint, fetcher } from "@/data/api";
 import Link from "next/link";
 
-export default function Footer({ data }) {
+export default function Footer() {
+  const { data, error, isLoading } = useSWR(endpoint.settings, fetcher);
   const [isVisible, setIsVisible] = useState(false);
 
   const toogleVisibility = () => {
@@ -30,6 +33,9 @@ export default function Footer({ data }) {
       window.removeEventListener("scroll", toogleVisibility);
     };
   }, []);
+
+  if (error) return <div>Error</div>;
+  if (isLoading) return "";
 
   return (
     <>
@@ -80,17 +86,17 @@ export default function Footer({ data }) {
               <div className="col-lg-4 md-mb-20 text-center">
                 <ul className="footer-social">
                   <li>
-                    <Link href={data.facebook} className="rounded-0">
+                    <Link href={data.data.facebook} className="rounded-0">
                       <i className="fa-brands fa-facebook"></i>
                     </Link>
                   </li>
                   <li>
-                    <Link href={data.twitter} className="rounded-0">
+                    <Link href={data.data.twitter} className="rounded-0">
                       <i className="fa-brands fa-twitter"></i>
                     </Link>
                   </li>
                   <li>
-                    <Link href={data.instagram} className="rounded-0">
+                    <Link href={data.data.instagram} className="rounded-0">
                       <i className="fa-brands fa-instagram"></i>
                     </Link>
                   </li>

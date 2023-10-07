@@ -3,12 +3,9 @@ import React from "react";
 import useSWR from "swr";
 import Link from "next/link";
 import Image from "next/image";
-import { getTourPackage } from "@/data/api";
+import { endpoint, fetcher, getTourPackage } from "@/data/api";
 export default function TourPackages() {
-  const { data, error, isLoading } = useSWR(
-    process.env.NEXT_PUBLIC_HOST_API + "tour-packages",
-    getTourPackage
-  );
+  const { data, error, isLoading } = useSWR(endpoint, fetcher);
   const limit = 6;
   // const limitData = data.slice(0, limit);
 

@@ -1,9 +1,12 @@
 "use client";
 import Link from "next/link";
+import useSWR from "swr";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-export default function Nav({ data }) {
+import { endpoint, fetcher } from "@/data/api";
+export default function Nav() {
+  const { data, error, isLoading } = useSWR(endpoint.settings, fetcher);
   const [showSubNavbar, setShowSubNavbar] = useState(true);
   const [isOpen, setIsOpen] = useState(true);
   const [activeMenu, setActiveMenu] = useState("");
@@ -45,29 +48,47 @@ export default function Nav({ data }) {
     setLoading(true);
   };
 
-  const hideLoader = () => {
-    if (loading) {
-      return (
-        <div id="loader" className="loader green-color">
-          <div className="loader-container">
-            <div className="loader-icon">
-              <Image
-                src={`${process.env.NEXT_PUBLIC_HOST}assets/images/pre-load-gotrav.png`}
-                width={100}
-                height={100}
-                alt="pre load gotrav"
-              />
-            </div>
+  // const hideLoader = () => {
+  //   if (loading) {
+  //     return (
+  //       <div id="loader" className="loader green-color">
+  //         <div className="loader-container">
+  //           <div className="loader-icon">
+  //             <Image
+  //               src={`${process.env.NEXT_PUBLIC_HOST}assets/images/pre-load-gotrav.png`}
+  //               width={100}
+  //               height={100}
+  //               alt="pre load gotrav"
+  //             />
+  //           </div>
+  //         </div>
+  //       </div>
+  //     );
+  //   }
+  //   return null;
+  // };
+  // console.log(data.data);
+
+  if (error) return <div>Error</div>;
+  if (isLoading)
+    return (
+      <div id="loader" className="loader green-color">
+        <div className="loader-container">
+          <div className="loader-icon">
+            <Image
+              src={`${process.env.NEXT_PUBLIC_HOST}assets/images/pre-load-gotrav.png`}
+              width={100}
+              height={100}
+              alt="pre load gotrav"
+            />
           </div>
         </div>
-      );
-    }
-    return null;
-  };
+      </div>
+    );
 
   return (
     <>
-      {hideLoader()}
+      {/* {hideLoader()} */}
       <div className="full-width-header header-style1 home1-modifiy home12-modifiy">
         <header id="rs-header" className="rs-header">
           <div
@@ -82,13 +103,13 @@ export default function Nav({ data }) {
                     <li>
                       <i className="flaticon-email"></i>
                       <Link href={"mailto:support@rstheme.com"}>
-                        {data.email_address}
+                        {data.data.email_address}
                       </Link>
                     </li>
                     <li>
                       <i className="fa flaticon-call"></i>
                       <Link href="tel:+(+01)999-999-4444">
-                        {data.telephone}
+                        {data.data.telephone}
                       </Link>
                     </li>
                   </ul>
@@ -96,30 +117,31 @@ export default function Nav({ data }) {
                 <div className="col-md-7 text-end">
                   <ul className="toolbar-sl-share">
                     <li className="opening">
-                      <i className="fa fa-map-marker"></i> {data.office_address}
+                      <i className="fa fa-map-marker"></i>
+                      {data.data.office_address}
                     </li>
                     <li>
-                      <Link href={data.facebook} target="_blank">
+                      <Link href={data.data.facebook} target="_blank">
                         <i className="fa-brands fa-facebook"></i>
                       </Link>
                     </li>
                     <li>
-                      <Link href={data.twitter} target="_blank">
+                      <Link href={data.data.twitter} target="_blank">
                         <i className="fa-brands fa-twitter"></i>
                       </Link>
                     </li>
                     <li>
-                      <Link href={data.linkedin} target="_blank">
+                      <Link href={data.data.linkedin} target="_blank">
                         <i className="fa-brands fa-linkedin"></i>
                       </Link>
                     </li>
                     <li>
-                      <Link href={data.instagram} target="_blank">
+                      <Link href={data.data.instagram} target="_blank">
                         <i className="fa-brands fa-instagram"></i>
                       </Link>
                     </li>
                     <li>
-                      <Link href={data.youtube} target="_blank">
+                      <Link href={data.data.youtube} target="_blank">
                         <i className="fa-brands fa-youtube"></i>
                       </Link>
                     </li>

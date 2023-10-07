@@ -1,6 +1,14 @@
-const getTourPackage = (url) => fetch(url).then((res) => res.json());
-const getSliders = (url) => fetch(url).then((res) => res.json());
-const getAdventures = (url) => fetch(url).then((res) => res.json());
+const TOKEN = "";
+const HOST = process.env.NEXT_PUBLIC_HOST_API;
+const endpoint = {
+  slider: HOST + "sliders",
+  tourpackages: HOST + "tour-packages",
+  tourdestinations: HOST + "tour-destinations",
+  touradventures: HOST + "tour-adventures",
+  tourevents: HOST + "tour-events",
+  settings: HOST + "settings",
+};
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 async function getDataTourDestination() {
   const res = await fetch(
@@ -77,14 +85,14 @@ async function getSettings() {
 }
 
 export {
+  fetcher,
+  HOST,
+  endpoint,
+  getDataAdventures,
+  getDataDetails,
+  getDataEvents,
+  getDataSlider,
   getDataTourDestination,
   getDataTourPackages,
-  getDataAdventures,
-  getDataEvents,
-  getDataDetails,
-  getDataSlider,
   getSettings,
-  getTourPackage,
-  getSliders,
-  getAdventures,
 };
