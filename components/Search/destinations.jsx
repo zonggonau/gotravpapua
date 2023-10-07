@@ -6,6 +6,7 @@ import Pagination from "../pagination";
 import Loading from "./Loading";
 
 export default function SearchDestination({ data }) {
+  console.log(data);
   const [btnClear, setBtnClear] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");

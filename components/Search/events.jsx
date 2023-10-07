@@ -52,7 +52,7 @@ export default function SearchEvents({ data }) {
     setTimeout(() => {
       setIsLoading(false);
     }, 5000);
-  }, [currentPage]);
+  }, [shortedData]);
 
   const DataNotFound = () => {
     if (searchResult.length <= 0) {

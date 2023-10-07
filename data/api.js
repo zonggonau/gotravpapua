@@ -12,7 +12,8 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 async function getDataTourDestination() {
   const res = await fetch(
-    process.env.NEXT_PUBLIC_HOST_API + "tour-destinations"
+    process.env.NEXT_PUBLIC_HOST_API + "tour-destinations",
+    { cache: "no-store" }
   );
 
   if (!res.ok) {
@@ -23,7 +24,9 @@ async function getDataTourDestination() {
 }
 
 async function getDataTourPackages() {
-  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "tour-packages");
+  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "tour-packages", {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -33,7 +36,10 @@ async function getDataTourPackages() {
 }
 
 async function getDataAdventures() {
-  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "tour-adventures");
+  const res = await fetch(
+    process.env.NEXT_PUBLIC_HOST_API + "tour-adventures",
+    { cache: "no-store" }
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -43,7 +49,9 @@ async function getDataAdventures() {
 }
 
 async function getDataEvents() {
-  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "tour-events");
+  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "tour-events", {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -53,7 +61,9 @@ async function getDataEvents() {
 }
 
 async function getDataSlider() {
-  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "sliders");
+  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "sliders", {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -64,7 +74,8 @@ async function getDataSlider() {
 
 async function getDataDetails(category, slug) {
   const res = await fetch(
-    process.env.NEXT_PUBLIC_HOST_API + category + "/" + slug + "/detail"
+    process.env.NEXT_PUBLIC_HOST_API + category + "/" + slug + "/detail",
+    { cache: "no-store" }
   );
 
   if (!res.ok) {
@@ -75,7 +86,9 @@ async function getDataDetails(category, slug) {
 }
 
 async function getSettings() {
-  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "settings");
+  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "settings", {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");

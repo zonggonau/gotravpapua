@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { dataCarouselHero } from "@/data";
 import { getDataTourDestination } from "@/data/api";
 import { SearchDestination } from "@/components/Search";
 import { metadata } from "@/seo/Seotourdestination";
@@ -56,7 +55,7 @@ export default async function Destinations() {
           </div>
         </div>
 
-        <SearchDestination data={data} />
+        <SearchDestination data={data.data} />
       </div>
     </>
   );
