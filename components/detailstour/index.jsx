@@ -2,6 +2,7 @@ import RightBar from "@/config/rightbar/rightbar";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { parse } from "node-html-parser";
 
 export default function CompDetailTour({ data }) {
   return (
@@ -80,7 +81,7 @@ export default function CompDetailTour({ data }) {
                         </div>
                         <div className="mt-3">
                           <p className="text-left border-black">
-                            {data.description}
+                            {parse(data.description)}
                           </p>
                         </div>
                       </div>
