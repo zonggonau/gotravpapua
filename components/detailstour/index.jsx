@@ -5,7 +5,7 @@ import React from "react";
 import { parse } from "html-react-parser";
 
 export default function CompDetailTour({ data }) {
-  const html = "<h1>CRISTOPER ZONGGONAU</h1>";
+  console.log(data);
   return (
     <div className="main-content bg-white">
       <div className="rs-breadcrumbs breadcrumbs-overlay">
@@ -23,22 +23,24 @@ export default function CompDetailTour({ data }) {
             data-wow-delay="300ms"
             data-wow-duration="2000ms"
           >
-            {data.title}
+            {/* {data.title} */}
           </h1>
           <div
             className="sec-title mb-40 md-mb-20 wow fadeInUp"
             data-wow-delay="300ms"
             data-wow-duration="2000ms"
           >
-            <div className="desc text-center col-md-6 mx-auto">{data.body}</div>
-            <ul className="my-3 white-color">
+            {/* <div className="desc text-center col-md-6 mx-auto">
+              {data.description}
+            </div> */}
+            {/* <ul className="my-3 white-color">
               <li>
                 <Link className="active" href="/">
                   Home
                 </Link>
               </li>
               <li>Destinations</li>
-            </ul>
+            </ul> */}
           </div>
         </div>
       </div>
