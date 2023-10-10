@@ -81,8 +81,8 @@ export default function CompDetailTour({ data }) {
                         </div>
                         <div className="mt-3">
                           <p className="text-left border-black">
-                            {parse(data.description)}
-                            {/* {data.description} */}
+                            {/* {parse(`${data.description}`)} */}
+                            {data.description}
                           </p>
                         </div>
                       </div>
