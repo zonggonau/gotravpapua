@@ -83,7 +83,7 @@ export default function CompDetailTour({ data }) {
                         <div className="mt-3">
                           <div
                             dangerouslySetInnerHTML={{
-                              __html: data.description,
+                              __html: data.body,
                             }}
                           ></div>
                         </div>
