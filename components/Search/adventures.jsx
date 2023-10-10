@@ -151,7 +151,7 @@ export default function SearchAdventures({ data }) {
                           />
                         </Link>
                       </div>
-                      <div className="title fs-2 fw-bold text-success">
+                      <div className="title fs-2 fw-bold text-success text-xs">
                         {item.title}
                       </div>
                     </div>

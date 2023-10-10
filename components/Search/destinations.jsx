@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Pagination from "../pagination";
 import Loading from "./Loading";
+import { potongPargraf } from "@/data";
 
 export default function SearchDestination({ data }) {
   console.log(data);
@@ -159,12 +160,12 @@ export default function SearchDestination({ data }) {
                               {item.title}
                             </Link>
                           </h3>
-                          <ul className="blog-meta">
+                          {/* <ul className="blog-meta">
                             <li>
                               <i className="fa-solid fa-map-marker"></i> Nabire
                             </li>
-                          </ul>
-                          <p>{item.description}</p>
+                          </ul> */}
+                          {potongPargraf(item.description)}
                         </div>
                       </div>
                     </div>

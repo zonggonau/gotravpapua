@@ -67,7 +67,7 @@ export default function Nav() {
     }
     return null;
   };
-  console.log(data.data);
+  // console.log(data.data);
 
   if (error) return <div>Error</div>;
   if (isLoading)

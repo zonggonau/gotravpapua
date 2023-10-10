@@ -4,8 +4,11 @@ import Link from "next/link";
 import React from "react";
 import { parse } from "html-react-parser";
 
-export default function CompDetailTour({ data }) {
-  console.log(data);
+export default function CompDetailTour({ data, category }) {
+  const changeSlug = category
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
   return (
     <div className="main-content bg-white">
       <div className="rs-breadcrumbs breadcrumbs-overlay">
@@ -23,7 +26,7 @@ export default function CompDetailTour({ data }) {
             data-wow-delay="300ms"
             data-wow-duration="2000ms"
           >
-            {/* {data.title} */}
+            {changeSlug}
           </h1>
           <div
             className="sec-title mb-40 md-mb-20 wow fadeInUp"

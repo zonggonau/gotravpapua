@@ -71,7 +71,8 @@ export async function generateMetadata({ params }) {
 
 export default async function Details({ params }) {
   const category = params.category;
+  console.log(params);
   const slug = params.slug;
   const { data } = await getDataDetails(category, slug);
-  return <CompDetailTour data={data} />;
+  return <CompDetailTour data={data} category={category} />;
 }

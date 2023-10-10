@@ -2,8 +2,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { potongPargraf } from "@/data";
 export default function TourPackages({ data }) {
-  console.log(data);
   const limit = 6;
   const limitData = data.slice(0, limit);
 
@@ -49,14 +49,17 @@ export default function TourPackages({ data }) {
                             {item.title}
                           </Link>
                         </h3>
-                        <ul className="meta-part">
+
+                        {potongPargraf(item.description)}
+
+                        {/* <ul className="meta-part">
                           <li>
                             <i className="fa fa-calendar-check-o"></i> 5 Days
                           </li>
                           <li>
                             <i className="fa fa-map-marker"></i> Nabire
                           </li>
-                        </ul>
+                        </ul> */}
                       </div>
                     </div>
                   </div>

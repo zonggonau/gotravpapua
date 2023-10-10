@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Pagination from "../pagination";
 import Loading from "./Loading";
+import { potongPargraf } from "@/data";
 
 export default function SearchPackages({ data }) {
   const [btnClear, setBtnClear] = useState(false);
@@ -160,14 +161,15 @@ export default function SearchPackages({ data }) {
                               {item.title}
                             </Link>
                           </h3>
-                          <ul className="flex justify-between">
+                          {potongPargraf(item.description)}
+                          {/* <ul className="flex justify-between">
                             <li>
                               <i className="fa fa-calendar-check-o"></i> 5 Days
                             </li>
                             <li>
                               <i className="fa fa-map-marker"></i> Nabire
                             </li>
-                          </ul>
+                          </ul> */}
                         </div>
                       </div>
                     </div>

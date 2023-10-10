@@ -138,7 +138,7 @@ export default function SearchEvents({ data }) {
                 shortedData.map((item, index) => {
                   return (
                     <div
-                      className="mb-4"
+                      className="mb-4 border-1"
                       style={{
                         borderBottomStyle: "dotted",
                         borderBottomColor: "#ccc",
