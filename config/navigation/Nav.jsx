@@ -48,26 +48,26 @@ export default function Nav() {
     setLoading(true);
   };
 
-  // const hideLoader = () => {
-  //   if (loading) {
-  //     return (
-  //       <div id="loader" className="loader green-color">
-  //         <div className="loader-container">
-  //           <div className="loader-icon">
-  //             <Image
-  //               src={`${process.env.NEXT_PUBLIC_HOST}assets/images/pre-load-gotrav.png`}
-  //               width={100}
-  //               height={100}
-  //               alt="pre load gotrav"
-  //             />
-  //           </div>
-  //         </div>
-  //       </div>
-  //     );
-  //   }
-  //   return null;
-  // };
-  // console.log(data.data);
+  const hideLoader = () => {
+    if (loading) {
+      return (
+        <div id="loader" className="loader green-color">
+          <div className="loader-container">
+            <div className="loader-icon">
+              <Image
+                src={`${process.env.NEXT_PUBLIC_HOST}assets/images/pre-load-gotrav.png`}
+                width={100}
+                height={100}
+                alt="pre load gotrav"
+              />
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return null;
+  };
+  console.log(data.data);
 
   if (error) return <div>Error</div>;
   if (isLoading)
@@ -88,7 +88,7 @@ export default function Nav() {
 
   return (
     <>
-      {/* {hideLoader()} */}
+      {hideLoader()}
       <div className="full-width-header header-style1 home1-modifiy home12-modifiy">
         <header id="rs-header" className="rs-header">
           <div
