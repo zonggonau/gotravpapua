@@ -5,6 +5,7 @@ import React from "react";
 import { parse } from "html-react-parser";
 
 export default function CompDetailTour({ data }) {
+  const html = "<h1>CRISTOPER ZONGGONAU</h1>";
   return (
     <div className="main-content bg-white">
       <div className="rs-breadcrumbs breadcrumbs-overlay">
@@ -80,10 +81,11 @@ export default function CompDetailTour({ data }) {
                           />
                         </div>
                         <div className="mt-3">
-                          <p className="text-left border-black">
-                            {/* {parse(`${data.description}`)} */}
-                            {data.description}
-                          </p>
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: data.description,
+                            }}
+                          ></div>
                         </div>
                       </div>
                     </div>
