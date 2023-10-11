@@ -182,7 +182,7 @@ export default function SearchEvents({ data }) {
                               elit. Est debitis similique cum esse iusto,
                               adipisci ab odit sunt totam sequi.
                             </p>
-                            <ul className="blog-meta mt-3">
+                            {/* <ul className="blog-meta mt-3">
                               <li>
                                 <Link href="" className="btn p-0">
                                   <i className="fa-solid fa-tag"></i> Cultural
@@ -194,7 +194,7 @@ export default function SearchEvents({ data }) {
                                   Wamena
                                 </Link>
                               </li>
-                            </ul>
+                            </ul> */}
                           </div>
                         </div>
                       </div>
