@@ -1,8 +1,8 @@
 import RightBar from "@/config/rightbar/rightbar";
+import { potongPargraf } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { parse } from "html-react-parser";
 
 export default function CompDetailTour({ data, category }) {
   const changeSlug = category
@@ -33,17 +33,18 @@ export default function CompDetailTour({ data, category }) {
             data-wow-delay="300ms"
             data-wow-duration="2000ms"
           >
-            {/* <div className="desc text-center col-md-6 mx-auto">
-              {data.description}
-            </div> */}
-            {/* <ul className="my-3 white-color">
+            <div className="desc text-center col-md-6 mx-auto">
+              <h3 className="text-white">{data.title}</h3>
+              {potongPargraf(data.description)}
+            </div>
+            <ul className="my-3 white-color">
               <li>
                 <Link className="active" href="/">
                   Home
                 </Link>
               </li>
-              <li>Destinations</li>
-            </ul> */}
+              <li>{changeSlug}</li>
+            </ul>
           </div>
         </div>
       </div>

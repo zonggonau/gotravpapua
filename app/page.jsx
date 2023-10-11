@@ -17,6 +17,7 @@ export default async function Home() {
   const { data: slider } = await getDataSlider();
   const { data: adventure } = await getDataAdventures();
   const { data: packages } = await getDataTourPackages();
+
   return (
     <>
       <div className="main-content bg-white">
