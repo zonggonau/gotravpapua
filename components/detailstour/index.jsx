@@ -12,7 +12,7 @@ export default function CompDetailTour({ data, category, slug }) {
   return (
     <div className="main-content bg-white">
       <div className="rs-breadcrumbs breadcrumbs-overlay">
-        <div className="breadcrumbs-img">
+        {/* <div className="breadcrumbs-img">
           <Image
             src={process.env.NEXT_PUBLIC_HOSTNAME + data.picture}
             alt="Breadcrumbs Image"
@@ -21,26 +21,26 @@ export default function CompDetailTour({ data, category, slug }) {
             height={5000}
             loading="lazy"
           />
-        </div>
+        </div> */}
         <div className="breadcrumbs-text white-color">
-          <h1
+          {/* <h1
             className="page-title white-color wow fadeInUp"
             data-wow-delay="300ms"
             data-wow-duration="2000ms"
           >
             {data.title}
-          </h1>
+          </h1> */}
           <div
-            className="sec-title mb-40 md-mb-20 wow fadeInUp"
+            className="sec-title mb-40 md-mb-20 wow fadeInUp "
             data-wow-delay="300ms"
             data-wow-duration="2000ms"
           >
-            <div className="desc text-center col-md-6 mx-auto">
+            {/* <div className="desc text-center col-md-6 mx-auto">
               {potongPargraf(data.description)}
-            </div>
-            <ul className="my-3 white-color">
+            </div> */}
+            <ul className="my-3">
               <li>
-                <Link className="active" href="/">
+                <Link className="active text-black" href="/">
                   Home
                 </Link>
               </li>
@@ -68,10 +68,27 @@ export default function CompDetailTour({ data, category, slug }) {
               <div className="row no-gutter white-bg blog-item border-0">
                 <div className="columns-2xl">
                   <div className="rs-services home12-styl">
-                    <div className="container py-5 ">
+                    <div className="container py-5">
+                      <div class="pb-3 text-black text-lg">
+                        <Link href="/">Home</Link> &gt;
+                        <Link href={`/${category}`}>{changeSlug}</Link>
+                        <Link href="#" className="disabled"></Link> &gt;{" "}
+                        {data.title}
+                      </div>
                       <div className="">
-                        <div className="mb-5">
-                          {/* <h2>{data.title}</h2> */}
+                        <div className="">
+                          <Image
+                            src={
+                              process.env.NEXT_PUBLIC_HOSTNAME + data.picture
+                            }
+                            className="round-circle shadow-lg  mb-5 bg-body-tertiary rounded"
+                            alt={data.description}
+                            width={1000}
+                            height={1000}
+                          />
+                        </div>
+                        <div className="mb-3">
+                          <h2>{data.title}</h2>
                           {/* <ul className="blog-meta">
                             <li>
                               <small className="border p-2 px-3">
@@ -81,17 +98,7 @@ export default function CompDetailTour({ data, category, slug }) {
                             </li>
                           </ul> */}
                         </div>
-                        {/* <div className="">
-                          <Image
-                            src={
-                              process.env.NEXT_PUBLIC_HOSTNAME + data.picture
-                            }
-                            className="round-circle shadow-lg p-3 mb-5 bg-body-tertiary rounded"
-                            alt={data.description}
-                            width={1000}
-                            height={1000}
-                          />
-                        </div> */}
+
                         <div className="mt-3">
                           <div
                             dangerouslySetInnerHTML={{

@@ -120,31 +120,68 @@ export default function Nav() {
                       <i className="fa fa-map-marker"></i>
                       {data.data.office_address}
                     </li>
-                    <li>
-                      <Link href={data.data.facebook} target="_blank">
-                        <i className="fa-brands fa-facebook"></i>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={data.data.twitter} target="_blank">
-                        <i className="fa-brands fa-twitter"></i>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={data.data.linkedin} target="_blank">
-                        <i className="fa-brands fa-linkedin"></i>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={data.data.instagram} target="_blank">
-                        <i className="fa-brands fa-instagram"></i>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={data.data.youtube} target="_blank">
-                        <i className="fa-brands fa-youtube"></i>
-                      </Link>
-                    </li>
+                    {data.data.facebook === null ? (
+                      ""
+                    ) : (
+                      <li>
+                        <Link
+                          href={
+                            data.data.facebook === null
+                              ? ""
+                              : data.data.facebook
+                          }
+                          target="_blank"
+                        >
+                          <i className="fa-brands fa-facebook"></i>
+                        </Link>
+                      </li>
+                    )}
+
+                    {data.data.twitter === null ? (
+                      ""
+                    ) : (
+                      <li>
+                        <Link
+                          href={
+                            data.data.twitter === null ? "" : data.data.twitter
+                          }
+                          target="_blank"
+                        >
+                          <i className="fa-brands fa-twitter"></i>
+                        </Link>
+                      </li>
+                    )}
+
+                    {data.data.linkedin === null ? (
+                      ""
+                    ) : (
+                      <li>
+                        <Link
+                          href={
+                            data.data.linkedin === null
+                              ? ""
+                              : data.data.linkedin
+                          }
+                          target="_blank"
+                        >
+                          <i className="fa-brands fa-linkedin"></i>
+                        </Link>
+                      </li>
+                    )}
+                    {data.data.youtube === null ? (
+                      ""
+                    ) : (
+                      <li>
+                        <Link
+                          href={
+                            data.data.youtube === null ? "" : data.data.youtube
+                          }
+                          target="_blank"
+                        >
+                          <i className="fa-brands fa-youtube"></i>
+                        </Link>
+                      </li>
+                    )}
                   </ul>
                 </div>
               </div>

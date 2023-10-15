@@ -85,45 +85,64 @@ export default function Footer() {
               </div>
               <div className="col-lg-4 md-mb-20 text-center">
                 <ul className="footer-social">
-                  <li>
-                    <Link href={data.data.facebook} className="rounded-0">
-                      <i className="fa-brands fa-facebook"></i>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href={data.data.twitter} className="rounded-0">
-                      <i className="fa-brands fa-twitter"></i>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href={data.data.instagram} className="rounded-0">
-                      <i className="fa-brands fa-instagram"></i>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#" className="rounded-0">
-                      <i className="fa-brands fa-google-plus"></i>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="col-lg-4 text-end md-text-start">
-                <ul className="row list-inline">
-                  <li className="col-auto">
-                    <Link className="text-white" href="#">
-                      Site Map
-                    </Link>
-                  </li>
-                  <li className="col-auto">
-                    <Link className="text-white" href="#">
-                      Privacy Policy
-                    </Link>
-                  </li>
-                  <li className="col-auto">
-                    <Link className="text-white" href="#">
-                      Term & Conditions
-                    </Link>
-                  </li>
+                  {data.data.facebook === null ? (
+                    ""
+                  ) : (
+                    <li>
+                      <Link
+                        href={
+                          data.data.facebook === null ? "" : data.data.facebook
+                        }
+                        target="_blank"
+                      >
+                        <i className="fa-brands fa-facebook"></i>
+                      </Link>
+                    </li>
+                  )}
+
+                  {data.data.twitter === null ? (
+                    ""
+                  ) : (
+                    <li>
+                      <Link
+                        href={
+                          data.data.twitter === null ? "" : data.data.twitter
+                        }
+                        target="_blank"
+                      >
+                        <i className="fa-brands fa-twitter"></i>
+                      </Link>
+                    </li>
+                  )}
+
+                  {data.data.linkedin === null ? (
+                    ""
+                  ) : (
+                    <li>
+                      <Link
+                        href={
+                          data.data.linkedin === null ? "" : data.data.linkedin
+                        }
+                        target="_blank"
+                      >
+                        <i className="fa-brands fa-linkedin"></i>
+                      </Link>
+                    </li>
+                  )}
+                  {data.data.youtube === null ? (
+                    ""
+                  ) : (
+                    <li>
+                      <Link
+                        href={
+                          data.data.youtube === null ? "" : data.data.youtube
+                        }
+                        target="_blank"
+                      >
+                        <i className="fa-brands fa-youtube"></i>
+                      </Link>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>
