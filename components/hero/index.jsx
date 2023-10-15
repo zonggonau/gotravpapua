@@ -70,7 +70,7 @@ export default function BootstrapCarousel() {
                   <div className="btn-part">
                     <Link
                       className="readon green-btn main-home wow fadeInUp rounded-0"
-                      href={`tour-events/${item.slug}`}
+                      href={""}
                       data-wow-delay="300ms"
                       data-wow-duration="2000ms"
                     >

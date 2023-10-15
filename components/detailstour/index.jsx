@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default function CompDetailTour({ data, category }) {
+export default function CompDetailTour({ data, category, slug }) {
   const changeSlug = category
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -14,8 +14,9 @@ export default function CompDetailTour({ data, category }) {
       <div className="rs-breadcrumbs breadcrumbs-overlay">
         <div className="breadcrumbs-img">
           <Image
-            src={`${process.env.NEXT_PUBLIC_HOST}assets/images/breadcrumbs/9.png`}
+            src={process.env.NEXT_PUBLIC_HOSTNAME + data.picture}
             alt="Breadcrumbs Image"
+            className="h-96"
             width={500}
             height={500}
           />
@@ -26,7 +27,7 @@ export default function CompDetailTour({ data, category }) {
             data-wow-delay="300ms"
             data-wow-duration="2000ms"
           >
-            {changeSlug}
+            {data.title}
           </h1>
           <div
             className="sec-title mb-40 md-mb-20 wow fadeInUp"
@@ -34,7 +35,6 @@ export default function CompDetailTour({ data, category }) {
             data-wow-duration="2000ms"
           >
             <div className="desc text-center col-md-6 mx-auto">
-              <h3 className="text-white">{data.title}</h3>
               {potongPargraf(data.description)}
             </div>
             <ul className="my-3 white-color">
@@ -43,7 +43,12 @@ export default function CompDetailTour({ data, category }) {
                   Home
                 </Link>
               </li>
-              <li>{changeSlug}</li>
+              <li>
+                <Link className="active" href={`/${category}`}>
+                  {category}
+                </Link>
+              </li>
+              <li>{slug}</li>
             </ul>
           </div>
         </div>
@@ -51,7 +56,7 @@ export default function CompDetailTour({ data, category }) {
 
       <div className="container pt-10 pb-24">
         <div className="row">
-          <div className="col-lg-8 pr-60 md-pr-15 md-mb-30 mb-0">
+          <div className="mx-auto col-lg-8 pr-60 md-pr-15 md-mb-30 mb-0">
             <div
               className="mb-4"
               style={{
@@ -65,17 +70,17 @@ export default function CompDetailTour({ data, category }) {
                     <div className="container py-5 ">
                       <div className="">
                         <div className="mb-5">
-                          <h2>{data.title}</h2>
-                          <ul className="blog-meta">
+                          {/* <h2>{data.title}</h2> */}
+                          {/* <ul className="blog-meta">
                             <li>
                               <small className="border p-2 px-3">
                                 <i className="fa-solid fa-calendar-check-o"></i>{" "}
                                 8 Aug 2023 - 10 Aug 2023
                               </small>
                             </li>
-                          </ul>
+                          </ul> */}
                         </div>
-                        <div className="">
+                        {/* <div className="">
                           <Image
                             src={
                               process.env.NEXT_PUBLIC_HOSTNAME + data.picture
@@ -85,7 +90,7 @@ export default function CompDetailTour({ data, category }) {
                             width={1000}
                             height={1000}
                           />
-                        </div>
+                        </div> */}
                         <div className="mt-3">
                           <div
                             dangerouslySetInnerHTML={{
@@ -100,7 +105,7 @@ export default function CompDetailTour({ data, category }) {
               </div>
             </div>
           </div>
-          <RightBar />
+          {/* <RightBar /> */}
         </div>
       </div>
     </div>

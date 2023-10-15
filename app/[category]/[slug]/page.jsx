@@ -74,5 +74,5 @@ export default async function Details({ params }) {
   console.log(params);
   const slug = params.slug;
   const { data } = await getDataDetails(category, slug);
-  return <CompDetailTour data={data} category={category} />;
+  return <CompDetailTour data={data} category={category} slug={slug} />;
 }
