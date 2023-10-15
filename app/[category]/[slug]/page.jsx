@@ -1,12 +1,13 @@
 import React from "react";
 
 import CompDetailTour from "@/components/detailstour";
-import { getDataDetails } from "@/data/api";
+import { getAnotherTour, getDataDetails } from "@/data/api";
 
 export async function generateMetadata({ params }) {
   const category = params.category;
   const slug = params.slug;
   const { data } = await getDataDetails(category, slug);
+
   return {
     title: "GoTravPapua | " + data.title,
     openGraph: {
@@ -74,5 +75,8 @@ export default async function Details({ params }) {
   console.log(params);
   const slug = params.slug;
   const { data } = await getDataDetails(category, slug);
-  return <CompDetailTour data={data} category={category} slug={slug} />;
+  const { data: tour } = await getAnotherTour(category);
+  return (
+    <CompDetailTour data={data} category={category} slug={slug} tour={tour} />
+  );
 }

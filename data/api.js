@@ -97,6 +97,18 @@ async function getSettings() {
   return res.json();
 }
 
+async function getAnotherTour(category) {
+  const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + category, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
 export {
   fetcher,
   HOST,
@@ -108,4 +120,5 @@ export {
   getDataTourDestination,
   getDataTourPackages,
   getSettings,
+  getAnotherTour,
 };
