@@ -16,9 +16,10 @@ export default function CompDetailTour({ data, category, slug }) {
           <Image
             src={process.env.NEXT_PUBLIC_HOSTNAME + data.picture}
             alt="Breadcrumbs Image"
-            className="h-96"
-            width={500}
-            height={500}
+            className="h-100"
+            width={1000}
+            height={5000}
+            loading="lazy"
           />
         </div>
         <div className="breadcrumbs-text white-color">
