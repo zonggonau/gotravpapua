@@ -10,10 +10,10 @@ export default function Kontak({ data }) {
   const [notificationWarning, setNotificationWarning] = useState(false);
   const [kontak, setKontak] = useState({
     name: "",
+    phone: "",
+    email: "",
     message: "",
     // subject: "",
-    // phone: "",
-    // email: "",
   });
 
   const handleChange = (e) => {
@@ -62,8 +62,8 @@ export default function Kontak({ data }) {
         setNotificationSuccess(true);
         setKontak({
           name: "",
-          // email: "",
-          // phone: "",
+          email: "",
+          phone: "",
           // subject: "",
           message: "",
         });
@@ -118,7 +118,7 @@ export default function Kontak({ data }) {
                     required
                   />
                 </div>
-                {/* <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
+                <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
                   <input
                     className="from-control"
                     type="text"
@@ -127,10 +127,10 @@ export default function Kontak({ data }) {
                     value={kontak.email}
                     onChange={handleChange}
                     placeholder="Email"
-                    required=""
+                    required
                   />
-                </div> */}
-                {/* <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
+                </div>
+                <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
                   <input
                     className="from-control"
                     type="text"
@@ -139,9 +139,9 @@ export default function Kontak({ data }) {
                     value={kontak.phone}
                     onChange={handleChange}
                     placeholder="Phone"
-                    required=""
+                    required
                   />
-                </div> */}
+                </div>
                 {/* <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
                   <input
                     className="from-control"
