@@ -29,21 +29,21 @@ export default function CompDetailTour({ data, category, slug, tour }) {
       <div className="container pt-10 pb-48">
         <div className="row">
           <div className="mx-auto col-lg-8  bg-white shadow-sm">
-            <div>
-              <div class="mt-10 text-black">
-                <Link href="/">Home</Link> &gt;
-                <Link href={`/${category}`}>{changeSlug}</Link>
-                <Link href="#" className="disabled"></Link> &gt; {data.title}
-              </div>
-              <div className="mt-10">
-                <Image
-                  src={process.env.NEXT_PUBLIC_HOSTNAME + data.picture}
-                  className="round-circle shadow-lg mb-5 bg-body-tertiary rounded"
-                  alt={data.description}
-                  width={1000}
-                  height={1000}
-                />
-              </div>
+            <div class=" text-black pt-24 pb-24">
+              <Link href="/">Home</Link> &gt;
+              <Link href={`/${category}`}>{changeSlug}</Link>
+              <Link href="#" className="disabled"></Link> &gt; {data.title}
+            </div>
+
+            <Image
+              src={process.env.NEXT_PUBLIC_HOSTNAME + data.picture}
+              className="round-circle shadow-lg mb-5 bg-body-tertiary rounded"
+              alt={data.description}
+              width={1000}
+              height={1000}
+            />
+
+            <div className="pl-24 pr-24">
               <div className="mb-1">
                 <h2 className="font-extrabold">{data.title}</h2>
               </div>
@@ -55,10 +55,15 @@ export default function CompDetailTour({ data, category, slug, tour }) {
                 ></div>
               </div>
             </div>
-            <div className="border"></div>
+          </div>
+          {/* <RightBar /> */}
+        </div>
+        <div className="row pt-16">
+          <div className="mx-auto col-lg-8  bg-white shadow-sm">
             <div className="pt-28">
               <div className="mb-5">
-                <h3 className="font-bold mb-3">Choose Another Tour</h3>
+                <h3 className="font-bold mb-3">{changeSlug}</h3>
+                <p className="border"></p>
                 <div className="row pt-2">
                   {limitedData.map((item, index) => (
                     <div className="col-lg-6 col-md-6 mb-24" key={index}>
