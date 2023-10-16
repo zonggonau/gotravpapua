@@ -197,7 +197,7 @@ export default function Kontak({ data }) {
               <div className="content-part">
                 <h5 className="info-subtitle">Email Address</h5>
                 <h4 className="info-title">
-                  <Link href="mailto:info@rstheme.com">
+                  <Link href={`mailto:${data.email_address}`}>
                     {data.email_address}
                   </Link>
                 </h4>
@@ -210,7 +210,7 @@ export default function Kontak({ data }) {
               <div className="content-part">
                 <h5 className="info-subtitle">Phone Number</h5>
                 <h4 className="info-title">
-                  <Link href="tel+6285243800061">{data.telephone}</Link>
+                  <Link href={`tel:${data.telephone}`}>{data.telephone}</Link>
                 </h4>
               </div>
             </div>

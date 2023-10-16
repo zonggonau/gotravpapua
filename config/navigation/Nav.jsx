@@ -3,7 +3,6 @@ import Link from "next/link";
 import useSWR from "swr";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { endpoint, fetcher } from "@/data/api";
 export default function Nav() {
   const { data, error, isLoading } = useSWR(endpoint.settings, fetcher);
@@ -102,13 +101,13 @@ export default function Nav() {
                   <ul className="topbar-contact">
                     <li>
                       <i className="flaticon-email"></i>
-                      <Link href={"mailto:support@rstheme.com"}>
+                      <Link href={`mailto:${data.data.email_address}`}>
                         {data.data.email_address}
                       </Link>
                     </li>
                     <li>
                       <i className="fa flaticon-call"></i>
-                      <Link href="tel:+(+01)999-999-4444">
+                      <Link href={`tel:${data.data.telephone}`}>
                         {data.data.telephone}
                       </Link>
                     </li>
