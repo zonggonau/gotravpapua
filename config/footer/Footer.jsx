@@ -59,7 +59,10 @@ export default function Footer() {
                 </div>
               </div>
               <div className="btn-part pb-5">
-                <Link className="readon orange-btn rounded-0" href="#">
+                <Link
+                  className="readon orange-btn rounded-0"
+                  href={`tel:${data.data.telephone}`}
+                >
                   <i className="fa-brands fa-whatsapp mr-1"></i> Contact Now
                 </Link>
               </div>
