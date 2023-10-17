@@ -19,7 +19,7 @@ export default function CompDetailTour({ data, category, slug, tour }) {
   const shuffledData = shuffleArray(tour.data).filter(
     (item) => item.slug !== slug
   );
-  const limitedData = shuffledData.slice(0, 4);
+  const limitedData = shuffledData.slice(0, 3);
   const changeSlug = category
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -66,7 +66,7 @@ export default function CompDetailTour({ data, category, slug, tour }) {
                 <p className="border"></p>
                 <div className="row pt-2 pl-24 pr-24">
                   {limitedData.map((item, index) => (
-                    <div className="col-lg-6 col-md-6 mb-24" key={index}>
+                    <div className="col-lg-4 col-md-6 mb-24" key={index}>
                       <div className="courses-item border shadow-md">
                         <div className="courses-grid">
                           <div className="img-part">
