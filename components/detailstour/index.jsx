@@ -1,5 +1,5 @@
 import RightBar from "@/config/rightbar/rightbar";
-import { potongPargraf } from "@/data";
+import { potongParagraf } from "@/data";
 import shuffle from "lodash/shuffle";
 
 import Image from "next/image";
@@ -62,9 +62,9 @@ export default function CompDetailTour({ data, category, slug, tour }) {
           <div className="mx-auto col-lg-8  bg-white shadow-sm">
             <div className="pt-28">
               <div className="mb-5">
-                <h3 className="font-bold mb-3">{changeSlug}</h3>
+                <h3 className="font-bold mb-3 pl-24 pr-24">{changeSlug}</h3>
                 <p className="border"></p>
-                <div className="row pt-2">
+                <div className="row pt-2 pl-24 pr-24">
                   {limitedData.map((item, index) => (
                     <div className="col-lg-6 col-md-6 mb-24" key={index}>
                       <div className="courses-item border shadow-md">
@@ -89,7 +89,7 @@ export default function CompDetailTour({ data, category, slug, tour }) {
                                 {item.title}
                               </Link>
                             </h5>
-                            <p>{item.description}</p>
+                            {potongParagraf(item.description)}
                           </div>
                         </div>
                       </div>

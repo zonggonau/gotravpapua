@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { potongPargraf } from "@/data";
+import { potongParagraf } from "@/data";
 export default function TourPackages({ data }) {
   const limit = 6;
   const limitData = data.slice(0, limit);
@@ -50,7 +50,7 @@ export default function TourPackages({ data }) {
                           </Link>
                         </h3>
 
-                        {potongPargraf(item.description)}
+                        {potongParagraf(item.description)}
 
                         {/* <ul className="meta-part">
                           <li>

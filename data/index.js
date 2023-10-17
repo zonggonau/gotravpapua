@@ -84,10 +84,10 @@ const Categories = [
   },
 ];
 
-const potongPargraf = (data) => {
+const potongParagraf = (data) => {
   let jumlahHuruf = 100;
   let potongKalimat = data.slice(0, jumlahHuruf);
   return <p>{potongKalimat}</p>;
 };
 
-export { dataCarouselHero, Categories, potongPargraf };
+export { dataCarouselHero, Categories, potongParagraf };

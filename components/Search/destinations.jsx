@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Pagination from "../pagination";
 import Loading from "./Loading";
-import { potongPargraf } from "@/data";
+import { potongParagraf } from "@/data";
 
 export default function SearchDestination({ data }) {
   console.log(data);
@@ -165,7 +165,7 @@ export default function SearchDestination({ data }) {
                               <i className="fa-solid fa-map-marker"></i> Nabire
                             </li>
                           </ul> */}
-                          {potongPargraf(item.description)}
+                          {potongParagraf(item.description)}
                         </div>
                       </div>
                     </div>
