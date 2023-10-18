@@ -56,6 +56,8 @@ export default function SearchPackages({ data }) {
     }, 5000);
   }, [searchResult]);
 
+  const totalPage = Math.ceil(searchResult.length / itemsPerPage);
+
   const DataNotFound = () => {
     if (searchResult.length <= 0) {
       return (
@@ -64,13 +66,13 @@ export default function SearchPackages({ data }) {
         </>
       );
     }
-    return (
+    return totalPage > 1 ? (
       <Pagination
         currentPage={currentPage}
-        totalPages={Math.ceil(searchResult.length / itemsPerPage)}
+        totalPages={totalPage}
         onPageChange={handlePageChange}
       />
-    );
+    ) : null;
   };
 
   const handleClearBtn = () => {
