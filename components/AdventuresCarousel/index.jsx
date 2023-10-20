@@ -59,13 +59,18 @@ export default function AdventuresCarousel() {
           return (
             <div className="courses-item space-y-5 justify-center" key={index}>
               <div className="img-part">
-                <Image
-                  className="h-72"
-                  src={process.env.NEXT_PUBLIC_HOSTNAME + item.picture}
-                  alt={item.title}
-                  width={380}
-                  height={500}
-                />
+                <Link
+                  className="categories text-white text-xl"
+                  href={"tour-adventures/" + item.slug}
+                >
+                  <Image
+                    className="h-72"
+                    src={process.env.NEXT_PUBLIC_HOSTNAME + item.picture}
+                    alt={item.title}
+                    width={380}
+                    height={500}
+                  />
+                </Link>
               </div>
               <div className="content-part">
                 <span className="fs-2 fw-bold">
