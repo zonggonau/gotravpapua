@@ -29,19 +29,21 @@ export default function CompDetailTour({ data, category, slug, tour }) {
       <div className="container pt-10 pb-48">
         <div className="row">
           <div className="mx-auto col-lg-8  bg-white shadow-sm">
-            <div class=" text-black pt-24 pb-24">
+            <div class=" text-black pt-24 pb-24 pl-24">
               <Link href="/">Home</Link> &gt;
               <Link href={`/${category}`}>{changeSlug}</Link>
               <Link href="#" className="disabled"></Link> &gt; {data.title}
             </div>
-
-            <Image
-              src={process.env.NEXT_PUBLIC_HOSTNAME + data.picture}
-              className="round-circle shadow-lg mb-5 bg-body-tertiary rounded"
-              alt={data.description}
-              width={1000}
-              height={1000}
-            />
+            <div className="pl-24 pr-24">
+              <Image
+                src={process.env.NEXT_PUBLIC_HOSTNAME + data.picture}
+                className="round-circle shadow-lg mb-5 bg-body-tertiary rounded"
+                alt={data.description}
+                width={1000}
+                height={1000}
+                loading="lazy"
+              />
+            </div>
 
             <div className="pl-24 pr-24">
               <div className="mb-1">

@@ -6,6 +6,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import Pagination from "../pagination";
 import Loading from "./Loading";
 import RightBar from "@/config/rightbar/rightbar";
+import { potongParagraf } from "@/data";
 
 export default function SearchEvents({ data }) {
   const [btnClear, setBtnClear] = useState(false);
@@ -139,17 +140,10 @@ export default function SearchEvents({ data }) {
               ) : (
                 shortedData.map((item, index) => {
                   return (
-                    <div
-                      className="mb-4 border-1"
-                      style={{
-                        borderBottomStyle: "dotted",
-                        borderBottomColor: "#ccc",
-                      }}
-                      key={index}
-                    >
-                      <div className="row no-gutter white-bg blog-item border-0">
-                        <div className="col-md-4">
-                          <div className="image-part">
+                    <div className=" pr-60 md-pr-15 md-mb-30" key={index}>
+                      <div className="row no-gutter white-bg blog-item mb-35">
+                        <div className="col-md-6">
+                          <div className="image-part h-100">
                             <Link href={`tour-events/${item.slug}`}>
                               <Image
                                 src={
@@ -164,43 +158,85 @@ export default function SearchEvents({ data }) {
                             </Link>
                           </div>
                         </div>
-                        <div className="col-md-8">
+                        <div className="col-md-6">
                           <div className="blog-content">
-                            <ul className="blog-meta">
-                              <li>
-                                <small className="border p-2 px-3">
-                                  <i className="fa-solid fa-calendar-check-o"></i>{" "}
-                                  8 Aug 2023 - 10 Aug 2023
-                                </small>
-                              </li>
-                            </ul>
                             <h3 className="title">
                               <Link href={`tour-events/${item.slug}`}>
                                 {item.title}
                               </Link>
                             </h3>
-                            <p className="m-0">
-                              Lorem ipsum dolor sit amet consectetur adipisicing
-                              elit. Est debitis similique cum esse iusto,
-                              adipisci ab odit sunt totam sequi.
-                            </p>
-                            {/* <ul className="blog-meta mt-3">
-                              <li>
-                                <Link href="" className="btn p-0">
-                                  <i className="fa-solid fa-tag"></i> Cultural
-                                </Link>
-                              </li>
-                              <li>
-                                <Link href="" className="btn p-0">
-                                  <i className="fa-solid fa-map-marker"></i>{" "}
-                                  Wamena
-                                </Link>
-                              </li>
-                            </ul> */}
+                            {/* <ul className="blog-meta">
+                            <li>
+                              <i className="fa-solid fa-map-marker"></i> Nabire
+                            </li>
+                          </ul> */}
+                            {potongParagraf(item.description)}
                           </div>
                         </div>
                       </div>
                     </div>
+                    // <div
+                    //   className="mb-4 border-1"
+                    //   style={{
+                    //     borderBottomStyle: "dotted",
+                    //     borderBottomColor: "#ccc",
+                    //   }}
+                    //   key={index}
+                    // >
+                    //   <div className="row no-gutter white-bg blog-item border-0">
+                    //     <div className="col-md-4">
+                    //       <div className="image-part">
+                    //         <Link href={`tour-events/${item.slug}`}>
+                    //           <Image
+                    //             src={
+                    //               process.env.NEXT_PUBLIC_HOSTNAME +
+                    //               item.picture
+                    //             }
+                    //             className="w-100"
+                    //             alt=""
+                    //             width={500}
+                    //             height={500}
+                    //           />
+                    //         </Link>
+                    //       </div>
+                    //     </div>
+                    //     <div className="col-md-8">
+                    //       <div className="blog-content">
+                    //         <ul className="blog-meta">
+                    //           <li>
+                    //             <small className="border p-2 px-3">
+                    //               <i className="fa-solid fa-calendar-check-o"></i>{" "}
+                    //               8 Aug 2023 - 10 Aug 2023
+                    //             </small>
+                    //           </li>
+                    //         </ul>
+                    //         <h3 className="title">
+                    //           <Link href={`tour-events/${item.slug}`}>
+                    //             {item.title}
+                    //           </Link>
+                    //         </h3>
+                    //         <p className="m-0">
+                    //           Lorem ipsum dolor sit amet consectetur adipisicing
+                    //           elit. Est debitis similique cum esse iusto,
+                    //           adipisci ab odit sunt totam sequi.
+                    //         </p>
+                    //         {/* <ul className="blog-meta mt-3">
+                    //           <li>
+                    //             <Link href="" className="btn p-0">
+                    //               <i className="fa-solid fa-tag"></i> Cultural
+                    //             </Link>
+                    //           </li>
+                    //           <li>
+                    //             <Link href="" className="btn p-0">
+                    //               <i className="fa-solid fa-map-marker"></i>{" "}
+                    //               Wamena
+                    //             </Link>
+                    //           </li>
+                    //         </ul> */}
+                    //       </div>
+                    //     </div>
+                    //   </div>
+                    // </div>
                   );
                 })
               )}
