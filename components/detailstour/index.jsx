@@ -1,6 +1,9 @@
+'use client'
 import RightBar from "@/config/rightbar/rightbar";
 import { potongParagraf } from "@/data";
 import shuffle from "lodash/shuffle";
+import {FacebookShareButton, TwitterShareButton, InstapaperShareButton, FacebookIcon, TwitterIcon, WhatsappShareButton, WhatsappIcon, LinkedinShareButton, LinkedinIcon} from 'react-share'
+
 
 import Image from "next/image";
 import Link from "next/link";
@@ -55,6 +58,20 @@ export default function CompDetailTour({ data, category, slug, tour }) {
                     __html: data.body,
                   }}
                 ></div>
+              </div>
+              <div className="space-x-5 pb-5">
+                <FacebookShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOST}${category}/${data.slug}`}>
+                  <FacebookIcon/>
+                </FacebookShareButton>
+                <TwitterShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOST}${category}/${data.slug}`}>
+                  <TwitterIcon/>
+                </TwitterShareButton>
+                <WhatsappShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOST}${category}/${data.slug}`}>
+                  <WhatsappIcon/>
+                </WhatsappShareButton>
+                <LinkedinShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOST}${category}/${data.slug}`}>
+                  <LinkedinIcon/>
+                </LinkedinShareButton>
               </div>
             </div>
           </div>
