@@ -91,9 +91,8 @@ export default function Nav() {
       <div className="full-width-header header-style1 home1-modifiy home12-modifiy">
         <header id="rs-header" className="rs-header">
           <div
-            className={`topbar-area home11-topbar fixed ${
-              showSubNavbar ? "" : "hidden"
-            }`}
+            className={`topbar-area home11-topbar fixed ${showSubNavbar ? "" : "hidden"
+              }`}
           >
             <div className="container">
               <div className="row y-middle">
@@ -181,6 +180,20 @@ export default function Nav() {
                         </Link>
                       </li>
                     )}
+                    {data.data.youtube === null ? (
+                      ""
+                    ) : (
+                      <li>
+                        <Link
+                          href={
+                            data.data.instagram === null ? "" : data.data.instagram
+                          }
+                          target="_blank"
+                        >
+                          <i className="fa-brands fa-instagram"></i>
+                        </Link>
+                      </li>
+                    )}
                   </ul>
                 </div>
               </div>
@@ -212,11 +225,10 @@ export default function Nav() {
                   <div className="rs-menu-area flex">
                     <div className="main-menu">
                       <div
-                        className={`mobile-menu ${
-                          isOpen == true
-                            ? "rs-menu-toggle-close"
-                            : "rs-menu-toggle-open"
-                        }`}
+                        className={`mobile-menu ${isOpen == true
+                          ? "rs-menu-toggle-close"
+                          : "rs-menu-toggle-open"
+                          }`}
                       >
                         <Link
                           href="/"
@@ -231,17 +243,15 @@ export default function Nav() {
                         </Link>
                       </div>
                       <nav
-                        className={`rs-menu ${
-                          isOpen == true ? "rs-menu-close" : ""
-                        }`}
+                        className={`rs-menu ${isOpen == true ? "rs-menu-close" : ""
+                          }`}
                       >
                         <ul className="nav-menu">
                           <li
-                            className={`mega-rs ${
-                              activeMenu === "tour-packages"
-                                ? "current-menu-item"
-                                : ""
-                            }`}
+                            className={`mega-rs ${activeMenu === "tour-packages"
+                              ? "current-menu-item"
+                              : ""
+                              }`}
                           >
                             <Link
                               href="/tour-packages"
@@ -251,11 +261,10 @@ export default function Nav() {
                             </Link>
                           </li>
                           <li
-                            className={`mega-rs ${
-                              activeMenu === "tour-destinations"
-                                ? "current-menu-item"
-                                : ""
-                            }`}
+                            className={`mega-rs ${activeMenu === "tour-destinations"
+                              ? "current-menu-item"
+                              : ""
+                              }`}
                           >
                             <Link
                               href="/tour-destinations"
@@ -267,11 +276,10 @@ export default function Nav() {
                             </Link>
                           </li>
                           <li
-                            className={`mega-rs ${
-                              activeMenu === "tour-adventures"
-                                ? "current-menu-item"
-                                : ""
-                            }`}
+                            className={`mega-rs ${activeMenu === "tour-adventures"
+                              ? "current-menu-item"
+                              : ""
+                              }`}
                           >
                             <Link
                               href="/tour-adventures"
@@ -281,11 +289,10 @@ export default function Nav() {
                             </Link>
                           </li>
                           <li
-                            className={`mega-rs ${
-                              activeMenu === "tour-events"
-                                ? "current-menu-item"
-                                : ""
-                            }`}
+                            className={`mega-rs ${activeMenu === "tour-events"
+                              ? "current-menu-item"
+                              : ""
+                              }`}
                           >
                             <Link
                               href="/tour-events"
@@ -295,11 +302,10 @@ export default function Nav() {
                             </Link>
                           </li>
                           <li
-                            className={`mega-rs ${
-                              activeMenu === "contact"
-                                ? "current-menu-item"
-                                : ""
-                            }`}
+                            className={`mega-rs ${activeMenu === "contact"
+                              ? "current-menu-item"
+                              : ""
+                              }`}
                           >
                             <Link
                               href="/contact"

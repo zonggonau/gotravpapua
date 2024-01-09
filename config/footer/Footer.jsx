@@ -43,9 +43,8 @@ export default function Footer() {
         id="rs-footer"
         className="rs-footer pt-5"
         style={{
-          backgroundImage: `url(${
-            process.env.NEXT_PUBLIC_HOST + "assets/images/bg/ct-bg.jpg"
-          })`,
+          backgroundImage: `url(${process.env.NEXT_PUBLIC_HOST + "assets/images/bg/ct-bg.jpg"
+            })`,
         }}
       >
         <div className="footer-top">
@@ -146,6 +145,20 @@ export default function Footer() {
                       </Link>
                     </li>
                   )}
+                  {data.data.youtube === null ? (
+                    ""
+                  ) : (
+                    <li>
+                      <Link
+                        href={
+                          data.data.instagram === null ? "" : data.data.instagram
+                        }
+                        target="_blank"
+                      >
+                        <i className="fa-brands fa-instagram"></i>
+                      </Link>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>
@@ -154,9 +167,8 @@ export default function Footer() {
       </footer>
 
       <div
-        className={`scroll-to-top-button ${
-          isVisible ? "visible" : ""
-        }  hover:bg-red-700`}
+        className={`scroll-to-top-button ${isVisible ? "visible" : ""
+          }  hover:bg-red-700`}
         onClick={scrollToTop}
       >
         <i className="fa fa-angle-up"></i>
