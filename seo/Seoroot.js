@@ -9,17 +9,17 @@ export const metadata = {
     siteName: "GOTRAV Papua",
     images: [
       {
-        url: process.env.NEXT_PUBLIC_HOST + dataCarouselHero[0].imageUrl,
+        url: process.env.NEXT_PUBLIC_HOSTNAME + dataCarouselHero[0].imageUrl,
         width: 800,
         height: 600,
       },
       {
-        url: process.env.NEXT_PUBLIC_HOST + dataCarouselHero[0].imageUrl,
+        url: process.env.NEXT_PUBLIC_HOSTNAME + dataCarouselHero[0].imageUrl,
         width: 1800,
         height: 1600,
       },
       {
-        url: process.env.NEXT_PUBLIC_HOST + dataCarouselHero[0].imageUrl,
+        url: process.env.NEXT_PUBLIC_HOSTNAME + dataCarouselHero[0].imageUrl,
         width: 1080,
         height: 675,
       },
@@ -45,7 +45,7 @@ export const metadata = {
     title: "GOTRAV Papua | Tour & Travel",
     description:
       "Your Premier Travel Agent for Unforgettable Papua Adventures! Book Now for Authentic Experiences!",
-    images: [process.env.NEXT_PUBLIC_HOST + dataCarouselHero[0].imageUrl],
+    images: [process.env.NEXT_PUBLIC_HOSTNAME + dataCarouselHero[0].imageUrl],
   },
   viewport: {
     width: "device-width",

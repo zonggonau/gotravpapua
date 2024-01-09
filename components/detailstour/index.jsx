@@ -1,13 +1,8 @@
 'use client'
-import RightBar from "@/config/rightbar/rightbar";
 import { potongParagraf } from "@/data";
-import shuffle from "lodash/shuffle";
-import {FacebookShareButton, TwitterShareButton, InstapaperShareButton, FacebookIcon, TwitterIcon, WhatsappShareButton, WhatsappIcon, LinkedinShareButton, LinkedinIcon} from 'react-share'
-
-
+import { FacebookShareButton, TwitterShareButton, FacebookIcon, TwitterIcon, WhatsappShareButton, WhatsappIcon, LinkedinShareButton, LinkedinIcon } from 'react-share'
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 function shuffleArray(array) {
   let shuffled = array.slice();
@@ -35,7 +30,7 @@ export default function CompDetailTour({ data, category, slug, tour }) {
             <div class=" text-black pt-24 pb-24 pl-24">
               <Link href="/">Home</Link> &gt;
               <Link href={`/${category}`}>{changeSlug}</Link>
-              <Link href="#" className="disabled"></Link> &gt; {data.title}
+              <Link href="#" className="disabled"></Link> &gt; {data.slug}
             </div>
             <div className="pl-24 pr-24">
               <Image
@@ -61,16 +56,16 @@ export default function CompDetailTour({ data, category, slug, tour }) {
               </div>
               <div className="space-x-5 pb-5">
                 <FacebookShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOST}${category}/${data.slug}`}>
-                  <FacebookIcon/>
+                  <FacebookIcon size={50} />
                 </FacebookShareButton>
                 <TwitterShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOST}${category}/${data.slug}`}>
-                  <TwitterIcon/>
+                  <TwitterIcon size={50} />
                 </TwitterShareButton>
                 <WhatsappShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOST}${category}/${data.slug}`}>
-                  <WhatsappIcon/>
+                  <WhatsappIcon size={50} />
                 </WhatsappShareButton>
                 <LinkedinShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOST}${category}/${data.slug}`}>
-                  <LinkedinIcon/>
+                  <LinkedinIcon size={50} />
                 </LinkedinShareButton>
               </div>
             </div>

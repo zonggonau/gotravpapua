@@ -59,7 +59,7 @@ export const metadata = {
     other: {
       me: [
         "admin@gotravpapua.com",
-        process.env.NEXT_PUBLIC_HOSTNAME + "tour-destinations",
+        process.env.NEXT_PUBLIC_HOST + "tour-destinations",
       ],
     },
   },
