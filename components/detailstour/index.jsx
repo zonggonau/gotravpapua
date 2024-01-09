@@ -72,7 +72,7 @@ export default function CompDetailTour({ data, category, slug, tour }) {
           </div>
           {/* <RightBar /> */}
         </div>
-        <div className="row pt-16">
+        {/* <div className="row pt-16">
           <div className="mx-auto col-lg-8  bg-white shadow-sm">
             <div className="pt-28">
               <div className="mb-5">
@@ -113,8 +113,8 @@ export default function CompDetailTour({ data, category, slug, tour }) {
               </div>
             </div>
           </div>
-          {/* <RightBar /> */}
-        </div>
+
+        </div> */}
       </div>
     </div>
   );
