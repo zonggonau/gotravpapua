@@ -150,6 +150,12 @@ ul {
   margin: 0;
   padding: 0;
 }
+ul {
+  list-style: inside !important; /* Menggunakan !important untuk memastikan penimpaan */
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .clear {
   clear: both;
 }
