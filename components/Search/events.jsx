@@ -130,7 +130,8 @@ export default function SearchEvents({ data }) {
       >
         <div className="container">
           <div className="row">
-            <div className="col-lg-8 pr-60 md-pr-15 md-mb-30 mb-0">
+            <div className="col-lg-1"></div>
+            <div className="col-lg-8 md-pr-15 md-mb-30 mb-0">
               {isLoading == true ? (
                 <>
                   <Loading />
@@ -140,7 +141,7 @@ export default function SearchEvents({ data }) {
               ) : (
                 shortedData.map((item, index) => {
                   return (
-                    <div className=" pr-60 md-pr-15 md-mb-30" key={index}>
+                    <div className="md-pr-15 md-mb-30" key={index}>
                       <div className="row no-gutter white-bg blog-item mb-35">
                         <div className="col-md-6">
                           <div className="image-part h-100">
@@ -243,7 +244,7 @@ export default function SearchEvents({ data }) {
 
               {isLoading == true ? "" : <DataNotFound />}
             </div>
-            <RightBar />
+            {/* <RightBar /> */}
           </div>
         </div>
       </div>

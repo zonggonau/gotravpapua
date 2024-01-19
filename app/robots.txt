@@ -2,4 +2,4 @@ User-Agent: *
 Allow: /
 Disallow: /nokenpanel/
 
-Sitemap: https://acme.com/sitemap.xml
+Sitemap: https://gotravpapua.com/sitemap.xml

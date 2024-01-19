@@ -7,7 +7,6 @@ import Loading from "./Loading";
 import { potongParagraf } from "@/data";
 
 export default function SearchDestination({ data }) {
-  console.log(data);
   const [btnClear, setBtnClear] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");

@@ -121,7 +121,7 @@ export default function Kontak({ data }) {
                 <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
                   <input
                     className="from-control"
-                    type="text"
+                    type="email"
                     id="email"
                     name="email"
                     value={kontak.email}
@@ -133,7 +133,7 @@ export default function Kontak({ data }) {
                 <div className="col-lg-6 mb-30 col-md-6 col-sm-6">
                   <input
                     className="from-control"
-                    type="text"
+                    type="number"
                     id="phone"
                     name="phone"
                     value={kontak.phone}
@@ -171,7 +171,7 @@ export default function Kontak({ data }) {
                 <button
                   className="btn-send"
                   type="submit"
-                  // onClick={RenderMessage}
+                // onClick={RenderMessage}
                 >
                   Submit Now
                 </button>
