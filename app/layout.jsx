@@ -6,15 +6,6 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta
-          name="google-site-verification"
-          content="seZXlxxGXXnGt9EuEOHKlkr92NZ1TsZodqX_oXDovpM"
-        />
-        {/* <script
-          src="https://code.jquery.com/jquery-3.7.1.slim.js"
-          integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc="
-          crossorigin="anonymous"
-        ></script> */}
         <link
           rel="shortcut icon"
           type="image/x-icon"
