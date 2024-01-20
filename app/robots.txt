@@ -2,4 +2,4 @@ User-Agent: *
 Allow: /
 Disallow: /nokenpanel/
 
-Sitemap: https://gotravpapua.com/sitemap.xml
+Sitemap: https://www.gotravpapua.com/sitemap.xml

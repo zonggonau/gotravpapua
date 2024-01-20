@@ -7,9 +7,22 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link
-          rel="shortcut icon"
-          type="image/x-icon"
-          href={`${process.env.NEXT_PUBLIC_HOST}assets/images/fav-gotrav.png`}
+          rel="icon"
+          // href="/icon?<generated>"
+          href={`${process.env.NEXT_PUBLIC_HOST}assets/images/fav-gotrav.png?<generated>`}
+          type="image/<generated>"
+          sizes="<generated>"
+        />
+        <link
+          rel="apple-touch-icon"
+          // href="/apple-icon?<generated>"
+          href={`${process.env.NEXT_PUBLIC_HOST}assets/images/fav-gotrav.png?<generated>`}
+          type="image/<generated>"
+          sizes="<generated>"
+        />
+        <link
+          rel="icon"
+          href={`${process.env.NEXT_PUBLIC_HOST}assets/images/fav-gotrav.png`} sizes="any"
         />
         <link
           rel="stylesheet"
