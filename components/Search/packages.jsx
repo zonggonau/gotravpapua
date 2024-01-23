@@ -49,8 +49,7 @@ export default function SearchPackages({ data }) {
   };
 
   useEffect(() => {
-    console.log(searchResult);
-    console.log("reload ulang");
+
     setTimeout(() => {
       setIsLoading(false);
     }, 5000);

@@ -8,7 +8,6 @@ import { metadata } from "@/seo/Seotouradventures";
 export { metadata };
 export default async function Adventures() {
   const { data } = await getDataAdventures();
-
   return (
     <>
       <div className="main-content bg-white">

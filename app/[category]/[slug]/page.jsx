@@ -7,27 +7,26 @@ export async function generateMetadata({ params }) {
   const category = params.category;
   const slug = params.slug;
   const { data } = await getDataDetails(category, slug);
-
   return {
     title: "GoTravPapua | " + data.title,
     openGraph: {
       title: "GoTravPapua | " + data.title,
       description: data.title,
-      url: process.env.NEXT_PUBLIC_HOST,
+      url: process.env.NEXT_PUBLIC_HOSTNAME,
       siteName: "GoTravPapua",
       images: [
         {
-          url: process.env.NEXT_PUBLIC_HOST + data.picture,
+          url: process.env.NEXT_PUBLIC_HOSTNAME + data.picture,
           width: 800,
           height: 600,
         },
         {
-          url: process.env.NEXT_PUBLIC_HOST + data.picture,
+          url: process.env.NEXT_PUBLIC_HOSTNAME + data.picture,
           width: 1800,
           height: 1600,
         },
         {
-          url: process.env.NEXT_PUBLIC_HOST + data.picture,
+          url: process.env.NEXT_PUBLIC_HOSTNAME + data.picture,
           width: 1080,
           height: 675,
         },
@@ -36,7 +35,7 @@ export async function generateMetadata({ params }) {
       type: "website",
     },
     robots: {
-      index: false,
+      index: true,
       follow: true,
       nocache: true,
       googleBot: {
@@ -52,7 +51,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: "GoTravPapua | " + data.title,
       description: data.description,
-      images: [process.env.NEXT_PUBLIC_HOST + data.picture],
+      images: [process.env.NEXT_PUBLIC_HOSTNAME + data.picture],
     },
     viewport: {
       width: "device-width",
@@ -64,7 +63,7 @@ export async function generateMetadata({ params }) {
       yandex: "yandex",
       yahoo: "yahoo",
       other: {
-        me: ["admin@gotravpapua.com", process.env.NEXT_PUBLIC_HOST],
+        me: ["admin@gotravpapua.com", process.env.NEXT_PUBLIC_HOSTNAME],
       },
     },
   };
@@ -72,7 +71,6 @@ export async function generateMetadata({ params }) {
 
 export default async function Details({ params }) {
   const category = params.category;
-  console.log(params);
   const slug = params.slug;
   const { data } = await getDataDetails(category, slug);
   const { data: tour } = await getAnotherTour(category);
