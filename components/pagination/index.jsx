@@ -20,39 +20,38 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       <div className="container d-flex justify-content-center">
         <nav aria-label="Page navigation example">
           <ul className="pagination">
-            <li className="page-item">
-              {currentPage > 1 && (
-                <button
-                  className="page-link"
-                  onClick={() => handlePageChange(currentPage - 1)}
-                >
-                  <span aria-hidden="true">&laquo;</span>
-                </button>
-              )}
-            </li>
+            {/* <li className="page-item"> */}
+            {currentPage > 1 && (
+              <button
+                className="page-link"
+                onClick={() => handlePageChange(currentPage - 1)}
+              >
+                <span aria-hidden="true">&laquo;</span>
+              </button>
+            )}
+            {/* </li> */}
             {pageNumbers.map((page, index) => (
-              <li className="page-item" key={index}>
-                <button
-                  key={page}
-                  onClick={() => handlePageChange(page)}
-                  className={`page-link${
-                    currentPage === page ? "active page-link" : ""
+              // <li className="page-item" key={index}>
+              <button
+                key={page}
+                onClick={() => handlePageChange(page)}
+                className={`page-link${currentPage === page ? "active page-link" : ""
                   }`}
-                >
-                  {page}
-                </button>
-              </li>
+              >
+                {page}
+              </button>
+              // </li>
             ))}
-            <li className="page-item">
-              {currentPage < totalPages && (
-                <button
-                  className="page-link"
-                  onClick={() => handlePageChange(currentPage + 1)}
-                >
-                  <span aria-hidden="true">&raquo;</span>
-                </button>
-              )}
-            </li>
+            {/* <li className="page-item"> */}
+            {currentPage < totalPages && (
+              <button
+                className="page-link"
+                onClick={() => handlePageChange(currentPage + 1)}
+              >
+                <span aria-hidden="true">&raquo;</span>
+              </button>
+            )}
+            {/* </li> */}
           </ul>
         </nav>
       </div>
