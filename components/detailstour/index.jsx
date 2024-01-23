@@ -30,7 +30,7 @@ export default function CompDetailTour({ data, category, slug, tour }) {
             <div class=" text-black pt-24 pb-24 pl-24">
               <Link href="/">Home</Link> &gt;
               <Link href={`/${category}`}>{changeSlug}</Link>
-              <Link href="#" className="disabled"></Link> &gt; {data.slug}
+              <Link href="#" className="disabled"></Link> &gt; {data.title}
             </div>
             <div className="pl-24 pr-24">
               <Image
