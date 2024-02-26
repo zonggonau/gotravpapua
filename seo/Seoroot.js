@@ -1,4 +1,5 @@
 import { dataCarouselHero } from "@/data";
+console.log(process.env.NEXT_PUBLIC_HOST + dataCarouselHero[1].imageUrl);
 export const metadata = {
   title: "GOTRAV PAPUA",
   openGraph: {
@@ -9,17 +10,17 @@ export const metadata = {
     siteName: "GOTRAV PAPUA",
     images: [
       {
-        url: process.env.NEXT_PUBLIC_HOST + dataCarouselHero[0].imageUrl,
+        url: process.env.NEXT_PUBLIC_HOST + dataCarouselHero[1].imageUrl,
         width: 800,
         height: 600,
       },
       {
-        url: process.env.NEXT_PUBLIC_HOST + dataCarouselHero[0].imageUrl,
+        url: process.env.NEXT_PUBLIC_HOST + dataCarouselHero[1].imageUrl,
         width: 1800,
         height: 1600,
       },
       {
-        url: process.env.NEXT_PUBLIC_HOST + dataCarouselHero[0].imageUrl,
+        url: process.env.NEXT_PUBLIC_HOST + dataCarouselHero[1].imageUrl,
         width: 1080,
         height: 675,
       },
