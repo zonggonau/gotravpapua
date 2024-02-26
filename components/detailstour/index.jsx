@@ -46,7 +46,7 @@ export default function CompDetailTour({ data, category, slug, tour }) {
             <div className="pl-24 pr-24">
               <div className="mb-1">
                 <h2 className="font-extrabold">{data.title}</h2>
-                <h4 className="font-extrabold">{data.title}</h4>
+                <h3 className="font-extrabold">{data.description}</h3>
               </div>
               <div className="mb-48">
                 <div

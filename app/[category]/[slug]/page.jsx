@@ -7,14 +7,14 @@ export async function generateMetadata({ params }) {
   const category = params.category;
   const slug = params.slug;
   const { data } = await getDataDetails(category, slug);
-  console.log(data);
+  // console.log(process.env.NEXT_PUBLIC_HOSTNAME + data.picture);
   return {
-    title: "GoTravPapua | " + data.title,
+    title: "GOTRAVPAPUA | " + data.title,
     openGraph: {
-      title: "GoTravPapua | " + data.title,
+      title: "GOTRAVPAPUA | " + data.title,
       description: data.description,
       url: process.env.NEXT_PUBLIC_HOSTNAME,
-      siteName: "GoTravPapua",
+      siteName: "GOTRAVPAPUA",
       images: [
         {
           url: process.env.NEXT_PUBLIC_HOSTNAME + data.picture,
