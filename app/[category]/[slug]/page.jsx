@@ -7,11 +7,12 @@ export async function generateMetadata({ params }) {
   const category = params.category;
   const slug = params.slug;
   const { data } = await getDataDetails(category, slug);
+  console.log(data);
   return {
     title: "GoTravPapua | " + data.title,
     openGraph: {
       title: "GoTravPapua | " + data.title,
-      description: data.title,
+      description: data.description,
       url: process.env.NEXT_PUBLIC_HOSTNAME,
       siteName: "GoTravPapua",
       images: [
@@ -68,6 +69,7 @@ export async function generateMetadata({ params }) {
     },
   };
 }
+
 
 export default async function Details({ params }) {
   const category = params.category;

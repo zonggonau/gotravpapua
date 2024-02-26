@@ -43,8 +43,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "GOTRAV Papua | Tour Packages",
-    description:
-      "Your Premier Travel Agent for Unforgettable Papua Adventures! Book Now for Authentic Experiences!",
+    description: "Your Premier Travel Agent for Unforgettable Papua Adventures! Book Now for Authentic Experiences!",
     images: [process.env.NEXT_PUBLIC_HOST + dataCarouselHero[1].imageUrl],
   },
   viewport: {
