@@ -1,8 +1,8 @@
 import { dataCarouselHero } from "@/data";
 export const metadata = {
-  title: "GOTRAV Papua",
+  title: "GOTRAV PAPUA",
   openGraph: {
-    title: "GOTRAV Papua",
+    title: "GOTRAV PAPUA | Kontak",
     description:
       "Contact Us for Seamless Tour Planning and Unforgettable Experiences. Your Adventure Awaits!",
     url: process.env.NEXT_PUBLIC_HOST,
@@ -42,7 +42,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "GOTRAV Papua",
+    title: "GOTRAV PAPUA",
     description:
       "Contact Us for Seamless Tour Planning and Unforgettable Experiences. Your Adventure Awaits!",
     images: [process.env.NEXT_PUBLIC_HOST + dataCarouselHero[4].imageUrl],
@@ -59,7 +59,7 @@ export const metadata = {
     other: {
       me: [
         "admin@gotravpapua.com",
-        process.env.NEXT_PUBLIC_HOST + "tour-contact",
+        process.env.NEXT_PUBLIC_HOST + "contact",
       ],
     },
   },

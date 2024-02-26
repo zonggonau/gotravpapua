@@ -9,12 +9,12 @@ export async function generateMetadata({ params }) {
   const { data } = await getDataDetails(category, slug);
   // console.log(process.env.NEXT_PUBLIC_HOSTNAME + data.picture);
   return {
-    title: "GOTRAVPAPUA | " + data.title,
+    title: "GOTRAV PAPUA | " + data.title,
     openGraph: {
-      title: "GOTRAVPAPUA | " + data.title,
+      title: "GOTRAV PAPUA | " + data.title,
       description: data.description,
       url: process.env.NEXT_PUBLIC_HOSTNAME,
-      siteName: "GOTRAVPAPUA",
+      siteName: "GOTRAV PAPUA",
       images: [
         {
           url: process.env.NEXT_PUBLIC_HOSTNAME + data.picture,
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: "GoTravPapua | " + data.title,
+      title: "GOTRAV PAPUA | " + data.title,
       description: data.description,
       images: [process.env.NEXT_PUBLIC_HOSTNAME + data.picture],
     },
