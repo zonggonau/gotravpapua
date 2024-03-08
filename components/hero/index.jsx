@@ -37,14 +37,14 @@ export default function BootstrapCarousel() {
       prevIcon={<PrevCarousel />}
     >
       {sortedData.map((item, index) => {
+        console.log(item);
         return (
           <Carousel.Item key={index} interval={5000}>
             <div
               className="slider-content"
               style={{
-                backgroundImage: `url('${
-                  process.env.NEXT_PUBLIC_HOSTNAME + item.picture
-                }')`,
+                backgroundImage: `url('${process.env.NEXT_PUBLIC_HOSTNAME + item.picture
+                  }')`,
                 backgroundSize: "cover",
                 backgroundPosition: "top center",
               }}
@@ -70,11 +70,11 @@ export default function BootstrapCarousel() {
                   <div className="btn-part">
                     <Link
                       className="readon green-btn main-home wow fadeInUp rounded-0"
-                      href={""}
+                      href={item.button_link == null ? "/" : item.button_link}
                       data-wow-delay="300ms"
                       data-wow-duration="2000ms"
                     >
-                      BEGIN YOUR JOURNEY
+                      {item.button_text}
                     </Link>
                   </div>
                 </div>
