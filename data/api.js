@@ -13,7 +13,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 async function getDataTourDestination() {
   const res = await fetch(
     process.env.NEXT_PUBLIC_HOST_API + "tour-destinations",
-    { next: { revalidate: 3600 } }
+    { cache: 'no-store' }
   );
 
   if (!res.ok) {
@@ -25,7 +25,7 @@ async function getDataTourDestination() {
 
 async function getDataTourPackages() {
   const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "tour-packages", {
-    next: { revalidate: 3600 }
+    cache: 'no-store'
   });
 
   if (!res.ok) {
@@ -38,7 +38,7 @@ async function getDataTourPackages() {
 async function getDataAdventures() {
   const res = await fetch(
     process.env.NEXT_PUBLIC_HOST_API + "tour-adventures",
-    { next: { revalidate: 3600 } }
+    { cache: 'no-store' }
   );
 
   if (!res.ok) {
@@ -50,7 +50,7 @@ async function getDataAdventures() {
 
 async function getDataEvents() {
   const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "tour-events", {
-    next: { revalidate: 3600 }
+    cache: 'no-store'
   });
 
   if (!res.ok) {
@@ -62,7 +62,7 @@ async function getDataEvents() {
 
 async function getDataSlider() {
   const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "sliders", {
-    next: { revalidate: 3600 }
+    cache: 'no-store'
   });
 
   if (!res.ok) {
@@ -87,7 +87,7 @@ async function getDataDetails(category, slug) {
 
 async function getSettings() {
   const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + "settings", {
-    next: { revalidate: 3600 }
+    cache: 'no-store'
   });
 
   if (!res.ok) {
@@ -99,7 +99,7 @@ async function getSettings() {
 
 async function getAnotherTour(category) {
   const res = await fetch(process.env.NEXT_PUBLIC_HOST_API + category, {
-    next: { revalidate: 3600 }
+    cache: 'no-store'
   });
 
   if (!res.ok) {
