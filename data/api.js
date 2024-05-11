@@ -75,7 +75,7 @@ async function getDataSlider() {
 async function getDataDetails(category, slug) {
   const res = await fetch(
     process.env.NEXT_PUBLIC_HOST_API + category + "/" + slug + "/detail",
-    { next: { revalidate: 3600 } }
+    { cache: 'no-store' }
   );
 
   if (!res.ok) {
