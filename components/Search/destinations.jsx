@@ -166,7 +166,8 @@ export default function SearchDestination({ data }) {
                               <i className="fa-solid fa-map-marker"></i> Nabire
                             </li>
                           </ul> */}
-                          {potongParagraf(item.description)}
+                          <div dangerouslySetInnerHTML={{ __html: item.description.slice(0, 100) }}></div>
+                          {/* {potongParagraf(item.description)} */}
                         </div>
                       </div>
                     </div>
@@ -177,7 +178,7 @@ export default function SearchDestination({ data }) {
             {isLoading == true ? "" : <DataNotFound />}
           </div>
         </div>
-      </div>
+      </div >
     </>
   );
 }
