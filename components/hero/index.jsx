@@ -25,10 +25,15 @@ export default function BootstrapCarousel() {
     </div>
   );
 
-  if (error) return <div>ERROR</div>;
-  if (isLoading) return <div>Loading..</div>;
+  if (error) return (
+
+    <div className="container mx-auto justify-center items-center p-20">
+      <Link href={"/"}>Tray Again</Link>;
+    </div>
+  )
+  if (isLoading) return <div className="center"></div>;
   const sortedData = [...data.data];
-  sortedData.sort((a, b) => a.id);
+  sortedData?.sort((a, b) => a.id);
   return (
     <Carousel
       activeIndex={index}
@@ -36,7 +41,7 @@ export default function BootstrapCarousel() {
       nextIcon={<NextCarousel />}
       prevIcon={<PrevCarousel />}
     >
-      {sortedData.map((item, index) => {
+      {sortedData?.map((item, index) => {
         console.log(item);
         return (
           <Carousel.Item key={index} interval={5000}>

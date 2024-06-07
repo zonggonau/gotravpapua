@@ -26,7 +26,7 @@ export default function TourPackages({ data }) {
             </div>
           </div>
           <div className="row">
-            {limitData.map((item, index) => {
+            {limitData?.map((item, index) => {
               return (
                 <div className="col-lg-4 col-md-6 mb-24" key={index}>
                   <div className="courses-item">

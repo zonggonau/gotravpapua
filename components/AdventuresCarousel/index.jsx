@@ -55,7 +55,7 @@ export default function AdventuresCarousel() {
   const RenderCarousel = () => {
     return (
       <Slider {...settings}>
-        {sortedData.map((item, index) => {
+        {sortedData?.map((item, index) => {
           return (
             <div className="courses-item space-y-5 justify-center" key={index}>
               <div className="img-part">

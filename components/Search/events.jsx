@@ -139,7 +139,7 @@ export default function SearchEvents({ data }) {
                   <Loading />
                 </>
               ) : (
-                shortedData.map((item, index) => {
+                shortedData?.map((item, index) => {
                   return (
                     <div className="md-pr-15 md-mb-30" key={index}>
                       <div className="row no-gutter white-bg blog-item mb-35">

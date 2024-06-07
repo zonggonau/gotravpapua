@@ -131,7 +131,7 @@ export default function SearchAdventures({ data }) {
                 <Loading />
               </>
             ) : (
-              shortedData.map((item, index) => {
+              shortedData?.map((item, index) => {
                 return (
                   <div className="col-lg-4 mb-30 col-md-6" key={index}>
                     <div className="gallery-item">

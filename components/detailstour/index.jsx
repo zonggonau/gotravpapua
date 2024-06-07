@@ -34,7 +34,7 @@ export default function CompDetailTour({ data, category, slug, tour }) {
             </div>
             <div className="pl-24 pr-24">
               <Image
-                src={process.env.NEXT_PUBLIC_HOSTNAME + data.picture}
+                src={process.env.NEXT_PUBLIC_HOST_API + data.picture}
                 className="round-circle shadow-lg mb-5 bg-body-tertiary rounded"
                 alt={data.description}
                 width={1000}

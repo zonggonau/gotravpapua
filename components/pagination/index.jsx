@@ -30,7 +30,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
               </button>
             )}
             {/* </li> */}
-            {pageNumbers.map((page, index) => (
+            {pageNumbers?.map((page, index) => (
               // <li className="page-item" key={index}>
               <button
                 key={page}

@@ -135,7 +135,7 @@ export default function SearchDestination({ data }) {
                 <Loading />
               </>
             ) : (
-              shortedData.map((item, index) => {
+              shortedData?.map((item, index) => {
                 return (
                   <div className="col-lg-6 pr-60 md-pr-15 md-mb-30" key={index}>
                     <div className="row no-gutter white-bg blog-item mb-35">
