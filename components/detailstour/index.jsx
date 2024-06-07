@@ -61,13 +61,13 @@ export default function CompDetailTour({ data, category, slug, tour }) {
                 <FacebookShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}/${data.picture}`}>
                   <FacebookIcon size={40} />
                 </FacebookShareButton>
-                <TwitterShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}${category}/${data.slug}`}>
+                <TwitterShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}/${data.picture}`}>
                   <TwitterIcon size={40} />
                 </TwitterShareButton>
-                <WhatsappShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}${category}/${data.slug}`}>
+                <WhatsappShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}/${data.picture}`}>
                   <WhatsappIcon size={40} />
                 </WhatsappShareButton>
-                <LinkedinShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}${category}/${data.slug}`}>
+                <LinkedinShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}/${data.picture}`}>
                   <LinkedinIcon size={40} />
                 </LinkedinShareButton>
               </div>
