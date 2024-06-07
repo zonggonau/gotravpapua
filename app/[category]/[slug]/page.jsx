@@ -8,12 +8,13 @@ export async function generateMetadata({ params }) {
   const slug = params.slug;
   const { data } = await getDataDetails(category, slug);
   // console.log(process.env.NEXT_PUBLIC_HOSTNAME + data.picture);
+  console.log(data);
   return {
     title: "GOTRAV PAPUA | " + data.title,
     openGraph: {
       title: "GOTRAV PAPUA | " + data.title,
       description: data.description,
-      url: process.env.NEXT_PUBLIC_HOSTNAME,
+      url: process.env.NEXT_PUBLIC_HOSTNAME + data.picture,
       siteName: "GOTRAV PAPUA",
       images: [
         {

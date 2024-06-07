@@ -23,7 +23,7 @@ export default function CompDetailTour({ data, category, slug, tour }) {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 
-    console.log(data);
+   
   return (
     <div className="main-content bg-stone-100">
       <div className="container pt-10 pb-48">
@@ -32,7 +32,7 @@ export default function CompDetailTour({ data, category, slug, tour }) {
             <div class=" text-black pt-24 pb-24 pl-24">
               <Link href="/">Home</Link> &gt;
               <Link href={`/${category}`}>{changeSlug}</Link>
-              <Link href="#" className="disabled"></Link> &gt; {data.title}
+              <Link href="#" className="disabled lowercase"></Link> &gt; {data.title}
             </div>
             <div className="pl-24 pr-24">
               <Image
@@ -58,16 +58,16 @@ export default function CompDetailTour({ data, category, slug, tour }) {
                 ></div>
               </div>
               <div className="space-x-5 pb-5">
-                <FacebookShareButton  hashtag={`${data.description} #GotravPapua #Travel #TravelPapua #HiuPaus`} title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}/${data.picture}` }>
+                <FacebookShareButton  hashtag={`${data.description} #GotravPapua #Travel #TravelPapua #HiuPaus`} title={data.title} url={`${process.env.NEXT_PUBLIC_HOST}/${category}/${data.slug}` }>
                   <FacebookIcon size={40} />
                 </FacebookShareButton>
-                <TwitterShareButton hashtag={`${data.description} #GotravPapua #Travel #TravelPapua #HiuPaus`} title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}/${data.picture}`}>
+                <TwitterShareButton hashtag={`${data.description} #GotravPapua #Travel #TravelPapua #HiuPaus`} title={data.title} url={`${process.env.NEXT_PUBLIC_HOST}/${category}/${data.slug}`}>
                   <TwitterIcon size={40} />
                 </TwitterShareButton>
-                <WhatsappShareButton hashtag={`${data.description} #GotravPapua #Travel #TravelPapua #HiuPaus`} title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}/${data.picture}`}>
+                <WhatsappShareButton hashtag={`${data.description} #GotravPapua #Travel #TravelPapua #HiuPaus`} title={data.title} url={`${process.env.NEXT_PUBLIC_HOST}/${category}/${data.slug}`}>
                   <WhatsappIcon size={40} />
                 </WhatsappShareButton>
-                <LinkedinShareButton hashtag={`${data.description} #GotravPapua #Travel #TravelPapua #HiuPaus`} title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}/${data.picture}`}>
+                <LinkedinShareButton hashtag={`${data.description} #GotravPapua #Travel #TravelPapua #HiuPaus`} title={data.title} url={`${process.env.NEXT_PUBLIC_HOST}/${category}/${data.slug}`}>
                   <LinkedinIcon size={40} />
                 </LinkedinShareButton>
               </div>
