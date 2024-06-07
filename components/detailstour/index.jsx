@@ -34,7 +34,7 @@ export default function CompDetailTour({ data, category, slug, tour }) {
             </div>
             <div className="pl-24 pr-24">
               <Image
-                src={process.env.NEXT_PUBLIC_HOST_API + data.picture}
+                src={process.env.NEXT_PUBLIC_HOSTNAME + data.picture}
                 className="round-circle shadow-lg mb-5 bg-body-tertiary rounded"
                 alt={data.description}
                 width={1000}
@@ -56,16 +56,16 @@ export default function CompDetailTour({ data, category, slug, tour }) {
                 ></div>
               </div>
               <div className="space-x-5 pb-5">
-                <FacebookShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOST}${category}/${data.slug}`}>
+                <FacebookShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}${category}/${data.slug}`}>
                   <FacebookIcon size={40} />
                 </FacebookShareButton>
-                <TwitterShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOST}${category}/${data.slug}`}>
+                <TwitterShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}${category}/${data.slug}`}>
                   <TwitterIcon size={40} />
                 </TwitterShareButton>
-                <WhatsappShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOST}${category}/${data.slug}`}>
+                <WhatsappShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}${category}/${data.slug}`}>
                   <WhatsappIcon size={40} />
                 </WhatsappShareButton>
-                <LinkedinShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOST}${category}/${data.slug}`}>
+                <LinkedinShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}${category}/${data.slug}`}>
                   <LinkedinIcon size={40} />
                 </LinkedinShareButton>
               </div>
