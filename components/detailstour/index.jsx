@@ -23,7 +23,7 @@ export default function CompDetailTour({ data, category, slug, tour }) {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 
-    console.log(process.env.NEXT_PUBLIC_HOST + data.picture);
+    console.log(data);
   return (
     <div className="main-content bg-stone-100">
       <div className="container pt-10 pb-48">
@@ -58,16 +58,16 @@ export default function CompDetailTour({ data, category, slug, tour }) {
                 ></div>
               </div>
               <div className="space-x-5 pb-5">
-                <FacebookShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}/${data.picture}`}>
+                <FacebookShareButton  hashtag={`${data.description} #GotravPapua #Travel #TravelPapua #HiuPaus`} title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}/${data.picture}` }>
                   <FacebookIcon size={40} />
                 </FacebookShareButton>
-                <TwitterShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}/${data.picture}`}>
+                <TwitterShareButton hashtag={`${data.description} #GotravPapua #Travel #TravelPapua #HiuPaus`} title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}/${data.picture}`}>
                   <TwitterIcon size={40} />
                 </TwitterShareButton>
-                <WhatsappShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}/${data.picture}`}>
+                <WhatsappShareButton hashtag={`${data.description} #GotravPapua #Travel #TravelPapua #HiuPaus`} title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}/${data.picture}`}>
                   <WhatsappIcon size={40} />
                 </WhatsappShareButton>
-                <LinkedinShareButton title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}/${data.picture}`}>
+                <LinkedinShareButton hashtag={`${data.description} #GotravPapua #Travel #TravelPapua #HiuPaus`} title={data.title} url={`${process.env.NEXT_PUBLIC_HOSTNAME}/${data.picture}`}>
                   <LinkedinIcon size={40} />
                 </LinkedinShareButton>
               </div>
