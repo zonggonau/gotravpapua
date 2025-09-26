@@ -45,11 +45,14 @@ export default function TourPackagesPage() {
   const packages: TourPackage[] = useMemo(() => {
     if (process.env.NODE_ENV === 'development') {
       console.log('🔍 Tour Packages API Response:', data);
+      console.log('🔍 Tour Packages API Error:', error);
+      console.log('🔍 Tour Packages API Loading:', isLoading);
+      console.log('🔍 API Endpoint:', endpoint.tourpackages);
     }
     
     if (!data?.data?.data) return [];
     return Array.isArray(data.data.data) ? data.data.data : [];
-  }, [data]);
+  }, [data, error, isLoading]);
 
   const filteredPackages = useMemo(() => {
     let filtered = packages.filter((pkg) => {

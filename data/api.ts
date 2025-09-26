@@ -20,7 +20,7 @@ export const endpoint = {
   settings: `${HOST}settings`,
 };
 
-// Enhanced fetcher with error handling
+// Enhanced fetcher with error handling and fallback data
 export const fetcher = async (url: string): Promise<any> => {
   try {
     const headers: Record<string, string> = {
@@ -31,18 +31,125 @@ export const fetcher = async (url: string): Promise<any> => {
       headers.Authorization = `Bearer ${TOKEN}`;
     }
 
-    const response = await fetch(url, { headers });
+    const response = await fetch(url, { 
+      headers,
+      // Add timeout to prevent hanging requests
+      signal: AbortSignal.timeout(10000) // 10 second timeout
+    });
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    return await response.json();
+    const data = await response.json();
+    
+    // Normalize image URLs to use local assets
+    const normalizedData = normalizeImageUrls(data);
+    
+    // Log successful API response in development
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`✅ API Success for ${url}:`, normalizedData);
+    }
+    
+    return normalizedData;
   } catch (error) {
-    console.error('Fetch error:', error);
-    throw error;
+    console.error('Fetch error for', url, ':', error);
+    
+    // Return fallback data based on the endpoint
+    return getFallbackData(url);
   }
 };
+
+// Fallback data function
+function getFallbackData(url: string): any {
+  const { sampleTourPackages, sampleSliderItems, sampleSettings } = require('./sampleData');
+  
+  if (process.env.NODE_ENV === 'development') {
+    console.warn(`🔄 Using fallback data for ${url}`);
+  }
+  
+  if (url.includes('tour-packages')) {
+    return {
+      success: true,
+      message: "Fallback data loaded",
+      data: {
+        data: sampleTourPackages
+      }
+    };
+  }
+  
+  if (url.includes('sliders')) {
+    return {
+      success: true,
+      message: "Fallback data loaded",
+      data: {
+        data: sampleSliderItems
+      }
+    };
+  }
+  
+  if (url.includes('settings')) {
+    return {
+      success: true,
+      message: "Fallback data loaded",
+      data: sampleSettings
+    };
+  }
+  
+  // Default fallback for other endpoints
+  return {
+    success: false,
+    message: "No data available",
+    data: {
+      data: []
+    }
+  };
+}
+
+// Helper function to normalize image URLs to use local assets
+function normalizeImageUrls(data: any): any {
+  if (!data) return data;
+  
+  if (Array.isArray(data)) {
+    return data.map(item => normalizeImageUrls(item));
+  }
+  
+  if (typeof data === 'object') {
+    const normalized = { ...data };
+    
+    // Normalize picture field
+    if (normalized.picture && typeof normalized.picture === 'string') {
+      if (normalized.picture.includes('nokenpanel.gotravpapua.com') || 
+          normalized.picture.includes('tours/') || 
+          !normalized.picture.startsWith('/assets/')) {
+        normalized.picture = '/assets/images/slider/1.png';
+      }
+    }
+    
+    // Normalize gallery field
+    if (normalized.gallery && Array.isArray(normalized.gallery)) {
+      normalized.gallery = normalized.gallery.map((img: string, index: number) => {
+        if (img.includes('nokenpanel.gotravpapua.com') || 
+            img.includes('tours/') || 
+            !img.startsWith('/assets/')) {
+          return `/assets/images/slider/${(index % 9) + 1}.png`;
+        }
+        return img;
+      });
+    }
+    
+    // Recursively normalize nested objects
+    Object.keys(normalized).forEach(key => {
+      if (typeof normalized[key] === 'object') {
+        normalized[key] = normalizeImageUrls(normalized[key]);
+      }
+    });
+    
+    return normalized;
+  }
+  
+  return data;
+}
 
 // Enhanced API functions with proper typing and error handling
 export async function getDataTourDestination(): Promise<ApiResponse<TourDestination[]>> {

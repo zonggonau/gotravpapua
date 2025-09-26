@@ -56,9 +56,23 @@ export function slugify(text: string): string {
     .replace(/[^\w ]+/g, '')
 }
 
-export function generateImageUrl(path: string, baseUrl?: string): string {
-  const base = baseUrl || process.env.NEXT_PUBLIC_HOSTNAME || '';
+export function generateImageUrl(path: string | undefined | null, baseUrl?: string): string {
+  // Handle undefined, null, or empty path
+  if (!path || typeof path !== 'string') {
+    return '/assets/images/slider/1.png'; // Return a default placeholder image from existing assets
+  }
+  
+  // If path is already a full URL, return as-is
   if (path.startsWith('http')) return path;
+  
+  // If path starts with /assets, it's a local asset - return as-is
+  if (path.startsWith('/assets')) return path;
+  
+  // If path starts with /, it's a local path - return as-is
+  if (path.startsWith('/')) return path;
+  
+  // Only prepend base URL for relative paths that don't start with /
+  const base = baseUrl || process.env.NEXT_PUBLIC_HOSTNAME || '';
   return `${base}${path.startsWith('/') ? '' : '/'}${path}`;
 }
 
